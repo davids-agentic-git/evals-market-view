@@ -29,13 +29,20 @@
       if (focus) tab.focus();
       if (updateHash) history.replaceState(null, '', '#' + tab.dataset.tab);
     };
+    // The tab bar is sticky. After switching tab from further down, go back to where the tabs start, so the new
+    // tab opens at its top with the bar just under the header.
+    const resetScroll = () => {
+      const top = list.parentElement.getBoundingClientRect().top + window.scrollY - document.querySelector('.site-header').offsetHeight;
+      if (window.scrollY > top) window.scrollTo({ top, behavior: 'instant' });
+    };
     tabs.forEach((tab, i) => {
-      tab.addEventListener('click', () => select(tab));
+      tab.addEventListener('click', () => { select(tab); resetScroll(); });
       tab.addEventListener('keydown', (e) => {
         const next = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1 }[e.key];
         if (next === undefined) return;
         e.preventDefault();
         select(tabs[(next + tabs.length) % tabs.length], { focus: true });
+        resetScroll();
       });
     });
     // A link to a tab (#framework) or to a section inside one (#dim-security) opens that tab, on load and when
@@ -50,7 +57,7 @@
       if (!initial && tab.getAttribute('aria-selected') === 'true') return;
       select(tab, { updateHash: false });
       if (owner) target.scrollIntoView({ behavior: 'instant' });
-      else if (!initial) list.scrollIntoView({ behavior: 'instant' });
+      else if (!initial) resetScroll();
     };
     fromHash(true);
     window.addEventListener('hashchange', () => fromHash(false));
