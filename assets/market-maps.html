@@ -1561,9 +1561,9 @@ var LISTS={
  stg:{name:'Stages',attr:'stage',opts:[['Mature','Mature'],['Established Growth','Established Growth'],['Well-funded Early Stage','Well-funded Early Stage'],['Small','Small'],['Open source and/or non-profit','Open source and/or non-profit'],['Other','Other']]},
  scp:{name:'Scopes',attr:'scope',opts:[['horizontal','Horizontal only'],['regulated','Horizontal, regulated focus'],['specialized','Specialized']]}};
 var DIMS={
- vl:{name:'AI Control Archetype',dims:[['g','Govern','vg'],['t','Test','vt'],['o','Observe and prove','vo'],['c','Control and enforce','vc'],['a','Assure and insure','va']],
+ vl:{name:'Value Lever',dims:[['g','Govern','vg'],['t','Test','vt'],['o','Observe and prove','vo'],['c','Control and enforce','vc'],['a','Assure and insure','va']],
   vals:[['0','0','0 None','0'],['1','1','1 Supporting','1'],['2','2','2 Main part','2'],['3','3','3 Main part and leading','3']]},
- ev:{name:'Evaluation Framework',dims:[['q','Output quality','quality'],['k','Cost and performance','cost'],['s','Security','security'],['m','Behavior and compliance','compliance']],
+ ev:{name:'Evaluation',dims:[['q','Output quality','quality'],['k','Cost and performance','cost'],['s','Security','security'],['m','Behavior and compliance','compliance']],
   vals:[['yes','✅ yes','yes','yes'],['partly','🟡 partly','partly','partly'],['no','❌ no','no','no']]}};
 function closeMS(){document.querySelectorAll('.msp').forEach(function(p){p.hidden=true})}
 function place(b,p){var r=b.getBoundingClientRect();p.style.top=r.bottom+4+'px';p.hidden=false;p.style.left=Math.max(8,Math.min(r.left,innerWidth-p.offsetWidth-8))+'px'}

@@ -19,7 +19,7 @@ The header and footer are repeated in every page, so a nav change means editing 
 
 `market-map.html` embeds two standalone documents with iframes:
 
-- `assets/market-maps.html`: the product-cluster map, with its filters. The chip highlights (core, potential, not assessed, Tech benchmark) are read from the list's assessments, which the list keeps in the browser's local storage under `fw_v2`, and update when they change; Europe-based comes from the HQ column of the list. The map has filters for stage, scope, AI Control Archetype and Evaluation Framework; the list has the same filter design, with filters for cluster, stage, scope, Value Lever and Evaluation.
+- `assets/market-maps.html`: the product-cluster map, with its filters. The chip highlights (core, potential, not assessed, Tech benchmark) are read from the list's assessments, which the list keeps in the browser's local storage under `fw_v2`, and update when they change; Europe-based comes from the HQ column of the list. The map has filters for stage, scope, Value Lever and Evaluation; the list has the same filter design, with filters for cluster, stage, scope, Value Lever and Evaluation.
 - `assets/companies.html`: the list of companies we look at, by product cluster, with search and filters.
 
 They are self-contained files and also open on their own through the "full page" links. They are the original working documents, including the reviewer comments, per-person assessments and go-to-market flags. The only edit is the label "Tier A", renamed "Companies we look at". Notes a visitor adds in the list are saved in that visitor's own browser only.
