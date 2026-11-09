@@ -51,6 +51,8 @@
       const id = decodeURIComponent(location.hash.slice(1));
       const target = id ? document.getElementById(id) : null;
       const owner = target && target.closest('[role="tabpanel"]');
+      const block = target && target.closest('details');
+      if (block) block.open = true;
       const tab = tabs.find((t) => t.dataset.tab === id)
         || (owner && tabs.find((t) => t.getAttribute('aria-controls') === owner.id));
       if (!tab) { if (initial) select(tabs[0], { updateHash: false }); return; }

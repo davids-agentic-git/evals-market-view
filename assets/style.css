@@ -261,6 +261,39 @@ html:has(.tabs) { scroll-padding-top: calc(var(--header-h) + 76px); }
 .c-lbl { fill: var(--ink); }
 .c-lbl.b { font-weight: 600; fill: var(--ink-strong); }
 
+/* Behavior and compliance page: one block per rule, level labels, lever scores */
+.rule { border-top: 1px solid var(--hair); }
+.rule:last-of-type { border-bottom: 1px solid var(--hair); }
+.rule > summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 18px; padding: 16px 0; cursor: pointer; list-style: none; }
+.rule > summary::-webkit-details-marker { display: none; }
+.rule > summary::before { content: "+"; flex: none; width: 14px; font: 400 16px/1 var(--font-mono); color: var(--muted); }
+.rule[open] > summary::before { content: "\2212"; }
+.rule > summary:hover .rn { text-decoration: underline; text-underline-offset: 3px; }
+.rn { font-size: 17px; font-weight: 500; color: var(--ink-strong); }
+.rc { font: 400 12px/1 var(--font-mono); letter-spacing: 0.04em; color: var(--muted); }
+.rl { margin-left: auto; font-size: 13.5px; color: var(--muted); }
+.rule > .dim-table { margin: 0 0 24px; }
+.lvl { font: 400 12px/1.4 var(--font-mono); letter-spacing: 0.04em; color: var(--ink-soft); }
+.dim-table .lv { list-style: none; margin: 0; padding: 0; max-width: 180px; }
+.dim-table .lv li { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin: 0 0 3px; }
+.lv .sc { font: 500 13px var(--font-mono); color: var(--ink-strong); }
+.dim-table.t-rule td, .dim-table.t-sum td { padding-top: 13px; padding-bottom: 13px; }
+.dim-table.t-rule td:first-child, .dim-table.t-sum td:first-child { font-size: 16px; }
+.dim-table.t-rule .c1 { width: 25%; }
+.dim-table.t-rule .c2 { width: 12%; }
+.dim-table.t-rule .c3 { width: 63%; }
+.dim-table.t-sum .c1 { width: 40%; }
+.dim-table.t-sum .c2, .dim-table.t-sum .c3, .dim-table.t-sum .c4, .dim-table.t-sum .c5 { width: 15%; }
+.dim-table.t-sum td:not(:first-child) { font-variant-numeric: tabular-nums; }
+.dim-table.t-co .c1 { width: 17%; }
+.dim-table.t-co .c2 { width: 14%; }
+.dim-table.t-co .c3 { width: 17%; }
+.dim-table.t-co .c4 { width: 22%; }
+.dim-table.t-co .c5 { width: 30%; }
+@media (max-width: 760px) {
+  .rl { margin-left: 0; flex-basis: 100%; padding-left: 32px; }
+}
+
 @media (prefers-color-scheme: dark) {
   .r.yes, .r.s3 { background: #1d3a26; color: #9be0ae; }
 }
