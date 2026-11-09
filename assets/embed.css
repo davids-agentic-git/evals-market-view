@@ -1,0 +1,93 @@
+/* Shared look for the embedded market map and company list.
+   Same language as the rest of the site: IBM Plex, warm paper, hairlines, square corners.
+   Loaded after each document's own styles, so it overrides their variables and shapes. */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500&display=swap");
+
+:root {
+  color-scheme: light dark;
+  --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  /* the variables both documents already use, set to the site's palette */
+  --bg: #f8f7f3;
+  --fg: #1b1d1f;
+  --mut: #66655e;
+  --card: #ffffff;
+  --line: rgba(20, 23, 25, 0.14);
+  --hdr: #f3f2ed;
+  --acc: #141719;
+  --hi: #e3efe9;
+  --hi-fg: #2f6b55;
+  --lo: #eeede7;
+  --lo-fg: #4a4f54;
+  --zero: #f6f6f3;
+  /* extra */
+  --ink: #0d0e0f;
+  --tag: #e4e3da;
+  --btn-bg: #141719;
+  --btn-ink: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121315;
+    --fg: #e8e8e4;
+    --mut: #8f9194;
+    --card: #1c1e21;
+    --line: rgba(255, 255, 255, 0.14);
+    --hdr: #17191b;
+    --acc: #e8e8e4;
+    --hi: #1d3a2e;
+    --hi-fg: #8fd3b6;
+    --lo: #26292c;
+    --lo-fg: #b4b7ba;
+    --zero: #17191b;
+    --ink: #ffffff;
+    --tag: #26292c;
+    --btn-bg: #e8e8e4;
+    --btn-ink: #121315;
+  }
+}
+
+/* Type */
+body { font: 400 14px/1.5 var(--sans); background: var(--bg); color: var(--fg); -webkit-font-smoothing: antialiased; }
+button, input, select, textarea { font-family: var(--sans); }
+h1, h2, h3 { font-weight: 300; letter-spacing: -0.022em; color: var(--ink); }
+a { color: var(--ink); text-underline-offset: 3px; }
+header { padding: 28px 32px 22px; border-bottom: 1px solid var(--line); }
+h1 { font-size: clamp(24px, 2.6vw, 32px); line-height: 1.15; margin: 0 0 8px; }
+.sub, p.s { color: var(--mut); }
+.cnt, .fcnt { font: 400 12px var(--mono); color: var(--mut); }
+.ul { font-family: var(--mono); letter-spacing: 0.08em; }
+
+/* Square corners everywhere */
+.u, .u i, .oc, .oc i, .dm, .pill, .sc2, .ab, .cc, .cn textarea, .ce textarea,
+.msp, .msp label, .msp .dv label, button.tab, svg.map, h2 .zn { border-radius: 0; }
+
+/* Controls */
+.bar input, .bar select, .bar button, input[type="search"], td select, textarea, .msb,
+.uf input, .uf button, .acts button, .u { border: 1px solid var(--line); border-radius: 0; background: var(--card); color: var(--fg); }
+.bar button.p, .acts button.p, .uf button.p, .cn button.add, .ce button.sv { background: var(--btn-bg); color: var(--btn-ink); border-color: var(--btn-bg); border-radius: 0; }
+.acts button:hover, .u:hover { border-color: var(--ink); }
+.u.on { color: #fff; }
+.msb.sel { border-color: var(--ink) !important; background: var(--tag) !important; }
+.cc button.d { color: #b4421f; }
+
+/* Filter pop-ups */
+.msp { background: var(--card); border-color: var(--line); box-shadow: 0 10px 30px rgba(45, 31, 70, 0.1), 0 2px 6px rgba(45, 31, 70, 0.06); }
+.msp label:hover { background: var(--hdr); }
+.msp .msc { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; }
+.msp .dv label:has(input:checked) { border-color: var(--ink); background: var(--tag); color: var(--ink); }
+
+/* Market map */
+button.tab { background: var(--card); border: 1px solid var(--line); }
+button.tab.on { background: var(--btn-bg); color: var(--btn-ink); border-color: var(--btn-bg); }
+svg.map { background: #ffffff; border-color: var(--line); }
+
+/* Company list */
+section.seg .wrap { border-radius: 0; background: var(--card); }
+main h2 { font-size: clamp(20px, 2.2vw, 26px); line-height: 1.2; margin: 44px 0 10px; }
+h2 span { font-weight: 400; color: var(--mut); }
+h2 .zn { font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; color: var(--fg); }
+th { background: var(--hdr); color: var(--mut); font-weight: 500; border-bottom: 1px solid var(--ink); }
+td.nm { font-weight: 500; color: var(--ink); }
+.pill { background: var(--tag); color: var(--lo-fg); }
+summary { cursor: pointer; font-weight: 500; color: var(--ink); }

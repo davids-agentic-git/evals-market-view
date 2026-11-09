@@ -14,6 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500&display=swap">
   <link rel="stylesheet" href="assets/style.css?v=7">
+  <link rel="stylesheet" href="assets/market-map.css?v=1">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -32,35 +33,35 @@
     </div>
   </header>
 
-  <nav class="subnav" aria-label="On this page">
-    <div class="wrap wide"><a href="#map">Market map</a><a href="#companies">Companies we look at</a></div>
-  </nav>
 
   <main id="main">
     <section class="page-head">
-      <div class="wrap">
+      <div class="wrap wide">
         <span class="tag">Market map</span>
         <h1>Market Map</h1>
         <p class="lead">The market map of 218 companies, and below it the full list of companies we look at.</p>
       </div>
     </section>
-    <section class="band" id="map">
+    <section class="band">
       <div class="wrap wide">
-        <div class="sec-label"><span class="n">1</span><span class="rule"></span>The map</div>
-        <h2>Companies by product cluster</h2>
-        <p class="intro">Every company sits in one product cluster. Chip colours and the Tech benchmark marker follow the assessments in the list below, and the tag on each chip is its total funding. Filter by stage, scope, Value Lever and Evaluation.</p>
-        <div class="section-bar"><span></span><a class="text-link" href="assets/market-maps.html" target="_blank" rel="noopener">Open the map full page ↗</a></div>
-        <iframe class="embed" src="assets/market-maps.html" title="Market map of 218 companies by product cluster" loading="lazy"></iframe>
-      </div>
-    </section>
+        <nav class="tabs" aria-label="On this page">
+          <a href="#map">Market map</a>
+          <a href="#companies">Companies we look at</a>
+        </nav>
 
-    <section class="band alt" id="companies">
-      <div class="wrap wide">
-        <div class="sec-label"><span class="n">2</span><span class="rule"></span>The list</div>
-        <h2>Companies we look at</h2>
-        <p class="intro">Every company in the view, grouped by product cluster, with its stage, scope and scores on the AI Control Value Levers. Search and filter inside the list.</p>
-        <div class="section-bar"><span></span><a class="text-link" href="assets/companies.html" target="_blank" rel="noopener">Open the list full page ↗</a></div>
-        <iframe class="embed" src="assets/companies.html" title="Companies we look at, by product cluster" loading="lazy"></iframe>
+        <section class="fw-sec mm-sec mm-first" id="map">
+          <h3><span class="n">1</span>Companies by product cluster</h3>
+          <p class="intro">Every company sits in one product cluster. Chip colours and the Tech benchmark marker follow the assessments in the list below, and the tag on each chip is its total funding. Filter by stage, scope, Value Lever and Evaluation.</p>
+          <div class="section-bar"><span></span><a class="text-link" href="assets/market-maps.html?v=2" target="_blank" rel="noopener">Open the map full page ↗</a></div>
+          <iframe class="embed" src="assets/market-maps.html?v=2" title="Market map of 218 companies by product cluster" loading="lazy"></iframe>
+        </section>
+
+        <section class="fw-sec mm-sec" id="companies">
+          <h3><span class="n">2</span>Companies we look at</h3>
+          <p class="intro">Every company in the view, grouped by product cluster, with its stage, scope and scores on the AI Control Value Levers. Search and filter inside the list.</p>
+          <div class="section-bar"><span></span><a class="text-link" href="assets/companies.html?v=2" target="_blank" rel="noopener">Open the list full page ↗</a></div>
+          <iframe class="embed" src="assets/companies.html?v=2" title="Companies we look at, by product cluster" loading="lazy"></iframe>
+        </section>
       </div>
     </section>
 
@@ -74,5 +75,20 @@
   </footer>
 
   <script src="assets/app.js?v=7"></script>
+  <script>
+    // Mark the tab of the section in view, as the tabs on Methodology do.
+    (() => {
+      const links = [...document.querySelectorAll('.tabs a')];
+      const pairs = links.map((a) => [a, document.querySelector(a.getAttribute('href'))]).filter(([, el]) => el);
+      const update = () => {
+        let current = pairs[0][0];
+        pairs.forEach(([a, el]) => { if (el.getBoundingClientRect().top <= 180) current = a; });
+        links.forEach((l) => (l === current ? l.setAttribute('aria-current', 'true') : l.removeAttribute('aria-current')));
+      };
+      addEventListener('scroll', update, { passive: true });
+      addEventListener('resize', update);
+      update();
+    })();
+  </script>
 </body>
 </html>
