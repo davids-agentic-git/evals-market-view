@@ -7,13 +7,13 @@ A static research site on the AI evaluation market, shown under the Ascending La
 | Page | File | Status |
 | --- | --- | --- |
 | Home | `index.html` | Landing page with a card per section |
-| AI Control (in brief) | `ai-control.html` | Placeholder |
-| Behavior & Compliance Evals (in brief) | `behavior-compliance-evals.html` | Placeholder |
+| Insights: Other AI Control | `ai-control.html` | Placeholder |
+| Insights: Behavior & Compliance Evals | `behavior-compliance-evals.html` | Placeholder |
 | Market Scan | `market-scan.html` | The filtered list of 218 relevant players: the market map and the list of companies we look at, embedded |
 | Methodology | `methodology.html` | Two tabs (AI Control Value Levers, Evaluation Framework) |
 | AI Regulation in Europe | `ai-regulation-europe.html` | Research note: summary, rules, industries, LARA and the market, appendix |
 
-The header and footer are repeated in every page, so a nav change means editing all six files. The "in brief" icon is the `brief` span next to the two nav labels.
+The header and footer are repeated in every page, so a nav change means editing all six files.
 
 ## Embedded views
 
