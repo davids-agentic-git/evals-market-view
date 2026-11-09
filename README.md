@@ -6,14 +6,14 @@ A static research site on the AI evaluation market, shown under the Ascending La
 
 | Page | File | Status |
 | --- | --- | --- |
-| Home | `index.html` | Landing page with a card per section |
+| Root | `index.html` | Only a redirect to Market Scan; there is no separate home page, and the logo links to Market Scan |
 | Insights: Other AI Control | `ai-control.html` | Placeholder |
 | Insights: Behavior & Compliance Evals | `behavior-compliance-evals.html` | Placeholder |
 | Market Scan | `market-scan.html` | The filtered list of 218 relevant players, in two tabs (Market map, Company assessment) with the map and the list embedded |
 | Methodology | `methodology.html` | Two tabs (AI Control Value Levers, Evaluation Framework) |
 | AI Regulation in Europe | `ai-regulation-europe.html` | Research note: summary, rules, industries, LARA and the market, appendix |
 
-The header and footer are repeated in every page, so a nav change means editing all six files.
+The header and footer are repeated in every page, so a nav change means editing all five pages.
 
 ## Embedded views
 
@@ -38,7 +38,7 @@ The password is stored only as a salted PBKDF2 hash. To change it, run this, pas
 python -c "import hashlib, os, sys; s = os.urandom(16); print('SALT', s.hex()); print('HASH', hashlib.pbkdf2_hmac('sha256', sys.argv[1].encode(), s, 310000, 32).hex())" "new password"
 ```
 
-A visitor stays unlocked in that browser (local storage key `evals-view-access`). The embedded map and list wait for the page around them; opened on their own they show the same prompt. `404.html` and the old `market-map.html` redirect hold no content and are not gated.
+A visitor stays unlocked in that browser (local storage key `evals-view-access`). The embedded map and list wait for the page around them; opened on their own they show the same prompt. `404.html` and the two redirect pages (`index.html` and the old `market-map.html`) hold no content and are not gated.
 
 ## Preview locally
 
