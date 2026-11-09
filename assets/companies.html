@@ -127,12 +127,11 @@ function load(){let raw=safeGet(STORE);S=null;if(raw){try{S=JSON.parse(raw)}catc
  if(S.cur&&S.users.indexOf(S.cur)<0)S.cur=''}
 function lbl(g){const f=GTM.find(x=>x[0]===g);return f?f[1]:''}
 function when(ts){return ts?new Date(ts).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}):'earlier note'}
-const HIDDEN=['David'];
 function ADMIN(){return location.hash==='#admin'}
 function applyAdmin(){const b=$('jl');if(b)b.hidden=!ADMIN()}
 function askName(){$('uf').hidden=false;const a=$('addu');if(a)a.hidden=true;$('un').focus()}
 function renderUsers(){
- const vis=S.users.filter(u=>ADMIN()||HIDDEN.indexOf(u)<0||u===S.cur);
+ const vis=S.users;
  $('users').innerHTML=(S.cur?'':'<span class="need">Pick your profile or add your name to give input</span>')+vis.map(u=>'<button type="button" class="u'+(u===S.cur?' on':'')+'" data-u="'+esc(u)+'" style="--uc:'+col(u)+'"><i>'+esc(u.charAt(0).toUpperCase())+'</i>'+esc(u)+'</button>').join('')+'<button type="button" class="u add" id="addu">'+(S.cur?'+ Add user':'+ Add your name')+'</button>'}
 function cellA(tr){const id=tr.dataset.id,e=get(S.cur,id)||{g:'',t:0};
  let h='<div class="ai">'+GTM.map(x=>'<button type="button" class="ab '+x[0]+(e.g===x[0]?' on':'')+'" data-g="'+x[0]+'" aria-pressed="'+(e.g===x[0])+'"><span class="dot"></span><span class="lb">'+x[1]+'</span></button>').join('')
