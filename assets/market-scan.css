@@ -1,4 +1,4 @@
-/* Market Map page: the same structure as Methodology (a sticky tab bar, then numbered sections). */
+/* Market Scan page: the same structure as Methodology (a sticky tab bar, then numbered sections). */
 .tabs a { font: 400 15px var(--font-sans); color: var(--muted); padding: 14px 22px 12px; border-bottom: 2px solid transparent; text-decoration: none; white-space: nowrap; }
 .tabs a:hover { color: var(--ink-strong); }
 .tabs a[aria-current="true"] { color: var(--ink-strong); border-bottom-color: var(--ink-strong); font-weight: 500; }

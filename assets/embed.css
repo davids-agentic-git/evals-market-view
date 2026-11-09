@@ -1,4 +1,4 @@
-/* Shared look for the embedded market map and company list.
+/* Shared look for the embedded market map and company list (the Market Scan page).
    Same language as the rest of the site: IBM Plex, warm paper, hairlines, square corners.
    Loaded after each document's own styles, so it overrides their variables and shapes. */
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500&display=swap");
