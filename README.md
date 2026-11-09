@@ -22,7 +22,7 @@ The header and footer are repeated in every page, so a nav change means editing 
 - `assets/market-maps.html`: three market maps, a cluster guide and a funding table.
 - `assets/companies.html`: the list of companies we look at, by product cluster, with search and filters.
 
-They are self-contained files and also open on their own through the "full page" links. They contain no internal annotations: reviewer comments, per-person assessments and go-to-market flags were removed before publishing.
+They are self-contained files and also open on their own through the "full page" links. They are the original working documents, including the reviewer comments, per-person assessments and go-to-market flags. The only edit is the label "Tier A", renamed "Companies we look at". Notes a visitor adds in the list are saved in that visitor's own browser only.
 
 ## Settings
 
