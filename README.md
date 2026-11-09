@@ -9,7 +9,7 @@ A static research site on the AI evaluation market, shown under the Ascending La
 | Home | `index.html` | Landing page with a card per section |
 | Insights: Other AI Control | `ai-control.html` | Placeholder |
 | Insights: Behavior & Compliance Evals | `behavior-compliance-evals.html` | Placeholder |
-| Market Scan | `market-scan.html` | The filtered list of 218 relevant players: the market map and the list of companies we look at, embedded |
+| Market Scan | `market-scan.html` | The filtered list of 218 relevant players, in two tabs (Market map, Company assessment) with the map and the list embedded |
 | Methodology | `methodology.html` | Two tabs (AI Control Value Levers, Evaluation Framework) |
 | AI Regulation in Europe | `ai-regulation-europe.html` | Research note: summary, rules, industries, LARA and the market, appendix |
 

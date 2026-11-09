@@ -1,10 +1,5 @@
-/* Market Scan page: the same structure as Methodology (a sticky tab bar, then numbered sections). */
-.tabs a { font: 400 15px var(--font-sans); color: var(--muted); padding: 14px 22px 12px; border-bottom: 2px solid transparent; text-decoration: none; white-space: nowrap; }
-.tabs a:hover { color: var(--ink-strong); }
-.tabs a[aria-current="true"] { color: var(--ink-strong); border-bottom-color: var(--ink-strong); font-weight: 500; }
-
-.mm-sec .n { position: relative; top: -4px; font: 400 12px/1 var(--font-mono); letter-spacing: 0; background: var(--tag); color: var(--ink-soft); padding: 7px 9px; white-space: nowrap; }
-.mm-sec > .intro { max-width: 46em; margin: 0 0 18px; }
-.mm-first { margin-top: 0; padding-top: 0; border-top: 0; }
-.mm-sec .section-bar { margin-bottom: 12px; }
+/* Market Scan page: two tabs like Methodology and Behavior & Compliance (the tab behaviour is in app.js). */
+.tabpanel h2 { max-width: none; }
+.tabpanel > .intro { max-width: 46em; margin-bottom: 18px; }
+.tabpanel .section-bar { margin-bottom: 12px; }
 .embed { background: var(--bg); }
