@@ -9,7 +9,7 @@ A static research site on the AI evaluation market, shown under the Ascending La
 | Home | `index.html` | Landing page with a card per section |
 | AI Control (in brief) | `ai-control.html` | Placeholder |
 | Behavior & Compliance Evals (in brief) | `behavior-compliance-evals.html` | Placeholder |
-| Market Map | `market-map.html` | Market maps and the list of companies we look at, embedded |
+| Market Map | `market-map.html` | Market map and the list of companies we look at, embedded |
 | Methodology | `methodology.html` | Two tabs (AI Control archetypes, Evaluation framework), placeholders |
 | AI Regulation in Europe | `ai-regulation-europe.html` | Placeholder |
 
@@ -19,7 +19,7 @@ The header and footer are repeated in every page, so a nav change means editing 
 
 `market-map.html` embeds two standalone documents with iframes:
 
-- `assets/market-maps.html`: three market maps, a cluster guide and a funding table.
+- `assets/market-maps.html`: the product-cluster map, a cluster guide and a funding table. The chip highlights (core, potential, not assessed, Tech benchmark) are read from the list's assessments, which the list keeps in the browser's local storage under `fw_v2`, and update when they change; Europe-based comes from the HQ column of the list.
 - `assets/companies.html`: the list of companies we look at, by product cluster, with search and filters.
 
 They are self-contained files and also open on their own through the "full page" links. They are the original working documents, including the reviewer comments, per-person assessments and go-to-market flags. The only edit is the label "Tier A", renamed "Companies we look at". Notes a visitor adds in the list are saved in that visitor's own browser only.
