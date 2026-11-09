@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Page not found · Evals Market View</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500&display=swap">
+  <style>
+    body{margin:0;min-height:100vh;display:grid;place-items:center;background:#f8f7f3;color:#1b1d1f;font:400 17px/1.6 "IBM Plex Sans",system-ui,sans-serif;padding:24px}
+    main{max-width:32em}
+    h1{font-weight:300;font-size:40px;letter-spacing:-.022em;margin:0 0 12px}
+    a{color:#141719}
+    @media (prefers-color-scheme:dark){body{background:#121315;color:#e8e8e4}a{color:#e8e8e4}}
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Page not found</h1>
+    <p>That page does not exist. <a id="home" href="/">Back to Evals Market View</a>.</p>
+  </main>
+  <script>
+    // On a GitHub Pages project site the home page is /<repo>/, not /.
+    if (location.hostname.endsWith('github.io')) {
+      var seg = location.pathname.split('/')[1];
+      if (seg) document.getElementById('home').href = '/' + seg + '/';
+    }
+  </script>
+</body>
+</html>
