@@ -69,7 +69,7 @@
                 <p class="label">Problem</p>
                 <ul>
                   <li>Companies are responsible when their agents break these rules, and for high-risk uses and personal data they must be able to show they comply. There is no official way to test agent behaviour yet: the only finished EU standard covers quality management.</li>
-                  <li>Most tools test whether an agent works or is secure. Many map their results to the AI Act, but only a few test how an agent behaves against specific legal articles.</li>
+                  <li>Most tools test whether an agent works or is secure. Of the 218 companies in our <a href="market-scan.html">Market Scan</a>, 29 judge conduct against a regulation, standard, fairness requirement or the customer's own policy (<a href="methodology.html#dim-compliance">Behavior and compliance</a>) and 53 do so in part. Many map their results to the AI Act, but only a few test how an agent behaves against specific legal articles.</li>
                 </ul>
               </div>
               <div>
@@ -84,7 +84,7 @@
                 <p class="label">LARA and the market</p>
                 <p>LARA, by Aithos (<a href="https://lara.aithos.org/">lara.aithos.org</a>), checks whether an AI agent will break GDPR or the AI Act to finish a task.</p>
                 <ul>
-                  <li>LARA is not sold. A few companies test agents against specific articles (e.g. Promptfoo, LatticeFlow, Principled Intelligence) or check legal rules while the agent runs (e.g. Giskard, Alinia, Kyvvu). None publishes revenue for this. None was found whose scenarios are built so that the easiest way to finish the task breaks one specific article, as LARA's are; the closest is Principled Intelligence, still in private beta (<a href="#reg-lara">section 4</a>).</li>
+                  <li>LARA is not sold. A few companies test agents against specific articles (e.g. Promptfoo, LatticeFlow, Vijil, Principled Intelligence) or check legal rules while the agent runs (e.g. Giskard, Alinia, Kyvvu). None publishes revenue for this. None was found whose scenarios are built so that the easiest way to finish the task breaks one specific article, as LARA's are. Nearest in method: Principled Intelligence (generated scenarios; private beta) and Vijil (AI Act obligations as pass or fail tests). See <a href="#reg-lara">section 4</a>.</li>
                   <li>The money today is in evaluations sold to AI labs and large companies (Arena, Vals AI) and in agent security and certification (Gray Swan, AIUC).</li>
                 </ul>
               </div>
@@ -111,7 +111,7 @@
                       <li><strong>Since Aug 2026:</strong> people must be told when they are dealing with an AI.</li>
                       <li><strong>From Dec 2027:</strong> AI used for high-risk tasks, such as hiring or credit scoring, must be tested, keep logs, have human oversight and be checked before it is sold.</li>
                       <li><strong>From Aug 2028:</strong> for AI built into products, such as machines or medical devices.</li>
-                      <li><strong>Who it applies to:</strong> both companies that build AI and companies that use it, with builders carrying most of the duties. Makers of the largest models must already test them. Fines up to €35M or 7% of turnover.</li>
+                      <li><strong>Who it applies to:</strong> both companies that build AI and companies that use it, with builders carrying most of the duties. Makers of the largest models must already test them. Fines up to €35M or 7% of turnover for banned practices, up to €15M or 3% for most other duties.</li>
                     </ul>
                   </td>
                 </tr>
@@ -320,8 +320,9 @@
             <p>The chart shows ten industries by how soon AI behaviour rules apply to them and how well today's tools help them meet those rules.</p>
             <ul>
               <li><strong>Customer service and HR need it most (our assessment):</strong> their agents deal with people directly, some rules already apply and more start in Dec 2027 for HR, and today's tools cover only parts of these rules.</li>
-              <li><strong>Most tools test whether agents work or are secure.</strong> Some test against legal rules (e.g. Promptfoo, Giskard, QuantPi, Warden AI). The closest to LARA is Principled Intelligence, which runs generated scenarios with reports mapped to AI Act articles; it is in private beta.</li>
+              <li><strong>Most tools test whether agents work or are secure.</strong> Some test against legal rules (e.g. Promptfoo, Giskard, QuantPi, Warden AI). Nearest to LARA's method are Principled Intelligence (generated scenarios, reports mapped to the AI Act; private beta) and Vijil (AI Act obligations as pass or fail tests).</li>
               <li><strong>Banking and insurance come next,</strong> but much of their pressure today comes from IT-security rules (DORA).</li>
+              <li><strong>Most tools are not tied to an industry</strong> (175 of the 218 companies in the Market Scan). The others name a focus, some several: banking or financial services 25, healthcare 17, insurance 13, the public sector 8, defence 6, critical infrastructure or utilities 3, customer service or voice agents 3, coding agents 8, HR 1, life sciences 1. None names legal, telecom or manufacturing.</li>
             </ul>
 
             <figure class="chart" aria-labelledby="chart-title">
@@ -384,9 +385,10 @@
                   <td data-label="What helps meet these rules today">
                     <ul>
                       <li>Platforms test agents built on them</li>
-                      <li>Cyara flags regulatory risks and bias in AI conversations</li>
+                      <li>Cyara (US) tests chatbots and voice agents for compliance and bias before launch. Since Nov 2026 it also scores live conversations against scorecards linked to the EU AI Act, GDPR, HIPAA and PCI DSS (criteria not published)</li>
+                      <li>Hamming (US) tests voice agents against GDPR, HIPAA and PCI DSS before launch and in production; Coval (US) scores voice calls against customer-written conduct rules</li>
                       <li>Giskard's live guardrails include an EU AI Act policy pack (e.g. manipulation, exploiting vulnerable groups, social scoring); Promptfoo tests agents against the AI Act's banned practices</li>
-                      <li>No ready-made product found that tests all of these rules together in realistic customer conversations; Principled Intelligence (private beta) comes closest</li>
+                      <li>No product found that publishes tests for all of these rules together in realistic customer conversations; Principled Intelligence (private beta) simulates generated scenarios but publishes no test catalogue</li>
                     </ul>
                   </td>
                 </tr>
@@ -400,9 +402,9 @@
                   </td>
                   <td data-label="What helps meet these rules today">
                     <ul>
-                      <li>Vendors certify how they manage AI (e.g. Workday: ISO 42001), not how a specific system behaves</li>
-                      <li>Bias tests: Warden AI (for vendors, staffing agencies and employers); FairNow (US, for HR software vendors; bought by Optro in Mar 2026); QuantPi with TÜV SÜD (fairness case for candidate matching); Vijil (custom tests for SmartRecruiters against the AI Act, GDPR and NYC hiring law)</li>
-                      <li>General AI audit firms cover HR among other areas (Holistic AI, BABL AI, Eticas)</li>
+                      <li>Vendors certify how they manage AI (e.g. Workday: ISO 42001), not how a specific system behaves. Workday's Agent Passport (early access, Oct 2026) shows buyers signed security attestations for agents it builds; Cisco AI Defense is the launch assessor</li>
+                      <li>Bias tests: Warden AI (for vendors, staffing agencies and employers); FairNow (US, for HR software vendors; bought by Optro in Mar 2026); QuantPi (HR bias case with StepStone); Vijil (custom tests for SmartRecruiters against the AI Act, GDPR and NYC hiring law)</li>
+                      <li>General AI audit firms cover HR among other areas: BABL AI (US) audits HR tech for NYC bias law (e.g. Eightfold, Jun 2026); Holistic AI (UK) sells NYC bias-law audits too; Eticas</li>
                       <li>For privacy, staff monitoring and human oversight, only custom work found (Vijil's tests for SmartRecruiters), no ready-made product</li>
                     </ul>
                   </td>
@@ -421,6 +423,7 @@
                       <li>In-house model risk teams validate credit models</li>
                       <li>Model risk platforms document and monitor models, including bias and explainability (e.g. ValidMind, Fiddler, Yields, Deeploy)</li>
                       <li>Alinia's live checks flag when an AI makes a creditworthiness assessment or gives legal advice</li>
+                      <li>Conduct and rule checks for financial firms: Aveni (UK; early access) scores agent conversations against FCA rules; ZeroDrift (US) checks each message against FINRA and EU/UK promotion rules; Kyvvu (NL) checks each agent action against DORA and MiFID II policy packs, not what is said</li>
                       <li>FairPlay (US) tests credit and pricing models and AI agents for bias</li>
                       <li>No tool found built to test whether agents offer human review or explain credit decisions</li>
                     </ul>
@@ -437,7 +440,8 @@
                   <td data-label="What helps meet these rules today">
                     <ul>
                       <li>Monitaur (US): governance and pre-launch testing built for insurers and financial firms</li>
-                      <li>Tools for several sectors that include insurers, e.g. Advai tests bias and robustness; Giskard works with AXA</li>
+                      <li>Tools for several sectors that include insurers, e.g. Advai tests performance, security and robustness; Giskard works with AXA</li>
+                      <li>European tools in the Market Scan that name insurers among their focus industries: Deeploy and Kyvvu (NL), Alinia and Galtea (ES; Sabadell Seguros is a Galtea customer), Humanos (PT). Calvin Risk (CH) works with Aviva on AI risk for insurers</li>
                       <li>FairPlay (US) tests underwriting and pricing models for bias, for insurers and lenders; no European tool found built for insurance pricing</li>
                     </ul>
                   </td>
@@ -456,6 +460,7 @@
                       <li>Algorithm registers (e.g. the Dutch national register)</li>
                       <li>Impact assessments (Dutch IAMA; the AI Act's fundamental rights assessment from Dec 2027)</li>
                       <li>Algorithm Audit (non-profit) audits systems and offers a free tool (AI AQT) that works out which laws apply; it does not test the system</li>
+                      <li>8 companies in the Market Scan name the public sector or government as a focus, e.g. Galtea (ES), Advai (UK), Modulos (CH) and Asenion (CA). Darwin AI (US) checks agency staff's use of AI tools against agency policy</li>
                     </ul>
                   </td>
                 </tr>
@@ -469,7 +474,8 @@
                   </td>
                   <td data-label="What helps meet these rules today">
                     <ul>
-                      <li>Resaro (Munich) sells a 6–8 week AI test pilot for critical infrastructure (under €50,000), mapped to NIS2 and the AI Act</li>
+                      <li>Resaro (Singapore, with a German arm in Munich) sells a 6–8 week AI test pilot for critical infrastructure (under €50,000), mapped to NIS2 and the AI Act</li>
+                      <li>No company in the Market Scan names telecom or energy as a focus; LatticeFlow and Resaro name critical infrastructure and Modulos utilities. AIQURIS (a TÜV SÜD venture) says its evidence was the basis for a telecoms certificate</li>
                       <li>AI-EFFECT: EU-funded facility that tests energy AI against performance and compliance criteria, with pilots involving grid operators TenneT and Enel (research, not a product)</li>
                     </ul>
                   </td>
@@ -486,6 +492,7 @@
                     <ul>
                       <li>TÜV SÜD with QuantPi (safety of AI in machines and robots, Oct 2026) and with Accenture and NVIDIA (factory and warehouse robots)</li>
                       <li>TÜV certification scheme for AI systems, launching from late 2026</li>
+                      <li>Calvin Risk (CH) built its evidence tool with TÜV SÜD; the tool ran the digital audit behind a TÜV SÜD seal for Lufthansa Industry Solutions' maintenance AI (2024). AIQURIS (SG) is a TÜV SÜD venture</li>
                     </ul>
                   </td>
                 </tr>
@@ -493,15 +500,17 @@
                   <td>Hospitals</td>
                   <td data-label="Rules on AI behaviour">
                     <ul>
+                      <li>From Dec 2027: AI for triage of patients in emergency care is high-risk</li>
                       <li>From Aug 2028: AI in medical devices is high-risk; most duties fall on device makers, some on hospitals as users</li>
                       <li>Already now: GDPR; AI Act bans and the duty to train staff in AI</li>
                     </ul>
                   </td>
                   <td data-label="What helps meet these rules today">
                     <ul>
-                      <li>Device makers certify through notified bodies, which also check the AI Act requirements</li>
+                      <li>Device makers certify through notified bodies, which also check the AI Act requirements. Scarlet (London) is a notified body for software and AI medical devices (about $75M raised, Series B Oct 2026)</li>
                       <li>Frameworks for hospitals' own checks, e.g. EURAID (Germany)</li>
-                      <li>US and Canadian tools check clinical AI on a hospital's own patients (Ferrum Health, Pacific AI, Signal 1, e.g. at Mount Sinai); no European tool found</li>
+                      <li>US and Canadian tools support hospitals' own checks: Ferrum Health (US) validates clinical AI on a health system's own patient data; Signal 1 (CA) monitors live AI for hospital governance teams (Mount Sinai, NewYork-Presbyterian, Inova)</li>
+                      <li>Pacific AI (US) tests and audits healthcare AI. No European tool found built for hospitals' own checks; several name healthcare among their focus industries (e.g. Kyvvu, Alinia)</li>
                     </ul>
                   </td>
                 </tr>
@@ -515,7 +524,7 @@
                   <td data-label="What helps meet these rules today">
                     <ul>
                       <li>Validation software documents GMP validation (e.g. Kneat, ValGenesis)</li>
-                      <li>Testing the AI itself is up to the company</li>
+                      <li>Testing the AI itself is up to the company; in the Market Scan only Alinia (ES) names life sciences as a focus</li>
                     </ul>
                   </td>
                 </tr>
@@ -530,6 +539,7 @@
                   <td data-label="What helps meet these rules today">
                     <ul>
                       <li>Benchmarks that measure accuracy and invented citations: Vals AI (US, independent); vendors' own (e.g. LegalOn)</li>
+                      <li>AIUC-1 (US) has certified Harvey, a legal AI vendor; no company in the Market Scan names legal as a focus</li>
                     </ul>
                   </td>
                 </tr>
@@ -554,9 +564,9 @@
                   <dt>What exists today</dt>
                   <dd>
                     <ul>
-                      <li><strong>Warden AI</strong> (London and Austin, about £1.1M raised) is the dedicated player. It sells continuous bias audits and a trust mark to HR software vendors and to employers using them, mapped to US state laws and the EU AI Act. Its directory lists 52 products, mostly US and UK recruiting tools; Workday, SAP SuccessFactors, Oracle and Personio are not listed. It covers recruiting bias, not wider agent behaviour.</li>
-                      <li>HR platforms such as Workday hold independent certificates for how they manage AI (ISO 42001, Jun 2025), but these do not test how the AI behaves. General AI audit firms (Holistic AI, BABL AI, Eticas) cover HR among other areas.</li>
-                      <li>Other bias testing for HR: QuantPi with TÜV SÜD (fairness case for candidate matching) and FairNow (for HR software vendors). For privacy, staff monitoring and human oversight, the only HR case found is custom tests Vijil built for SmartRecruiters against the AI Act, GDPR and NYC hiring law; no ready-made product was found.</li>
+                      <li><strong>Warden AI</strong> (London and Austin, $1.5M seed in 2025) is the dedicated player. It sells continuous bias audits and a trust mark to HR software vendors and to employers using them, mapped to US state laws and the EU AI Act. Its directory lists 52 products, mostly US and UK recruiting tools; Workday, SAP SuccessFactors, Oracle and Personio are not listed. It covers bias in HR AI (accuracy and explainability are named, with no method published), not wider agent behaviour.</li>
+                      <li>HR platforms such as Workday hold independent certificates for how they manage AI (ISO 42001, Jun 2025), but these do not test how the AI behaves. General AI audit firms (Holistic AI, BABL AI, Eticas) cover HR among other areas; BABL AI (US) and Holistic AI (UK) sell bias audits under NYC Local Law 144.</li>
+                      <li>Other bias testing for HR: QuantPi (HR bias case with StepStone) and FairNow (for HR software vendors). For privacy, staff monitoring and human oversight, the only HR case found is custom tests Vijil built for SmartRecruiters against the AI Act, GDPR and NYC hiring law (Vijil's own case study); no ready-made product was found.</li>
                     </ul>
                   </dd>
                 </dl>
@@ -606,21 +616,21 @@
               <tbody>
                 <tr>
                   <td>AIUC-1<span class="sub">US</span></td>
-                  <td data-label="What it tests">A specific agent's controls and behaviour under attack, organised by risk type, not by legal article</td>
+                  <td data-label="What it tests">A specific agent's controls and behaviour in ordinary use and under attack, organised by risk type, not by legal article</td>
                   <td data-label="Who pays">Agent makers, for a certificate linked to insurance</td>
-                  <td data-label="Money">$55M raised; launch customers include Cursor, Lovable, Harvey and ElevenLabs</td>
+                  <td data-label="Money">$55M raised; named customers include Cursor, ElevenLabs, Fin, Harvey and Lovable</td>
                 </tr>
                 <tr>
                   <td>LatticeFlow<span class="sub">Switzerland</span></td>
-                  <td data-label="What it tests">AI apps and agents, including red teaming for unauthorised actions; evaluations mapped to 40+ frameworks, e.g. AI Act Articles 15 and 50 and AIUC-1. Its free COMPL-AI tool tests models against the AI Act</td>
+                  <td data-label="What it tests">AI apps and agents, including red teaming for unauthorised actions; evaluations mapped to frameworks (48 listed), e.g. AI Act Article 15 (none yet for Article 50), FINMA guidance and AIUC-1. Its free COMPL-AI tool tests models against the AI Act</td>
                   <td data-label="Who pays">Companies, plus a free public version</td>
-                  <td data-label="Money">$12M Series A (2022) plus a $3M Swiss innovation grant (2024)</td>
+                  <td data-label="Money">About $15M raised (Series A, 2022)</td>
                 </tr>
                 <tr>
                   <td>Giskard<span class="sub">France</span></td>
                   <td data-label="What it tests">Attacks and answer quality of text agents; live guardrails with an EU AI Act policy pack (e.g. manipulation, exploiting vulnerable groups, social scoring)</td>
                   <td data-label="Who pays">Companies (BNP Paribas, AXA)</td>
-                  <td data-label="Money">€1.5M equity plus grants</td>
+                  <td data-label="Money">At least €1.5M equity plus grants</td>
                 </tr>
                 <tr>
                   <td>Alinia<span class="sub">Spain</span></td>
@@ -630,27 +640,33 @@
                 </tr>
                 <tr>
                   <td>Galtea<span class="sub">Spain</span></td>
-                  <td data-label="What it tests">Simulated adversarial scenarios for agents; results mapped to security frameworks (OWASP, MITRE, NIST). Press pitches it as AI Act evidence; its site names no AI Act tests</td>
-                  <td data-label="Who pays">Companies (a Spanish bank)</td>
+                  <td data-label="What it tests">Simulated adversarial scenarios for agents; results mapped to security frameworks (OWASP, MITRE, NIST). It also tests customer policies (refusal rules, tone, disclaimers), before launch and on live sessions. Press pitches it as AI Act evidence; its site names no AI Act tests</td>
+                  <td data-label="Who pays">Companies (e.g. Sabadell Seguros)</td>
                   <td data-label="Money">About $4.1M raised</td>
                 </tr>
                 <tr>
                   <td>Promptfoo<span class="sub">US</span></td>
                   <td data-label="What it tests">Red teaming of apps and agents, including an EU AI Act plugin for the banned practices and high-risk areas, and a GDPR plugin</td>
                   <td data-label="Who pays">Companies</td>
-                  <td data-label="Money">Bought by OpenAI (Mar 2026)</td>
+                  <td data-label="Money">Bought by OpenAI (Mar 2026); $18.4M Series A (Jul 2025)</td>
+                </tr>
+                <tr>
+                  <td>Vijil<span class="sub">US</span></td>
+                  <td data-label="What it tests">Tests built from each agent's purpose and policies, plus red teaming; compliance harnesses turn AI Act, ISO 42001 and NIST obligations into pass or fail tests (GDPR and NYC hiring law on request)</td>
+                  <td data-label="Who pays">Companies</td>
+                  <td data-label="Money">About $23M raised, including a $17M Series A (2025)</td>
                 </tr>
                 <tr>
                   <td>Principled Intelligence<span class="sub">Italy</span></td>
-                  <td data-label="What it tests">Thousands of generated scenarios for agents, with audit reports mapped to clauses such as AI Act Article 14 (human oversight); private beta</td>
+                  <td data-label="What it tests">Thousands of generated scenarios for agents, with audit reports mapped to the AI Act (the one sample report shows Article 14, human oversight); private beta</td>
                   <td data-label="Who pays">Design partners (free early access)</td>
-                  <td data-label="Money">Not checked</td>
+                  <td data-label="Money">About €1.85M pre-seed (Jan 2026)</td>
                 </tr>
                 <tr>
                   <td>Kyvvu<span class="sub">Netherlands</span></td>
-                  <td data-label="What it tests">Checks each agent action live and records evidence for AI Act Articles 9, 12, 14 and 15</td>
-                  <td data-label="Who pays">Not checked</td>
-                  <td data-label="Money">Not checked</td>
+                  <td data-label="What it tests">Checks each agent action live (type and order of steps, not content) and records evidence for AI Act Articles 9, 12, 14 and 15; policy packs also cover GDPR, DORA and MiFID II</td>
+                  <td data-label="Who pays">Not checked (offers a free proof-of-value)</td>
+                  <td data-label="Money">€1M pre-seed (Aug 2026)</td>
                 </tr>
                 <tr>
                   <td>Arena<span class="sub">US</span></td>
@@ -669,8 +685,8 @@
 
             <h4 class="fw-h" id="reg-lara-money"><span class="n">4.3</span>Is there money in this?</h4>
             <ul>
-              <li><strong>Yes, in evaluation sold to AI labs and large companies</strong> (Arena, Vals AI) and <strong>in agent security and certification sold to companies</strong> (Gray Swan, $40M Series A in Jun 2026; AIUC).</li>
-              <li><strong>Some companies now test agents against specific legal articles,</strong> e.g. Promptfoo (AI Act banned practices), LatticeFlow (Articles 15 and 50) and Principled Intelligence (Article 14, in beta). Others check legal rules while the agent runs (Giskard, Alinia, Kyvvu). None publishes revenue for this. None was found whose scenarios are built so that breaking one article is the easiest way to finish the task, as LARA's are.</li>
+              <li><strong>Yes, in evaluation sold to AI labs and large companies</strong> (Arena, Vals AI) and <strong>in agent security</strong> (Gray Swan, $40M Series A in 2026) <strong>and certification</strong> (AIUC), sold to AI labs and companies.</li>
+              <li><strong>Some companies now test agents against specific legal articles,</strong> e.g. Promptfoo (AI Act banned practices), LatticeFlow (Article 15), Vijil (AI Act obligations as pass or fail tests) and Principled Intelligence (sample report cites Article 14; private beta). Others check legal rules while the agent runs (Giskard, Alinia, Kyvvu). None publishes revenue for this. None was found whose scenarios are built so that breaking one article is the easiest way to finish the task, as LARA's are.</li>
             </ul>
 
             <h4 class="fw-h" id="reg-lara-ideas"><span class="n">4.4</span>Ideas for making something out of it <small>to discuss</small></h4>
@@ -715,6 +731,11 @@
                     <td data-label="Role">Supplies evaluation tools to French AI Act regulators; has a work stream on agents</td>
                     <td data-label="Status (Nov 2026)">One secondary source</td>
                   </tr>
+                  <tr>
+                    <td>UK: Financial Conduct Authority (FCA)</td>
+                    <td data-label="Role">Runs AI Live Testing, where selected firms test AI applications in live conditions; Advai is its named technical partner</td>
+                    <td data-label="Status (Nov 2026)">Second cohort announced Apr 2026 (FCA press release)</td>
+                  </tr>
                 </tbody>
               </table>
             </article>
@@ -741,7 +762,7 @@
                   </tr>
                   <tr>
                     <td>Platforms bundle testing</td>
-                    <td data-label="Why it matters">Security vendors and AI platforms are buying testing companies (CrowdStrike: Fiddler and Dreadnode; OpenAI: Promptfoo)</td>
+                    <td data-label="Why it matters">Security vendors and AI platforms are buying testing companies (CrowdStrike: Fiddler and Dreadnode; OpenAI: Promptfoo; Dynatrace: Arize; Cisco: Galileo; Check Point: Lakera)</td>
                   </tr>
                   <tr>
                     <td>Further delays to AI Act dates</td>
