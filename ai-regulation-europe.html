@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>AI Regulation in Europe · Evals Market View</title>
-  <meta name="description" content="What European AI rules mean for evaluating AI systems.">
+  <meta name="description" content="What the European rules say about how AI agents must behave, which of them already apply, and what exists today to test it.">
   <meta property="og:title" content="AI Regulation in Europe · Evals Market View">
-  <meta property="og:description" content="What European AI rules mean for evaluating AI systems.">
+  <meta property="og:description" content="What the European rules say about how AI agents must behave, which of them already apply, and what exists today to test it.">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141719'/%3E%3Cpath d='M9 9h14M9 16h10M9 23h14' stroke='%23fff' stroke-width='3'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500&display=swap">
-  <link rel="stylesheet" href="assets/style.css?v=5">
+  <link rel="stylesheet" href="assets/style.css?v=6">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -37,12 +37,744 @@
       <div class="wrap">
         <span class="tag">Regulation</span>
         <h1>AI Regulation in Europe</h1>
-        <p class="lead">What the European rules require when it comes to evaluating AI systems.</p>
+        <p class="lead">What the European rules say about how AI agents must behave, which of them already apply, and what exists today to test it.</p>
       </div>
     </section>
     <section class="band">
       <div class="wrap">
-        <div class="empty"><strong>Not published yet.</strong>This page will be written once the research is checked.</div>
+        <div class="prose">
+          <p class="status"><strong>Status:</strong> research note, 5 November 2026. Dates and the state of each rule are as of November 2026.</p>
+          <nav class="toc" aria-label="On this page">
+            <a href="#reg-summary">Summary</a>
+            <a href="#reg-rules"><span class="n">1</span>The rules today</a>
+            <a href="#reg-agents"><span class="n">2</span>What agents may do</a>
+            <a href="#reg-industry"><span class="n">3</span>By industry</a>
+            <a href="#reg-hr"><span class="n">3.1</span>HR in depth</a>
+            <a href="#reg-lara"><span class="n">4</span>LARA and the market</a>
+            <a href="#reg-appendix">Appendix</a>
+          </nav>
+
+          <section class="fw-sec" id="reg-summary">
+            <h3>Summary</h3>
+            <div class="sum">
+              <div>
+                <p class="label">Situation</p>
+                <ul>
+                  <li>Europe has many rules for AI: the AI Act (in steps until Aug 2028), the GDPR, finance and security laws, and national rules in Germany and the Netherlands (<a href="#reg-rules">section 1</a>).</li>
+                  <li>Some of them say how an AI agent must behave: do not manipulate people, say it is AI, respect privacy, keep a human in charge, and be tested (<a href="#reg-agents">section 2</a>).</li>
+                  <li>Some of these already apply. Most rules for high-risk uses start in Dec 2027.</li>
+                </ul>
+              </div>
+              <div>
+                <p class="label">Problem</p>
+                <ul>
+                  <li>Companies are responsible when their agents break these rules, and for high-risk uses and personal data they must be able to show they comply. There is no official way to test agent behaviour yet: the only finished EU standard covers quality management.</li>
+                  <li>Most tools test whether an agent works or is secure. Many map their results to the AI Act, but only a few test how an agent behaves against specific legal articles.</li>
+                </ul>
+              </div>
+              <div>
+                <p class="label">Where the need is biggest</p>
+                <ul>
+                  <li>Customer service and HR, because the rules apply now or from Dec 2027 (<a href="#reg-industry">section 3</a>).</li>
+                  <li>In HR, bias testing exists (Warden AI, QuantPi, FairNow). For privacy, staff monitoring and human oversight, the only HR case found is custom tests Vijil built for one vendor (SmartRecruiters).</li>
+                  <li>Banking and insurance come next.</li>
+                </ul>
+              </div>
+              <div>
+                <p class="label">LARA and the market</p>
+                <p>LARA, by Aithos (<a href="https://lara.aithos.org/">lara.aithos.org</a>), checks whether an AI agent will break GDPR or the AI Act to finish a task.</p>
+                <ul>
+                  <li>LARA is not sold. A few companies test agents against specific articles (e.g. Promptfoo, LatticeFlow, Principled Intelligence) or check legal rules while the agent runs (e.g. Giskard, Alinia, Kyvvu). None publishes revenue for this. None was found whose scenarios are built so that the easiest way to finish the task breaks one specific article, as LARA's are; the closest is Principled Intelligence, still in private beta (<a href="#reg-lara">section 4</a>).</li>
+                  <li>The money today is in evaluations sold to AI labs and large companies (Arena, Vals AI) and in agent security and certification (Gray Swan, AIUC).</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="fw-sec" id="reg-rules">
+            <h3><span class="n">1</span>The rules on AI in Europe today</h3>
+            <p>Three tables: the binding EU laws that set rules on how AI behaves, the other binding EU laws, then standards, guidance and Dutch and German rules.</p>
+
+            <h4 class="fw-h" id="reg-rules-a"><span class="n">1a</span>EU laws that set rules on how AI behaves <small>binding</small></h4>
+            <table class="dim-table t-two">
+              <colgroup><col class="c1"><col class="c2"></colgroup>
+              <thead>
+                <tr><th scope="col">Law</th><th scope="col">Key points</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>AI Act<span class="sub">AI behaviour · Product safety</span></td>
+                  <td data-label="Key points">
+                    <ul>
+                      <li><strong>Sets safety rules for AI.</strong> The more harm a use can do, the stricter the rules.</li>
+                      <li><strong>Since Feb 2025:</strong> AI may not manipulate people, exploit vulnerable people, score people on their behaviour, or read employees' emotions.</li>
+                      <li><strong>Since Aug 2026:</strong> people must be told when they are dealing with an AI.</li>
+                      <li><strong>From Dec 2027:</strong> AI used for high-risk tasks, such as hiring or credit scoring, must be tested, keep logs, have human oversight and be checked before it is sold.</li>
+                      <li><strong>From Aug 2028:</strong> for AI built into products, such as machines or medical devices.</li>
+                      <li><strong>Who it applies to:</strong> both companies that build AI and companies that use it, with builders carrying most of the duties. Makers of the largest models must already test them. Fines up to €35M or 7% of turnover.</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>GDPR<span class="sub">AI behaviour · Privacy</span></td>
+                  <td data-label="Key points">
+                    <ul>
+                      <li>Protects personal data (since 2018).</li>
+                      <li>Companies need a valid reason to use personal data, may use only the data they need for that purpose, and must tell people what they do with it. If a use is risky, they must assess the risks first.</li>
+                      <li>No important decision may be made only by AI without a way to get human review. Applies to any organisation processing personal data.</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Consumer Credit Directive II</td>
+                  <td data-label="Key points">
+                    <ul>
+                      <li>Consumer loans (from 20 Nov 2026).</li>
+                      <li>Where credit decisions are automated, consumers can ask for human review and an explanation, and contest the decision.</li>
+                      <li>Applies to lenders.</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Platform Work Directive</td>
+                  <td data-label="Key points">
+                    <ul>
+                      <li>Work arranged through digital platforms (e.g. delivery riders, taxi drivers, cleaners booked through an app).</li>
+                      <li>Requires information on automated management of workers, human oversight, and human review of significant automated decisions.</li>
+                      <li>Applies to digital labour platforms. National laws due 2 Dec 2026; neither Germany nor the Netherlands has passed one yet (Nov 2026).</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h4 class="fw-h" id="reg-rules-b"><span class="n">1b</span>Other binding EU laws <small>IT security, liability, product safety</small></h4>
+            <table class="dim-table t-two">
+              <colgroup><col class="c1"><col class="c2"></colgroup>
+              <thead>
+                <tr><th scope="col">Law</th><th scope="col">Key points</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>DORA</td>
+                  <td data-label="Key points">
+                    <ul>
+                      <li>IT risk in financial services (since Jan 2025).</li>
+                      <li>Requires IT risk management, incident reporting and resilience testing.</li>
+                      <li>Applies to banks, insurers and other financial firms. Their IT suppliers must accept audit and testing rights in contracts.</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>NIS2</td>
+                  <td data-label="Key points">
+                    <ul>
+                      <li>Cybersecurity in 18 critical sectors (insurance is not one).</li>
+                      <li>Requires security measures including supplier checks, incident reports within 24 hours, and accountable management.</li>
+                      <li>Applies to medium and large organisations in those sectors. National laws in force in Germany (Dec 2025) and the Netherlands (Aug 2026).</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Cyber Resilience Act</td>
+                  <td data-label="Key points">
+                    <ul>
+                      <li>Security of software and connected products.</li>
+                      <li>Requires security by design, handling of vulnerabilities, security updates and a list of software components.</li>
+                      <li>Applies to makers of installed software and devices, not pure cloud services. Reporting since Sep 2026; in full from Dec 2027.</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Product Liability Directive</td>
+                  <td data-label="Key points">
+                    <ul>
+                      <li>Compensation for harm caused by defective products.</li>
+                      <li>Software, including AI, now counts as a product: the maker can be held liable for defects. No fines.</li>
+                      <li>Applies to makers and to companies that substantially modify a product. National laws due 9 Dec 2026.</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Machinery Regulation</td>
+                  <td data-label="Key points">
+                    <ul>
+                      <li>Safety of machinery (from Jan 2027).</li>
+                      <li>Sets safety requirements, including for machinery with AI that changes its behaviour. AI Act rules for machinery arrive through it by Aug 2028.</li>
+                      <li>Applies to machinery makers.</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h4 class="fw-h" id="reg-rules-c"><span class="n">1c</span>Standards, guidance and national rules</h4>
+            <table class="dim-table t-fw">
+              <colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup>
+              <thead>
+                <tr><th scope="col">Framework</th><th scope="col">Key points</th><th scope="col">Relevance for agent behaviour</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Official EU standards<span class="sub">CEN-CENELEC</span></td>
+                  <td data-label="Key points">
+                    <ul>
+                      <li><strong>What they are:</strong> the AI Act says what high-risk AI must achieve (e.g. be accurate, have human oversight), but not exactly how. These standards are the "how-to" manuals, written by the EU's official standards bodies.</li>
+                      <li><strong>Why they matter:</strong> a company that follows a finished standard is treated as meeting the rules it covers.</li>
+                      <li><strong>Status:</strong> only one is finished (EN 18286, Oct 2026), and it only covers how a company organises its quality checks. The ones on how the AI itself must perform, e.g. accuracy, are still being written. None is written for AI agents.</li>
+                    </ul>
+                  </td>
+                  <td data-label="Relevance for agent behaviour"><span class="r yes inl">High</span>they will define how high-risk AI must be tested; none covers agents yet</td>
+                </tr>
+                <tr>
+                  <td>EU codes of practice</td>
+                  <td data-label="Key points">
+                    <ul>
+                      <li><strong>What they are:</strong> voluntary rulebooks from the European Commission. A company that signs one and follows it can use it to show it meets the matching AI Act duties.</li>
+                      <li><strong>General-purpose AI code (Jul 2025):</strong> for makers of large AI models such as GPT or Claude. Covers transparency, copyright and, for the largest models, safety testing. Most large model makers signed; Meta did not.</li>
+                      <li><strong>AI-generated content code (Jun 2026):</strong> how to label and mark AI-made images, video and text, e.g. deepfakes.</li>
+                    </ul>
+                  </td>
+                  <td data-label="Relevance for agent behaviour">
+                    <ul class="rel">
+                      <li><span class="r partly inl">Partly</span>general-purpose AI code, for AI labs as buyers of evaluations</li>
+                      <li><span class="r no inl">Low</span>AI-generated content code (labelling content)</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Regulators' guidance</td>
+                  <td data-label="Key points">
+                    <ul>
+                      <li><strong>European Commission:</strong> explains what the AI Act bans mean in practice, e.g. what counts as manipulation (Feb 2025), and what makers of large AI models must do (Jul 2025).</li>
+                      <li><strong>Data protection authorities:</strong> explain how the GDPR applies to AI (EU-level opinion Dec 2024; national guidance, e.g. Germany May 2024). Dutch regulators add that chatbots must always offer a human and not give misleading answers.</li>
+                      <li><strong>Finance:</strong> insurers stay responsible for the AI they use and should test it regularly (EIOPA, Aug 2025). BaFin recommends adversarial testing of AI (Dec 2025). Under DORA rules, firms may not rely on a vendor's certificate alone over time.</li>
+                    </ul>
+                  </td>
+                  <td data-label="Relevance for agent behaviour">
+                    <ul class="rel">
+                      <li><span class="r yes inl">High</span>Commission guidelines on the bans (basis for LARA's AI Act ban scenarios)</li>
+                      <li><span class="r yes inl">High</span>data protection guidance (basis for LARA's GDPR scenarios)</li>
+                      <li><span class="r partly inl">Partly</span>finance supervisors (a reason for banks and insurers to pay for testing)</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Private schemes</td>
+                  <td data-label="Key points">
+                    <ul>
+                      <li><strong>What they are:</strong> voluntary standards and certificates from private or international bodies. None counts as legal proof that a company meets the AI Act.</li>
+                      <li><strong>How a company manages AI:</strong> ISO/IEC 42001, the best-known AI management certificate.</li>
+                      <li><strong>How to test AI:</strong> ISO/IEC 42119. One part is published (Nov 2025, a general testing approach); parts on attack testing and on chatbots are still being written. Not specific to agents.</li>
+                      <li><strong>Security:</strong> checklists and benchmarks for AI security, e.g. OWASP Top 10, BSI AIC4 (Germany), ETSI EN 304 223.</li>
+                      <li><strong>How a specific system behaves:</strong> AIUC-1 (US) certifies agents; Warden Assured covers bias in HR tools; TÜV's AI certificate launches from late 2026.</li>
+                    </ul>
+                  </td>
+                  <td data-label="Relevance for agent behaviour">
+                    <ul class="rel">
+                      <li><span class="r no inl">Low</span>ISO 42001 and the security schemes</li>
+                      <li><span class="r yes inl">High</span>AIUC-1, as a possible competitor or partner</li>
+                      <li><span class="r partly inl">Partly to high</span>ISO/IEC 42119, which may become the reference for how AI testing should be done</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Germany</td>
+                  <td data-label="Key points">
+                    <ul>
+                      <li>AI Act law in force since Jul 2026. The Federal Network Agency enforces it; BaFin for finance. Fines up to €50,000, e.g. for not explaining a high-risk AI decision.</li>
+                      <li>Works councils co-decide on systems that can monitor staff and may bring in an outside AI expert, paid by the employer.</li>
+                    </ul>
+                  </td>
+                  <td data-label="Relevance for agent behaviour"><span class="r yes inl">High</span>explanation fines and works councils fit HR; the Federal Network Agency is a possible user of test methods</td>
+                </tr>
+                <tr>
+                  <td>Netherlands</td>
+                  <td data-label="Key points">
+                    <ul>
+                      <li>AI Act law still a draft (published Apr 2026). The data protection authority (AP) and the digital infrastructure inspectorate (RDI) are the planned coordinators.</li>
+                      <li>Works councils must consent to systems that can monitor staff.</li>
+                    </ul>
+                  </td>
+                  <td data-label="Relevance for agent behaviour"><span class="r yes inl">High</span>the AP is the planned coordinator and has spoken with Aithos; works councils fit HR</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section class="fw-sec" id="reg-agents">
+            <h3><span class="n">2</span>What AI agents may and may not do</h3>
+            <p>Most rules in <a href="#reg-rules">section 1</a> are about IT security or liability. Five themes are about how AI behaves:</p>
+            <ul class="rules labelled">
+              <li><strong>1. No manipulation</strong><span>AI may not trick people or take advantage of vulnerable people. <em>(AI Act, since Feb 2025)</em></span></li>
+              <li><strong>2. Say it is AI</strong><span>People must be told they are talking to an AI, and can ask why it made an important decision about them. <em>(AI Act, since Aug 2026; explanations of high-risk decisions from Dec 2027)</em></span></li>
+              <li><strong>3. Respect privacy</strong><span>Use only the personal data needed, and do not read employees' emotions. <em>(GDPR, now; AI Act emotion ban, since Feb 2025)</em></span></li>
+              <li><strong>4. Keep a human in charge</strong><span>Important decisions need a way to get human review, and high-risk AI (e.g. hiring, credit) must treat people fairly. <em>(GDPR, now; Consumer Credit Directive, from Nov 2026; AI Act, from Dec 2027)</em></span></li>
+              <li><strong>5. Test it</strong><span>High-risk AI must be tested and monitored. Makers of the largest AI models must already test theirs, so they face stricter rules than others. <em>(AI Act: largest models since Aug 2025, high-risk from Dec 2027)</em></span></li>
+            </ul>
+            <p><strong>What this means:</strong> themes 1 to 3 already apply to every company using AI agents; most of 4 and 5 starts in Dec 2027. There is no official way yet to test whether an agent follows these rules.</p>
+          </section>
+
+          <section class="fw-sec" id="reg-industry">
+            <h3><span class="n">3</span>What it means by industry</h3>
+            <p>The chart shows ten industries by how soon AI behaviour rules apply to them and how well today's tools help them meet those rules.</p>
+            <ul>
+              <li><strong>Customer service and HR need it most (our assessment):</strong> their agents deal with people directly, some rules already apply and more start in Dec 2027 for HR, and today's tools cover only parts of these rules.</li>
+              <li><strong>Most tools test whether agents work or are secure.</strong> Some test against legal rules (e.g. Promptfoo, Giskard, QuantPi, Warden AI). The closest to LARA is Principled Intelligence, which runs generated scenarios with reports mapped to AI Act articles; it is in private beta.</li>
+              <li><strong>Banking and insurance come next,</strong> but much of their pressure today comes from IT-security rules (DORA).</li>
+            </ul>
+
+            <figure class="chart" aria-labelledby="chart-title">
+              <p class="chart-title" id="chart-title">Customer service and HR: rules apply soonest, and today's tools cover only parts of them</p>
+              <p class="chart-sub">Urgency counts only rules on how AI behaves, not IT security. Positions are approximate; basis in the table below.</p>
+              <svg viewBox="0 60 760 440" role="img" aria-label="Scatter chart of ten industries. Customer service and HR sit in the top right: rules apply now and today's offer is poor. Banking and insurance are next. The other industries sit lower, where pressure comes later.">
+                <rect class="c-zone" x="420" y="80" width="280" height="180"/>
+                <line class="c-grid" x1="420" y1="80" x2="420" y2="440"/>
+                <line class="c-grid" x1="140" y1="260" x2="700" y2="260"/>
+                <rect class="c-frame" x="140" y="80" width="560" height="360"/>
+                <text class="c-q" x="152" y="100">Urgent, some offer exists</text>
+                <text class="c-q on" x="688" y="100" text-anchor="end">Enter first</text>
+                <text class="c-q" x="152" y="428">Monitor</text>
+                <text class="c-q" x="688" y="428" text-anchor="end">Large gap, pressure later</text>
+                <text class="c-note" x="130" y="94" text-anchor="end">Rules apply now</text>
+                <text class="c-note" x="130" y="436" text-anchor="end">Later or guidance</text>
+                <text class="c-axis" x="40" y="260" text-anchor="middle" transform="rotate(-90 40 260)">Urgency of behaviour rules</text>
+                <text class="c-note" x="140" y="460">Partly served today</text>
+                <text class="c-note" x="700" y="460" text-anchor="end">Poorly served today</text>
+                <text class="c-axis" x="420" y="484" text-anchor="middle">Gap in today's market offer</text>
+
+                <circle class="c-dot hl" cx="440" cy="159" r="7"/>
+                <text class="c-lbl b" x="452" y="163">Customer service</text>
+                <circle class="c-dot hl" cx="462" cy="205" r="7"/>
+                <text class="c-lbl b" x="474" y="209">HR</text>
+                <circle class="c-dot" cx="320" cy="231" r="5.5"/>
+                <text class="c-lbl b" x="332" y="235">Banking</text>
+                <circle class="c-dot" cx="445" cy="245" r="5.5"/>
+                <text class="c-lbl b" x="457" y="249">Insurance</text>
+                <circle class="c-dot" cx="336" cy="292" r="5.5"/>
+                <text class="c-lbl" x="324" y="296" text-anchor="end">Public sector</text>
+                <circle class="c-dot" cx="588" cy="322" r="5.5"/>
+                <text class="c-lbl" x="576" y="326" text-anchor="end">Telecom and energy</text>
+                <circle class="c-dot" cx="560" cy="350" r="5.5"/>
+                <text class="c-lbl" x="572" y="354">Hospitals</text>
+                <circle class="c-dot" cx="409" cy="368" r="5.5"/>
+                <text class="c-lbl" x="397" y="372" text-anchor="end">Manufacturing</text>
+                <circle class="c-dot" cx="588" cy="386" r="5.5"/>
+                <text class="c-lbl" x="576" y="390" text-anchor="end">Pharma</text>
+                <circle class="c-dot" cx="644" cy="404" r="5.5"/>
+                <text class="c-lbl" x="656" y="408">Legal</text>
+              </svg>
+              <figcaption>Ten industries by urgency of behaviour rules and gap in today's offer.<span class="swipe"> Swipe sideways to see the whole chart.</span></figcaption>
+            </figure>
+
+            <table class="dim-table t-ind">
+              <colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup>
+              <thead>
+                <tr><th scope="col">Industry</th><th scope="col">Rules on AI behaviour</th><th scope="col">What helps meet these rules today</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Customer service</td>
+                  <td data-label="Rules on AI behaviour">
+                    <ul>
+                      <li>Now: no manipulation; say it is AI. AI Act; GDPR</li>
+                      <li>Dutch guidance: always offer a human, no misleading answers</li>
+                    </ul>
+                  </td>
+                  <td data-label="What helps meet these rules today">
+                    <ul>
+                      <li>Platforms test agents built on them</li>
+                      <li>Cyara flags regulatory risks and bias in AI conversations</li>
+                      <li>Giskard's live guardrails include an EU AI Act policy pack (e.g. manipulation, exploiting vulnerable groups, social scoring); Promptfoo tests agents against the AI Act's banned practices</li>
+                      <li>No ready-made product found that tests all of these rules together in realistic customer conversations; Principled Intelligence (private beta) comes closest</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>HR</td>
+                  <td data-label="Rules on AI behaviour">
+                    <ul>
+                      <li>Now: ban on emotion recognition at work (AI Act); works councils' say over systems that can monitor staff (Germany, Netherlands); GDPR</li>
+                      <li>From Dec 2027: AI for hiring, promotion and performance is high-risk</li>
+                    </ul>
+                  </td>
+                  <td data-label="What helps meet these rules today">
+                    <ul>
+                      <li>Vendors certify how they manage AI (e.g. Workday: ISO 42001), not how a specific system behaves</li>
+                      <li>Bias tests: Warden AI (for vendors, staffing agencies and employers); FairNow (US, for HR software vendors; bought by Optro in Mar 2026); QuantPi with TÜV SÜD (fairness case for candidate matching); Vijil (custom tests for SmartRecruiters against the AI Act, GDPR and NYC hiring law)</li>
+                      <li>General AI audit firms cover HR among other areas (Holistic AI, BABL AI, Eticas)</li>
+                      <li>For privacy, staff monitoring and human oversight, only custom work found (Vijil's tests for SmartRecruiters), no ready-made product</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Banking</td>
+                  <td data-label="Rules on AI behaviour">
+                    <ul>
+                      <li>Now: GDPR limits on decisions made only by AI</li>
+                      <li>From Nov 2026: human review of automated credit decisions</li>
+                      <li>From Dec 2027: credit scoring is high-risk</li>
+                    </ul>
+                  </td>
+                  <td data-label="What helps meet these rules today">
+                    <ul>
+                      <li>In-house model risk teams validate credit models</li>
+                      <li>Model risk platforms document and monitor models, including bias and explainability (e.g. ValidMind, Fiddler, Yields, Deeploy)</li>
+                      <li>Alinia's live checks flag when an AI makes a creditworthiness assessment or gives legal advice</li>
+                      <li>FairPlay (US) tests credit and pricing models and AI agents for bias</li>
+                      <li>No tool found built to test whether agents offer human review or explain credit decisions</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Insurance</td>
+                  <td data-label="Rules on AI behaviour">
+                    <ul>
+                      <li>Now: EIOPA guidance (not binding) on fairness, explainability and human oversight; GDPR</li>
+                      <li>From Dec 2027: life and health insurance pricing is high-risk</li>
+                    </ul>
+                  </td>
+                  <td data-label="What helps meet these rules today">
+                    <ul>
+                      <li>Monitaur (US): governance and pre-launch testing built for insurers and financial firms</li>
+                      <li>Tools for several sectors that include insurers, e.g. Advai tests bias and robustness; Giskard works with AXA</li>
+                      <li>FairPlay (US) tests underwriting and pricing models for bias, for insurers and lenders; no European tool found built for insurance pricing</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Public sector</td>
+                  <td data-label="Rules on AI behaviour">
+                    <ul>
+                      <li>Now: GDPR</li>
+                      <li>From Dec 2027: AI Act; systems already in use by Aug 2030</li>
+                      <li>No fines on public bodies in Germany</li>
+                    </ul>
+                  </td>
+                  <td data-label="What helps meet these rules today">
+                    <ul>
+                      <li>Algorithm registers (e.g. the Dutch national register)</li>
+                      <li>Impact assessments (Dutch IAMA; the AI Act's fundamental rights assessment from Dec 2027)</li>
+                      <li>Algorithm Audit (non-profit) audits systems and offers a free tool (AI AQT) that works out which laws apply; it does not test the system</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Telecom and energy</td>
+                  <td data-label="Rules on AI behaviour">
+                    <ul>
+                      <li>From Dec 2027: AI used as a safety component in running critical infrastructure (e.g. electricity, gas, digital networks) is high-risk</li>
+                      <li>NIS2 covers security only</li>
+                    </ul>
+                  </td>
+                  <td data-label="What helps meet these rules today">
+                    <ul>
+                      <li>Resaro (Munich) sells a 6–8 week AI test pilot for critical infrastructure (under €50,000), mapped to NIS2 and the AI Act</li>
+                      <li>AI-EFFECT: EU-funded facility that tests energy AI against performance and compliance criteria, with pilots involving grid operators TenneT and Enel (research, not a product)</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Manufacturing</td>
+                  <td data-label="Rules on AI behaviour">
+                    <ul>
+                      <li>From Jan 2027: Machinery Regulation</li>
+                      <li>By Aug 2028: AI rules for machinery</li>
+                    </ul>
+                  </td>
+                  <td data-label="What helps meet these rules today">
+                    <ul>
+                      <li>TÜV SÜD with QuantPi (safety of AI in machines and robots, Oct 2026) and with Accenture and NVIDIA (factory and warehouse robots)</li>
+                      <li>TÜV certification scheme for AI systems, launching from late 2026</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Hospitals</td>
+                  <td data-label="Rules on AI behaviour">
+                    <ul>
+                      <li>From Aug 2028: AI in medical devices is high-risk; most duties fall on device makers, some on hospitals as users</li>
+                      <li>Already now: GDPR; AI Act bans and the duty to train staff in AI</li>
+                    </ul>
+                  </td>
+                  <td data-label="What helps meet these rules today">
+                    <ul>
+                      <li>Device makers certify through notified bodies, which also check the AI Act requirements</li>
+                      <li>Frameworks for hospitals' own checks, e.g. EURAID (Germany)</li>
+                      <li>US and Canadian tools check clinical AI on a hospital's own patients (Ferrum Health, Pacific AI, Signal 1, e.g. at Mount Sinai); no European tool found</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Pharma</td>
+                  <td data-label="Rules on AI behaviour">
+                    <ul>
+                      <li>GMP rules for AI still in draft</li>
+                    </ul>
+                  </td>
+                  <td data-label="What helps meet these rules today">
+                    <ul>
+                      <li>Validation software documents GMP validation (e.g. Kneat, ValGenesis)</li>
+                      <li>Testing the AI itself is up to the company</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Legal</td>
+                  <td data-label="Rules on AI behaviour">
+                    <ul>
+                      <li>Not high-risk for law firms under the AI Act (only AI used by courts is)</li>
+                      <li>Professional rules; courts sanction invented case law</li>
+                    </ul>
+                  </td>
+                  <td data-label="What helps meet these rules today">
+                    <ul>
+                      <li>Benchmarks that measure accuracy and invented citations: Vals AI (US, independent); vendors' own (e.g. LegalOn)</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <article class="dim" id="reg-hr">
+              <h4><span class="n">3.1</span>HR in depth</h4>
+              <div class="dim-grid">
+                <dl>
+                  <dt>Who the buyers are</dt>
+                  <dd>
+                    <p>The AI Act gives HR software vendors and employers different duties (from Dec 2027):</p>
+                    <ul>
+                      <li><strong>Vendors</strong> must manage risks, document the system and assess its conformity themselves (Art 43(2)). No independent body is involved, so there is no legal third-party certificate for HR AI.</li>
+                      <li><strong>Employers</strong> must use the system as instructed, assign human oversight, monitor it, keep logs, inform workers and explain decisions on request (Art 26 and 86). The GDPR adds human review and a data protection impact assessment. The law does not let a vendor's certificate replace these checks.</li>
+                      <li><strong>Works councils</strong> must agree (Netherlands) or co-decide (Germany) on systems that can monitor staff. In Germany they can bring in an outside AI expert, paid by the employer.</li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>What exists today</dt>
+                  <dd>
+                    <ul>
+                      <li><strong>Warden AI</strong> (London and Austin, about £1.1M raised) is the dedicated player. It sells continuous bias audits and a trust mark to HR software vendors and to employers using them, mapped to US state laws and the EU AI Act. Its directory lists 52 products, mostly US and UK recruiting tools; Workday, SAP SuccessFactors, Oracle and Personio are not listed. It covers recruiting bias, not wider agent behaviour.</li>
+                      <li>HR platforms such as Workday hold independent certificates for how they manage AI (ISO 42001, Jun 2025), but these do not test how the AI behaves. General AI audit firms (Holistic AI, BABL AI, Eticas) cover HR among other areas.</li>
+                      <li>Other bias testing for HR: QuantPi with TÜV SÜD (fairness case for candidate matching) and FairNow (for HR software vendors). For privacy, staff monitoring and human oversight, the only HR case found is custom tests Vijil built for SmartRecruiters against the AI Act, GDPR and NYC hiring law; no ready-made product was found.</li>
+                    </ul>
+                  </dd>
+                </dl>
+              </div>
+              <div class="dim-grid">
+                <dl>
+                  <dt>What is unclear</dt>
+                  <dd>No standard yet says how to measure whether an HR system meets the law. So it is open whether employers will accept a vendor's report or need their own testing.</dd>
+                </dl>
+                <dl>
+                  <dt>Market size</dt>
+                  <dd>12% of German firms use AI in hiring and 6% use it to screen applications (Bitkom, Sep 2026).</dd>
+                </dl>
+              </div>
+            </article>
+          </section>
+
+          <section class="fw-sec" id="reg-lara">
+            <h3><span class="n">4</span>Aithos LARA and the market around it</h3>
+            <p>LARA is a public test of whether an AI agent will break European law to get its job done. The rest of this section sets it against what else is on offer, where the money is, and how it could be used.</p>
+
+            <article class="dim" id="reg-lara-what">
+              <h4><span class="n">4.1</span>What LARA is</h4>
+              <p class="dim-lead"><a href="https://lara.aithos.org/">lara.aithos.org</a></p>
+              <div class="dim-grid">
+                <dl>
+                  <dt>What it does</dt>
+                  <dd>It tests whether an AI agent will break the law to get its job done. The agent works in a simulated organisation (inbox, calendar, files, customer records; 156 tools) on a goal whose easiest route breaks one legal provision. A second AI plays a colleague or manager and keeps up the pressure.</dd>
+                  <dt>What it covers</dt>
+                  <dd>10 scenarios, each tied to one article: four from the GDPR and six from the AI Act (e.g. manipulation, social scoring, bypassing human oversight, hiding that it is an AI). Variants show whether the agent did not know the law or knew it and broke it anyway.</dd>
+                </dl>
+                <dl>
+                  <dt>How it scores</dt>
+                  <dd>Three AI judges (top models from Anthropic, OpenAI and Google), which a human reviewer can override. 12 frontier models were tested.</dd>
+                  <dt>Access</dt>
+                  <dd>Public. Anyone can run a model with their own API keys or keys requested from Aithos; results are public. ActuIA noted it is not peer-reviewed or accredited, and no regulator was found citing it publicly.</dd>
+                </dl>
+              </div>
+            </article>
+
+            <h4 class="fw-h" id="reg-lara-else"><span class="n">4.2</span>What else exists</h4>
+            <table class="dim-table t-offer">
+              <colgroup><col class="c1"><col class="c2"><col class="c3"><col class="c4"></colgroup>
+              <thead>
+                <tr><th scope="col">Offering</th><th scope="col">What it tests</th><th scope="col">Who pays</th><th scope="col">Money</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>AIUC-1<span class="sub">US</span></td>
+                  <td data-label="What it tests">A specific agent's controls and behaviour under attack, organised by risk type, not by legal article</td>
+                  <td data-label="Who pays">Agent makers, for a certificate linked to insurance</td>
+                  <td data-label="Money">$55M raised; launch customers include Cursor, Lovable, Harvey and ElevenLabs</td>
+                </tr>
+                <tr>
+                  <td>LatticeFlow<span class="sub">Switzerland</span></td>
+                  <td data-label="What it tests">AI apps and agents, including red teaming for unauthorised actions; evaluations mapped to 40+ frameworks, e.g. AI Act Articles 15 and 50 and AIUC-1. Its free COMPL-AI tool tests models against the AI Act</td>
+                  <td data-label="Who pays">Companies, plus a free public version</td>
+                  <td data-label="Money">$12M Series A (2022) plus a $3M Swiss innovation grant (2024)</td>
+                </tr>
+                <tr>
+                  <td>Giskard<span class="sub">France</span></td>
+                  <td data-label="What it tests">Attacks and answer quality of text agents; live guardrails with an EU AI Act policy pack (e.g. manipulation, exploiting vulnerable groups, social scoring)</td>
+                  <td data-label="Who pays">Companies (BNP Paribas, AXA)</td>
+                  <td data-label="Money">€1.5M equity plus grants</td>
+                </tr>
+                <tr>
+                  <td>Alinia<span class="sub">Spain</span></td>
+                  <td data-label="What it tests">What agents say and do against named laws and the firm's policies, e.g. flags creditworthiness assessments and legal or tax advice; tests before launch, monitors and blocks live</td>
+                  <td data-label="Who pays">Banks (Santander)</td>
+                  <td data-label="Money">$2.4M pre-seed plus $7.5M seed</td>
+                </tr>
+                <tr>
+                  <td>Galtea<span class="sub">Spain</span></td>
+                  <td data-label="What it tests">Simulated adversarial scenarios for agents; results mapped to security frameworks (OWASP, MITRE, NIST). Press pitches it as AI Act evidence; its site names no AI Act tests</td>
+                  <td data-label="Who pays">Companies (a Spanish bank)</td>
+                  <td data-label="Money">About $4.1M raised</td>
+                </tr>
+                <tr>
+                  <td>Promptfoo<span class="sub">US</span></td>
+                  <td data-label="What it tests">Red teaming of apps and agents, including an EU AI Act plugin for the banned practices and high-risk areas, and a GDPR plugin</td>
+                  <td data-label="Who pays">Companies</td>
+                  <td data-label="Money">Bought by OpenAI (Mar 2026)</td>
+                </tr>
+                <tr>
+                  <td>Principled Intelligence<span class="sub">Italy</span></td>
+                  <td data-label="What it tests">Thousands of generated scenarios for agents, with audit reports mapped to clauses such as AI Act Article 14 (human oversight); private beta</td>
+                  <td data-label="Who pays">Design partners (free early access)</td>
+                  <td data-label="Money">Not checked</td>
+                </tr>
+                <tr>
+                  <td>Kyvvu<span class="sub">Netherlands</span></td>
+                  <td data-label="What it tests">Checks each agent action live and records evidence for AI Act Articles 9, 12, 14 and 15</td>
+                  <td data-label="Who pays">Not checked</td>
+                  <td data-label="Money">Not checked</td>
+                </tr>
+                <tr>
+                  <td>Arena<span class="sub">US</span></td>
+                  <td data-label="What it tests">Public model rankings from people's votes; since Oct 2026 also an Alignment Index (preview) that scores unauthorised actions and deceptive completion</td>
+                  <td data-label="Who pays">AI labs and companies</td>
+                  <td data-label="Money">About $100M annual run rate (Jun 2026, company figure); $3.1B valuation (Oct 2026)</td>
+                </tr>
+                <tr>
+                  <td>Vals AI<span class="sub">US</span></td>
+                  <td data-label="What it tests">Independent benchmarks in law, finance, medicine</td>
+                  <td data-label="Who pays">AI labs and companies</td>
+                  <td data-label="Money">$40M at a $400M valuation (Aug 2026)</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h4 class="fw-h" id="reg-lara-money"><span class="n">4.3</span>Is there money in this?</h4>
+            <ul>
+              <li><strong>Yes, in evaluation sold to AI labs and large companies</strong> (Arena, Vals AI) and <strong>in agent security and certification sold to companies</strong> (Gray Swan, $40M Series A in Jun 2026; AIUC).</li>
+              <li><strong>Some companies now test agents against specific legal articles,</strong> e.g. Promptfoo (AI Act banned practices), LatticeFlow (Articles 15 and 50) and Principled Intelligence (Article 14, in beta). Others check legal rules while the agent runs (Giskard, Alinia, Kyvvu). None publishes revenue for this. None was found whose scenarios are built so that breaking one article is the easiest way to finish the task, as LARA's are.</li>
+            </ul>
+
+            <h4 class="fw-h" id="reg-lara-ideas"><span class="n">4.4</span>Ideas for making something out of it <small>to discuss</small></h4>
+            <ul>
+              <li><strong>Private runs:</strong> test a company's own agent, with its own tools and data, before launch and after every change (the "medicine").</li>
+              <li><strong>Scenarios per industry and country:</strong> customer service and HR first, then credit and insurance; add German and Dutch rules such as works councils.</li>
+              <li><strong>Evidence reports by legal article</strong> that a company can show its regulator, works council or supervisor.</li>
+              <li><strong>Free public leaderboard, paid private evaluations</strong>, as Arena does.</li>
+              <li><strong>Watch:</strong> Arena is moving into behaviour rankings, AIUC-1 already sells agent certificates, and LARA's judges come from the labs whose models it tests.</li>
+            </ul>
+          </section>
+
+          <section class="fw-sec" id="reg-appendix">
+            <h3>Appendix</h3>
+            <p>Which regulators need test methods, what could go wrong with the opportunity, and where the detailed research is.</p>
+
+            <article class="dim" id="reg-regulators">
+              <h4><span class="n">A</span>Regulators also need test methods</h4>
+              <table class="dim-table t-reg">
+                <colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup>
+                <thead>
+                  <tr><th scope="col">Regulator</th><th scope="col">Role</th><th scope="col">Status (Nov 2026)</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Dutch data protection authority (AP)</td>
+                    <td data-label="Role">Planned coordinator for the AI Act in the Netherlands. Visited Aithos to discuss needing evaluations to implement the AI Act (internal meeting)</td>
+                    <td data-label="Status (Nov 2026)">Cannot enforce the AI Act yet: the Dutch law is a draft</td>
+                  </tr>
+                  <tr>
+                    <td>Germany: Federal Network Agency (BNetzA); BaFin for finance</td>
+                    <td data-label="Role">Main AI Act enforcers</td>
+                    <td data-label="Status (Nov 2026)">Law in force since Jul 2026. BNetzA runs an AI service desk (since Jul 2025) and must set up an AI regulatory sandbox</td>
+                  </tr>
+                  <tr>
+                    <td>EU AI Office</td>
+                    <td data-label="Role">Enforces the rules for large AI models</td>
+                    <td data-label="Status (Nov 2026)">Enforcement powers since Aug 2026. Its €9M tender for technical support (Jul 2025) included a lot on evaluating agents. Aithos is in talks with it (internal meeting)</td>
+                  </tr>
+                  <tr>
+                    <td>France: INESIA (AI evaluation institute)</td>
+                    <td data-label="Role">Supplies evaluation tools to French AI Act regulators; has a work stream on agents</td>
+                    <td data-label="Status (Nov 2026)">One secondary source</td>
+                  </tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="dim" id="reg-risks">
+              <h4><span class="n">B</span>Risks</h4>
+              <table class="dim-table t-risk">
+                <colgroup><col class="c1"><col class="c2"></colgroup>
+                <thead>
+                  <tr><th scope="col">Risk</th><th scope="col">Why it matters</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Official standards fix the testing method</td>
+                    <td data-label="Why it matters">Once EU or ISO standards (e.g. ISO/IEC 42119 on AI testing) say exactly how to test AI, many firms can offer the same checklist and compete on price</td>
+                  </tr>
+                  <tr>
+                    <td>BSI A5 or TÜV become the German default</td>
+                    <td data-label="Why it matters">Their schemes would decide what testing must look like in Germany</td>
+                  </tr>
+                  <tr>
+                    <td>Buyers accept AIUC-1 as enough</td>
+                    <td data-label="Why it matters">AIUC-1 already has certified customers and US audit firms selling it</td>
+                  </tr>
+                  <tr>
+                    <td>Platforms bundle testing</td>
+                    <td data-label="Why it matters">Security vendors and AI platforms are buying testing companies (CrowdStrike: Fiddler and Dreadnode; OpenAI: Promptfoo)</td>
+                  </tr>
+                  <tr>
+                    <td>Further delays to AI Act dates</td>
+                    <td data-label="Why it matters">The EU already pushed back the high-risk rules once, in Jul 2026</td>
+                  </tr>
+                  <tr>
+                    <td>Perceived conflict between Aithos and Ascending</td>
+                    <td data-label="Why it matters">If Aithos writes the test regulators use and Ascending sells the tools to pass it, people may question Aithos's independence</td>
+                  </tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="dim" id="reg-research">
+              <h4><span class="n">C</span>Detailed research</h4>
+              <div class="dim-grid">
+                <dl>
+                  <dt>Full write-ups</dt>
+                  <dd>
+                    <ul>
+                      <li><a href="https://claude.ai/artifact/BVArFzzUEjk3iRXbNShsJ2">AI agents in Europe: laws, guidance and standards</a>: full legal research with sources.</li>
+                      <li><a href="https://claude.ai/artifact/HPJ1nY9XdMAQpyRTieZtV7">AI agents in Europe: regulation, standards and the role of behavioural evaluation</a>: earlier brief, with standards, dates and industry detail.</li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>Project notes</dt>
+                  <dd>eu-verticals-finance-health.md, eu-verticals-other-industries.md.</dd>
+                </dl>
+              </div>
+            </article>
+          </section>
+        </div>
       </div>
     </section>
 
@@ -55,6 +787,6 @@
     </div>
   </footer>
 
-  <script src="assets/app.js?v=5"></script>
+  <script src="assets/app.js?v=6"></script>
 </body>
 </html>

@@ -11,7 +11,7 @@ A static research site on the AI evaluation market, shown under the Ascending La
 | Behavior & Compliance Evals (in brief) | `behavior-compliance-evals.html` | Placeholder |
 | Market Map | `market-map.html` | Market map and the list of companies we look at, embedded |
 | Methodology | `methodology.html` | Two tabs (AI Control Value Levers, Evaluation Framework) |
-| AI Regulation in Europe | `ai-regulation-europe.html` | Placeholder |
+| AI Regulation in Europe | `ai-regulation-europe.html` | Research note: summary, rules, industries, LARA and the market, appendix |
 
 The header and footer are repeated in every page, so a nav change means editing all six files. The "in brief" icon is the `brief` span next to the two nav labels.
 
