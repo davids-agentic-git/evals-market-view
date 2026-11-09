@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>Methodology · Evals Market View</title>
-  <meta name="description" content="How the Evals Market View is researched: AI Control archetypes and the evaluation framework.">
+  <meta name="description" content="How the Evals Market View is researched: the AI Control Value Levers and the Evaluation Framework.">
   <meta property="og:title" content="Methodology · Evals Market View">
-  <meta property="og:description" content="How the Evals Market View is researched: AI Control archetypes and the evaluation framework.">
+  <meta property="og:description" content="How the Evals Market View is researched: the AI Control Value Levers and the Evaluation Framework.">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141719'/%3E%3Cpath d='M9 9h14M9 16h10M9 23h14' stroke='%23fff' stroke-width='3'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500&display=swap">
-  <link rel="stylesheet" href="assets/style.css?v=3">
+  <link rel="stylesheet" href="assets/style.css?v=4">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -37,25 +37,210 @@
       <div class="wrap">
         <span class="tag">Methodology</span>
         <h1>How this is researched</h1>
-        <p class="lead">The two ideas the view is built on: archetypes of AI control, and a framework for comparing evaluation.</p>
+        <p class="lead">The two ideas the view is built on: the AI Control Value Levers, and the Evaluation Framework for comparing evaluation.</p>
       </div>
     </section>
     <section class="band">
       <div class="wrap">
         <div class="tabs" role="tablist" aria-label="Methodology">
-          <button class="tab" role="tab" id="tab-archetypes" data-tab="archetypes" aria-controls="panel-archetypes" aria-selected="true">AI Control archetypes</button>
-          <button class="tab" role="tab" id="tab-framework" data-tab="framework" aria-controls="panel-framework" aria-selected="false" tabindex="-1">Evaluation framework</button>
+          <button class="tab" role="tab" id="tab-value-levers" data-tab="value-levers" aria-controls="panel-value-levers" aria-selected="true">AI Control Value Levers</button>
+          <button class="tab" role="tab" id="tab-framework" data-tab="framework" aria-controls="panel-framework" aria-selected="false" tabindex="-1">Evaluation Framework</button>
         </div>
 
-        <div class="tabpanel" role="tabpanel" id="panel-archetypes" aria-labelledby="tab-archetypes">
-          <h2>AI Control archetypes</h2>
-          <p class="intro">This tab will set out the archetypes used to group AI control products.</p>
-          <div class="empty"><strong>Not published yet.</strong>The archetypes will be described here once they are final.</div>
+        <div class="tabpanel" role="tabpanel" id="panel-value-levers" aria-labelledby="tab-value-levers">
+          <h2>AI Control Value Levers</h2>
+          <p class="intro">The AI Control Value Levers describe what an AI evaluation and assurance product is sold for. There are five: Govern, Test, Observe and prove, Control and enforce, and Assure and insure. Each company is scored from 0 to 3 on every lever, by its focus: what the offering mainly consists of, not everything it offers.</p>
+          <div class="prose">
+            <p>A score of 2 or 3 counts as high on a lever; 0 and 1 do not. The levers say where in the lifecycle a product acts. The four dimensions of the <a href="#framework">Evaluation Framework</a> say what it checks, and every company is scored on both.</p>
+            <p class="status"><strong>Status:</strong> the version used to score the company list, 6 November 2026.</p>
+            <nav class="toc" aria-label="On this page">
+              <a href="#vl-glance"><span class="n">1</span>At a glance</a>
+              <a href="#lever-govern"><span class="n">2.1</span>Govern</a>
+              <a href="#lever-test"><span class="n">2.2</span>Test</a>
+              <a href="#lever-observe"><span class="n">2.3</span>Observe and prove</a>
+              <a href="#lever-control"><span class="n">2.4</span>Control and enforce</a>
+              <a href="#lever-assure"><span class="n">2.5</span>Assure and insure</a>
+              <a href="#vl-scoring"><span class="n">3</span>How a company is scored</a>
+            </nav>
+
+            <section class="fw-sec" id="vl-glance">
+              <h3><span class="n">1</span>The five value levers at a glance</h3>
+              <p>Each lever is defined by what it does with an AI system and where it acts. Section 2 gives every lever in full, and section 3 explains how a company is scored.</p>
+              <table class="dim-table">
+                <colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup>
+                <thead>
+                  <tr><th scope="col">Value lever</th><th scope="col">In one line</th><th scope="col">Where it acts</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="Value lever"><a href="#lever-govern">Govern</a></td>
+                    <td data-label="In one line">Keeps a register of a company's AI systems and agents and sets what each may do.</td>
+                    <td data-label="Where it acts">On records: it decides and records, and does not enforce at run time</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Value lever"><a href="#lever-test">Test</a></td>
+                    <td data-label="In one line">Probes an AI system with inputs the product creates or holds, separate from real user traffic, and scores the responses against criteria.</td>
+                    <td data-label="Where it acts">Before release, in a build pipeline or on a schedule, on its own inputs</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Value lever"><a href="#lever-observe">Observe and prove</a></td>
+                    <td data-label="In one line">Turns what live systems actually did for real users into measurements, scores, reports and records.</td>
+                    <td data-label="Where it acts">On live activity, after the fact: it describes the past and does not change the outcome</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Value lever"><a href="#lever-control">Control and enforce</a></td>
+                    <td data-label="In one line">Sits in the live path and changes what happens before an action completes.</td>
+                    <td data-label="Where it acts">In the live path, before the action completes: it acts, and does not only report</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Value lever"><a href="#lever-assure">Assure and insure</a></td>
+                    <td data-label="In one line">Gives people outside the AI's owner a result about the AI system that they can rely on, or moves the loss to a third party.</td>
+                    <td data-label="Where it acts">Outside the AI's owner: a result issued by another party, or a loss carried by one</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section class="fw-sec" id="vl-definitions">
+              <h3><span class="n">2</span>The definitions in full</h3>
+              <p>Each lever states what it covers, what it does not, and what its scores mean. The scoring rules that apply to all five levers are in section 3.</p>
+
+              <article class="dim" id="lever-govern">
+                <h4><span class="n">2.1</span>Govern</h4>
+                <p class="dim-lead">Whether a product keeps a register of a company's AI systems and agents and sets what each may do.</p>
+                <div class="dim-grid">
+                  <dl>
+                    <dt>Covers</dt>
+                    <dd>Discovery or a register tied to rules, risk and regulation assessments recorded per system, approvals before a system or action goes ahead, and entitlement records for agent identity. It decides and records; it does not enforce at run time.</dd>
+                    <dt>Does not cover</dt>
+                    <dd>Discovery alone with no rules. A generic compliance checklist not tied to specific AI systems. Enforcing the rules at run time (Control and enforce).</dd>
+                  </dl>
+                  <div>
+                    <p class="label">Score</p>
+                    <ul class="rating">
+                      <li><span class="r s3">Score 3</span><span>A main part and at least two of these cues: automated discovery that feeds the register; risk assessment mapped to regulations; policies and approvals tied to specific systems; re-assessment when a system changes; review of agent entitlements.</span></li>
+                      <li><span class="r s2">Score 2</span><span>A main part of the offering that meets this description on the product's main paths.</span></li>
+                      <li><span class="r s1">Score 1</span><span>Offered but not a main part. Discovery alone scores 1.</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="dim" id="lever-test">
+                <h4><span class="n">2.2</span>Test</h4>
+                <p class="dim-lead">Whether a product probes an AI system with inputs it creates or holds, apart from real user traffic, and scores the responses.</p>
+                <div class="dim-grid">
+                  <dl>
+                    <dt>Covers</dt>
+                    <dd>Evaluation suites, red teaming, agent simulations, bias and regulation test packs, and evidence packs produced from test runs. Responses are scored against criteria for quality, compliance or security. It can run before release, in a build pipeline, on a schedule against the live system, or by outside testers working for the owner.</dd>
+                    <dt>Does not cover</dt>
+                    <dd>Static scans of code, models, prompts or policies. A one-off scan with no scoring. Scoring of real production traffic (Observe and prove).</dd>
+                  </dl>
+                  <div>
+                    <p class="label">Score</p>
+                    <ul class="rating">
+                      <li><span class="r s3">Score 3</span><span>A main part and at least two of these cues: repeatable suites with datasets and version comparison; adversarial testing or agent simulation; domain or regulation test packs; tests that run on every change or continuously and can stop a release.</span></li>
+                      <li><span class="r s2">Score 2</span><span>A main part of the offering that meets this description on the product's main paths.</span></li>
+                      <li><span class="r s1">Score 1</span><span>Offered but not a main part. Static scans score 1.</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="dim" id="lever-observe">
+                <h4><span class="n">2.3</span>Observe and prove</h4>
+                <p class="dim-lead">Whether a product turns what live systems did for real users into measurements, scores, reports and records.</p>
+                <div class="dim-grid">
+                  <dl>
+                    <dt>Covers</dt>
+                    <dd>Production traces with scoring, quality, cost and drift dashboards and alerts, and reports mapped to a regulation. At the top end it adds signed or tamper-evident records and an incident workflow. It describes the past and does not change the outcome.</dd>
+                    <dt>Does not cover</dt>
+                    <dd>Storing logs only. The product's own enforcement decision logs and block counts. Results of test runs (Test). Alerts that block (Control and enforce).</dd>
+                  </dl>
+                  <div>
+                    <p class="label">Score</p>
+                    <ul class="rating">
+                      <li><span class="r s3">Score 3</span><span>A main part and at least two of these cues: scoring of production traffic for quality and compliance; drift and cost scoring; reports mapped to a regulation; signed or tamper-evident records; an incident workflow.</span></li>
+                      <li><span class="r s2">Score 2</span><span>A main part of the offering that meets this description on the product's main paths.</span></li>
+                      <li><span class="r s1">Score 1</span><span>Offered but not a main part. Storing logs only, or the product's own enforcement logs, scores 1.</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="dim" id="lever-control">
+                <h4><span class="n">2.4</span>Control and enforce</h4>
+                <p class="dim-lead">Whether a product sits in the live path and changes what happens before an action completes.</p>
+                <div class="dim-grid">
+                  <dl>
+                    <dt>Covers</dt>
+                    <dd>Gateways, proxies, SDKs, sidecars and approval steps that block, redact, rewrite, reroute or hold a call or action through a stated mechanism. It includes identity-aware checks (authenticating the agent, per-call permission checks, credential brokering) and spend caps that stop calls when a budget is used up. It acts; it does not only report.</dd>
+                    <dt>Does not cover</dt>
+                    <dd>Alerts, dashboards and after-the-fact termination. Warn-only modes. Defining the rules (Govern). A claim of real-time blocking with no stated mechanism.</dd>
+                  </dl>
+                  <div>
+                    <p class="label">Score</p>
+                    <ul class="rating">
+                      <li><span class="r s3">Score 3</span><span>A main part and at least two of these cues: enforcement across the main paths (prompts, tool calls, data, agent-to-agent); decisions that use agent identity, permissions, task history or a baseline; approval steps; a kill switch; a fail-closed option.</span></li>
+                      <li><span class="r s2">Score 2</span><span>A main part of the offering that meets this description on the product's main paths.</span></li>
+                      <li><span class="r s1">Score 1</span><span>Offered but not a main part. Alerts and warn-only modes score 1.</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="dim" id="lever-assure">
+                <h4><span class="n">2.5</span>Assure and insure</h4>
+                <p class="dim-lead">Whether a product gives people outside the AI's owner a result about the AI system that they can rely on, or moves the loss to a third party.</p>
+                <div class="dim-grid">
+                  <dl>
+                    <dt>Covers</dt>
+                    <dd>Two forms. Attestation: a score, report, audit opinion, certificate or trust mark issued by a party other than the one running the AI, including the testing behind another body's certificate and evaluations that a frontier lab publishes with the evaluator named. Risk transfer: insurance, an insured warranty or a guarantee, and brokered placement.</dd>
+                    <dt>Does not cover</dt>
+                    <dd>Reports that only the customer's own team reads. Benchmark scores nobody commissioned. The company's own certifications, such as its own SOC 2 or ISO. The evaluation or test itself (Test): this lever is the vouching on top of it.</dd>
+                  </dl>
+                  <div>
+                    <p class="label">Score</p>
+                    <ul class="rating">
+                      <li><span class="r s3">Score 3</span><span>A main part and at least two of these cues: issued under accreditation or regulatory designation; a published standard or scheme with independent assessors; named parties that rely on the result (insurers, regulators, agencies); a public directory or registry of results; surveillance or re-assessment when the system changes; a bound policy or insured warranty; a named carrier or reinsurer that bears the loss.</span></li>
+                      <li><span class="r s2">Score 2</span><span>A main part of the offering that meets this description on the product's main paths.</span></li>
+                      <li><span class="r s1">Score 1</span><span>Offered but not a main part: evidence made for outsiders but issued by the company's own tool, or an offer with nothing bound or no independent assessor behind it.</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </section>
+
+            <section class="fw-sec" id="vl-scoring">
+              <h3><span class="n">3</span>How a company is scored</h3>
+              <p>Every company is scored on the depth scale below for each of the five levers. The scores follow the focus of the offering: what it mainly consists of, not everything it offers.</p>
+              <p class="label">The depth scale</p>
+              <ul class="rating">
+                <li><span class="r s3">Score 3</span><span><strong>Main part and leading.</strong> A main part of the offering and at least two of the lever's cues, listed with each lever in section 2.</span></li>
+                <li><span class="r s2">Score 2</span><span><strong>Main part.</strong> A main part of the offering that meets the lever's description on the product's main paths.</span></li>
+                <li><span class="r s1">Score 1</span><span><strong>Supporting.</strong> Offered but not a main part: a feature, a beta or announced offer, logs or static scans only.</span></li>
+                <li><span class="r s0">Score 0</span><span><strong>None.</strong> Not offered.</span></li>
+              </ul>
+              <p class="note">A score of 2 or 3 counts as high on a lever; 0 and 1 do not.</p>
+
+              <p class="label">The scoring rules</p>
+              <ul class="rules labelled">
+                <li><strong>Prominence decides</strong><span>A function that is a main part of the offering scores 2 or 3. One offered as a secondary feature or an add-on scores 1. Mentioning a function, or a long feature list, does not make it a main part.</span></li>
+                <li><strong>Evolution</strong><span>Test, Observe and prove, and Control and enforce are treated as an evolution. A company usually has one home among them and scores 1 on the earlier functions it offers as supporting features.</span></li>
+                <li><strong>Two highs</strong><span>A company is high on two of the three only when the two have equal prominence: testing and production scoring as the two halves of one product, or two named pillars such as red teaming and runtime guardrails. A suite that strings functions in a pipeline is not a tie.</span></li>
+                <li><strong>Independent levers</strong><span>Govern and Assure and insure are scored independently of the other three.</span></li>
+                <li><strong>Lower score when in doubt</strong><span>Where two readers could disagree on how prominent a function is, the lower score is used.</span></li>
+                <li><strong>A mechanism is required</strong><span>Every 2 or 3 needs a stated mechanism. A claim such as "real-time protection" without one scores at most 1.</span></li>
+                <li><strong>Beta and announced offers</strong><span>A capability in private beta, preview, early access or "coming soon" scores 1.</span></li>
+                <li><strong>One feature, one lever</strong><span>Defining rules is Govern, checking them at run time is Control and enforce, and logging the check is at most Observe and prove 1.</span></li>
+              </ul>
+            </section>
+          </div>
         </div>
 
         <div class="tabpanel" role="tabpanel" id="panel-framework" aria-labelledby="tab-framework" hidden>
-          <h2>Evaluation framework</h2>
-          <p class="intro">The framework separates what a product evaluates into four dimensions: Output quality, Cost and performance, Security, and Behavior and compliance. Each company is rated yes, partly or no on each dimension, based on what its published pages show.</p>
+          <h2>Evaluation Framework</h2>
+          <p class="intro">The Evaluation Framework separates what a product evaluates into four dimensions: Output quality, Cost and performance, Security, and Behavior and compliance. Each company is rated yes, partly or no on each dimension, based on what its published pages show.</p>
           <div class="prose">
             <p>It describes what is evaluated, not when: the same dimension can be checked before release, on production traffic or in the live path. Section 3 sets out the test that decides which dimension a failure belongs to.</p>
             <p class="status"><strong>Status:</strong> guiding framework, 9 November 2026.</p>
@@ -200,7 +385,7 @@
                 <li><span>A failure in ordinary use where the conduct breaks a rule</span><strong>Behavior and compliance</strong></li>
               </ul>
               <p><strong>Harmful or toxic content</strong> is judged by this test. Produced by an attack, or filtered by a guardrail whose purpose is to stop misuse, it is Security. Measured against a defined content or conduct policy in ordinary use, as its own named test pack or evaluator, it is Behavior and compliance.</p>
-              <p>The dimensions are independent of the AI Control categories (Govern, Test, Observe and prove, Control and enforce, Assure and insure): the same dimension can be checked before release (Test), on production traffic (Observe and prove) or in the live path (Control and enforce).</p>
+              <p>The dimensions are independent of the <a href="#value-levers">AI Control Value Levers</a> (Govern, Test, Observe and prove, Control and enforce, Assure and insure): the same dimension can be checked before release (Test), on production traffic (Observe and prove) or in the live path (Control and enforce).</p>
             </section>
           </div>
         </div>
@@ -216,6 +401,6 @@
     </div>
   </footer>
 
-  <script src="assets/app.js?v=3"></script>
+  <script src="assets/app.js?v=4"></script>
 </body>
 </html>

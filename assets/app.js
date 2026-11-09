@@ -38,13 +38,22 @@
         select(tabs[(next + tabs.length) % tabs.length], { focus: true });
       });
     });
-    // A link to a section inside a tab (for example #dim-security) opens that tab and scrolls to the section.
-    const target = location.hash.length > 1 ? document.getElementById(decodeURIComponent(location.hash.slice(1))) : null;
-    const owner = target && target.closest('[role="tabpanel"]');
-    const fromHash = tabs.find((t) => t.dataset.tab === location.hash.slice(1))
-      || (owner && tabs.find((t) => t.getAttribute('aria-controls') === owner.id));
-    select(fromHash || tabs[0], { updateHash: false });
-    if (owner && fromHash) target.scrollIntoView({ behavior: 'instant' });
+    // A link to a tab (#framework) or to a section inside one (#dim-security) opens that tab, on load and when
+    // the hash changes. Links within the open tab are left to the browser.
+    const fromHash = (initial) => {
+      const id = decodeURIComponent(location.hash.slice(1));
+      const target = id ? document.getElementById(id) : null;
+      const owner = target && target.closest('[role="tabpanel"]');
+      const tab = tabs.find((t) => t.dataset.tab === id)
+        || (owner && tabs.find((t) => t.getAttribute('aria-controls') === owner.id));
+      if (!tab) { if (initial) select(tabs[0], { updateHash: false }); return; }
+      if (!initial && tab.getAttribute('aria-selected') === 'true') return;
+      select(tab, { updateHash: false });
+      if (owner) target.scrollIntoView({ behavior: 'instant' });
+      else if (!initial) list.scrollIntoView({ behavior: 'instant' });
+    };
+    fromHash(true);
+    window.addEventListener('hashchange', () => fromHash(false));
   });
 
   // Optional settings
