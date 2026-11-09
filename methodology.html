@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500&display=swap">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/style.css?v=3">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -55,83 +55,153 @@
 
         <div class="tabpanel" role="tabpanel" id="panel-framework" aria-labelledby="tab-framework" hidden>
           <h2>Evaluation framework</h2>
-          <p class="intro">The four dimensions used to compare what each company evaluates, and the test that tells them apart.</p>
+          <p class="intro">The framework separates what a product evaluates into four dimensions: Output quality, Cost and performance, Security, and Behavior and compliance. Each company is rated yes, partly or no on each dimension, based on what its published pages show.</p>
           <div class="prose">
-            <p class="status"><strong>Status:</strong> this is our guiding framework for differentiating evals (9 November 2026).</p>
+            <p>It describes what is evaluated, not when: the same dimension can be checked before release, on production traffic or in the live path. Section 3 sets out the test that decides which dimension a failure belongs to.</p>
+            <p class="status"><strong>Status:</strong> guiding framework, 9 November 2026.</p>
+            <nav class="toc" aria-label="On this page">
+              <a href="#fw-glance"><span class="n">1</span>At a glance</a>
+              <a href="#dim-quality"><span class="n">2.1</span>Output quality</a>
+              <a href="#dim-cost"><span class="n">2.2</span>Cost and performance</a>
+              <a href="#dim-security"><span class="n">2.3</span>Security</a>
+              <a href="#dim-compliance"><span class="n">2.4</span>Behavior and compliance</a>
+              <a href="#fw-context"><span class="n">3</span>The context test</a>
+            </nav>
 
-            <h3>1. The four dimensions at a glance</h3>
-            <div class="table-wrap">
-              <table>
+            <section class="fw-sec" id="fw-glance">
+              <h3><span class="n">1</span>The four dimensions at a glance</h3>
+              <p>Each dimension is defined by what it evaluates and the kind of failure it looks for. Section 3 explains how a failure is assigned to a dimension.</p>
+              <table class="dim-table">
+                <colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup>
                 <thead>
-                  <tr><th scope="col">Dimension</th><th scope="col">In one line</th><th scope="col">The failure it looks for (context test, section 3)</th></tr>
+                  <tr><th scope="col">Dimension</th><th scope="col">In one line</th><th scope="col">The failure it looks for</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td><strong>Output quality</strong></td><td>Correct and useful outputs in ordinary use, measured as its own test type (accuracy, groundedness, task success).</td><td>An output that is wrong or not useful, in ordinary use</td></tr>
-                  <tr><td><strong>Cost and performance</strong></td><td>Spend, tokens, latency and routing.</td><td>Not covered by the context test</td></tr>
-                  <tr><td><strong>Security</strong></td><td>Attacks and abuse and the data exposure they cause: prompt injection, jailbreaks, leakage, tool and permission abuse, supply chain, rogue agents.</td><td>A failure that occurs only when someone attacks or misuses the system, or when sensitive data leaves it</td></tr>
-                  <tr><td><strong>Behavior and compliance</strong></td><td>Conduct (outputs, decisions, behaviour) judged against a regulation, standard, fairness requirement or the customer's own content or conduct policy, with conformance reported. Security tests mapped to frameworks and attack-related content filters do not count.</td><td>Conduct that breaks a rule, in ordinary use</td></tr>
+                  <tr>
+                    <td data-label="Dimension"><a href="#dim-quality">Output quality</a></td>
+                    <td data-label="In one line">Correct and useful outputs in ordinary use, measured as its own test type (accuracy, groundedness, task success).</td>
+                    <td data-label="The failure it looks for">An output that is wrong or not useful, in ordinary use</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Dimension"><a href="#dim-cost">Cost and performance</a></td>
+                    <td data-label="In one line">Spend, tokens, latency and routing.</td>
+                    <td data-label="The failure it looks for">Not covered by the context test</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Dimension"><a href="#dim-security">Security</a></td>
+                    <td data-label="In one line">Attacks and abuse and the data exposure they cause: prompt injection, jailbreaks, leakage, tool and permission abuse, supply chain, rogue agents.</td>
+                    <td data-label="The failure it looks for">A failure that occurs only when someone attacks or misuses the system, or when sensitive data leaves it</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Dimension"><a href="#dim-compliance">Behavior and compliance</a></td>
+                    <td data-label="In one line">Conduct (outputs, decisions, behaviour) judged against a regulation, standard, fairness requirement or the customer's own content or conduct policy, with conformance reported. Security tests mapped to frameworks and attack-related content filters do not count.</td>
+                    <td data-label="The failure it looks for">Conduct that breaks a rule, in ordinary use</td>
+                  </tr>
                 </tbody>
               </table>
-            </div>
+            </section>
 
-            <h3>2. The definitions in full</h3>
-            <p>The yes / partly / no notes apply one rating scale to each dimension. Dimension-specific rules exist only for Security and for the "separate named module" requirement on Output quality and Behavior and compliance.</p>
+            <section class="fw-sec" id="fw-definitions">
+              <h3><span class="n">2</span>The definitions in full</h3>
+              <p>Each dimension states what it covers, what it does not, and how it is rated on one yes / partly / no scale. Dimension-specific rating rules exist only for Security and for the "separate named module" requirement on Output quality and Behavior and compliance.</p>
 
-            <h4>2.1 Output quality</h4>
-            <ul>
-              <li><strong>Covers:</strong> Whether outputs, answers or actions are correct and useful in ordinary use, measured as its own test type with scores or metrics: accuracy, groundedness and faithfulness, hallucination, relevance, consistency, task success, and performance and stability tests in model validation.</li>
-              <li><strong>Does not cover:</strong> Attacks and leakage (Security), conduct against a rule (Behavior and compliance), spend and latency (Cost and performance). Hallucination, off-topic or unsafe-output probes that are items in an attack catalogue or in a guardrail's detector list.</li>
-              <li><strong>Rating notes:</strong>
-                <ul>
-                  <li><strong>yes:</strong> a main part of the product evaluates correctness or usefulness as its own test type, and the pages name the criteria, checks, metrics or test types.</li>
-                  <li><strong>partly:</strong> a supporting or limited check, a claim without named criteria, or only part of the product (a beta, one surface). It needs a separate named module or test type for output quality.</li>
-                  <li><strong>no:</strong> not evaluated, no evidence on the pages, or only one item in a risk list, taxonomy or detector list of a security product.</li>
-                </ul>
-              </li>
-            </ul>
+              <article class="dim" id="dim-quality">
+                <h4><span class="n">2.1</span>Output quality</h4>
+                <p class="dim-lead">Whether a product checks that outputs are correct and useful in ordinary use, as a test type of its own.</p>
+                <div class="dim-grid">
+                  <dl>
+                    <dt>Covers</dt>
+                    <dd>Whether outputs, answers or actions are correct and useful in ordinary use, measured as its own test type with scores or metrics: accuracy, groundedness and faithfulness, hallucination, relevance, consistency, task success, and performance and stability tests in model validation.</dd>
+                    <dt>Does not cover</dt>
+                    <dd>Attacks and leakage (Security), conduct against a rule (Behavior and compliance), spend and latency (Cost and performance). Hallucination, off-topic or unsafe-output probes that are items in an attack catalogue or in a guardrail's detector list.</dd>
+                  </dl>
+                  <div>
+                    <p class="label">Rating</p>
+                    <ul class="rating">
+                      <li><span class="r yes">Yes</span><span>A main part of the product evaluates correctness or usefulness as its own test type, and the pages name the criteria, checks, metrics or test types.</span></li>
+                      <li><span class="r partly">Partly</span><span>A supporting or limited check, a claim without named criteria, or only part of the product (a beta, one surface). It needs a separate named module or test type for output quality.</span></li>
+                      <li><span class="r no">No</span><span>Not evaluated, no evidence on the pages, or only one item in a risk list, taxonomy or detector list of a security product.</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
 
-            <h4>2.2 Cost and performance</h4>
-            <ul>
-              <li><strong>Covers:</strong> Spend, tokens, latency, budgets, model or prompt choice and routing.</li>
-              <li><strong>Does not cover:</strong> Quality of the outputs themselves.</li>
-              <li><strong>Rating notes</strong> (no cost-specific rule is written; this is the general scale):
-                <ul>
-                  <li><strong>yes:</strong> a main part of the product evaluates spend, tokens, latency or routing, and the pages name the criteria, checks or metrics.</li>
-                  <li><strong>partly:</strong> a supporting or limited check, a claim without named criteria, or only part of the product (a beta, one surface).</li>
-                  <li><strong>no:</strong> not evaluated, or no evidence on the pages.</li>
-                </ul>
-              </li>
-            </ul>
+              <article class="dim" id="dim-cost">
+                <h4><span class="n">2.2</span>Cost and performance</h4>
+                <p class="dim-lead">Whether a product measures what it costs to run: spend, tokens, latency, and the choice of model or prompt.</p>
+                <div class="dim-grid">
+                  <dl>
+                    <dt>Covers</dt>
+                    <dd>Spend, tokens, latency, budgets, model or prompt choice and routing.</dd>
+                    <dt>Does not cover</dt>
+                    <dd>Quality of the outputs themselves.</dd>
+                  </dl>
+                  <div>
+                    <p class="label">Rating</p>
+                    <ul class="rating">
+                      <li><span class="r yes">Yes</span><span>A main part of the product evaluates spend, tokens, latency or routing, and the pages name the criteria, checks or metrics.</span></li>
+                      <li><span class="r partly">Partly</span><span>A supporting or limited check, a claim without named criteria, or only part of the product (a beta, one surface).</span></li>
+                      <li><span class="r no">No</span><span>Not evaluated, or no evidence on the pages.</span></li>
+                    </ul>
+                    <p class="note">No cost-specific rule is written; this is the general scale.</p>
+                  </div>
+                </div>
+              </article>
 
-            <h4>2.3 Security</h4>
-            <ul>
-              <li><strong>Covers:</strong> Attacks and abuse of AI systems and the data exposure they cause: prompt injection, jailbreaks, data leakage and PII exposure, tool and permission abuse, supply-chain compromise of models and agent tools, rogue or anomalous agent behaviour, and harmful or toxic output filtered as protection against misuse. Mapping security findings to a framework, standard or regulation is security reporting.</li>
-              <li><strong>Does not cover:</strong> Governance records such as inventory, owners and entitlements (Govern). The correctness of ordinary outputs (Output quality) and conduct against a rule in ordinary use (Behavior and compliance).</li>
-              <li><strong>Rating notes:</strong>
-                <ul>
-                  <li><strong>yes:</strong> a main part of the product tests or enforces against named attack classes, a catalogue or a framework.</li>
-                  <li><strong>partly:</strong> security is a supporting feature, is claimed without a stated mechanism or catalogue, or is limited to inventory or posture (AI-SPM, AI-BOM) without testing or enforcement.</li>
-                  <li><strong>no:</strong> not evaluated, or no evidence on the pages.</li>
-                </ul>
-              </li>
-            </ul>
+              <article class="dim" id="dim-security">
+                <h4><span class="n">2.3</span>Security</h4>
+                <p class="dim-lead">Whether a product tests or enforces against attacks and abuse of AI systems, and the data exposure they cause.</p>
+                <div class="dim-grid">
+                  <dl>
+                    <dt>Covers</dt>
+                    <dd>Attacks and abuse of AI systems and the data exposure they cause: prompt injection, jailbreaks, data leakage and PII exposure, tool and permission abuse, supply-chain compromise of models and agent tools, rogue or anomalous agent behaviour, and harmful or toxic output filtered as protection against misuse. Mapping security findings to a framework, standard or regulation is security reporting.</dd>
+                    <dt>Does not cover</dt>
+                    <dd>Governance records such as inventory, owners and entitlements (Govern). The correctness of ordinary outputs (Output quality) and conduct against a rule in ordinary use (Behavior and compliance).</dd>
+                  </dl>
+                  <div>
+                    <p class="label">Rating</p>
+                    <ul class="rating">
+                      <li><span class="r yes">Yes</span><span>A main part of the product tests or enforces against named attack classes, a catalogue or a framework.</span></li>
+                      <li><span class="r partly">Partly</span><span>Security is a supporting feature, is claimed without a stated mechanism or catalogue, or is limited to inventory or posture (AI-SPM, AI-BOM) without testing or enforcement.</span></li>
+                      <li><span class="r no">No</span><span>Not evaluated, or no evidence on the pages.</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
 
-            <h4>2.4 Behavior and compliance</h4>
-            <ul>
-              <li><strong>Covers:</strong> Whether the conduct of the system, meaning its outputs, decisions or behaviour, meets a rule, and the product reports conformance as a named function: a regulation (for example the EU AI Act, ECOA/Reg B, SR 11-7), a standard, a fairness requirement, or the customer's own content or conduct policy (allowed topics, tone, required disclosures, brand rules, harm categories tested in ordinary use). For governance products it also covers assessing AI systems against a regulation as the main evaluation.</li>
-              <li><strong>Does not cover:</strong> Content moderation (toxic, harmful, unsafe) and PII, PCI or PHI leak detection inside a guardrail against attack, misuse or data loss. Any security test or guardrail whose findings are mapped or reported against a framework, standard or regulation, such as OWASP, MITRE, NIST, ISO, the EU AI Act, DORA or HIPAA: that is security reporting. Correctness of answers (Output quality).</li>
-              <li><strong>Rating notes:</strong>
-                <ul>
-                  <li><strong>yes:</strong> a main part of the product judges conduct against a rule and reports conformance as a named function, and the pages name the criteria, standards or test types.</li>
-                  <li><strong>partly:</strong> a supporting or limited check, a claim without named criteria, or only part of the product (a beta, one surface). It needs a separate named module or test type for conduct and compliance.</li>
-                  <li><strong>no:</strong> not evaluated, no evidence on the pages, or only one item in a risk list, taxonomy or detector list of a security product. A governance register that only records is not an evaluation of any dimension.</li>
-                </ul>
-              </li>
-            </ul>
+              <article class="dim" id="dim-compliance">
+                <h4><span class="n">2.4</span>Behavior and compliance</h4>
+                <p class="dim-lead">Whether a product judges the system's conduct against a rule and reports whether it conforms: a regulation, a standard, a fairness requirement or the customer's own policy.</p>
+                <div class="dim-grid">
+                  <dl>
+                    <dt>Covers</dt>
+                    <dd>Whether the conduct of the system, meaning its outputs, decisions or behaviour, meets a rule, and the product reports conformance as a named function: a regulation (for example the EU AI Act, ECOA/Reg B, SR 11-7), a standard, a fairness requirement, or the customer's own content or conduct policy (allowed topics, tone, required disclosures, brand rules, harm categories tested in ordinary use). For governance products it also covers assessing AI systems against a regulation as the main evaluation.</dd>
+                    <dt>Does not cover</dt>
+                    <dd>Content moderation (toxic, harmful, unsafe) and PII, PCI or PHI leak detection inside a guardrail against attack, misuse or data loss. Any security test or guardrail whose findings are mapped or reported against a framework, standard or regulation, such as OWASP, MITRE, NIST, ISO, the EU AI Act, DORA or HIPAA: that is security reporting. Correctness of answers (Output quality).</dd>
+                  </dl>
+                  <div>
+                    <p class="label">Rating</p>
+                    <ul class="rating">
+                      <li><span class="r yes">Yes</span><span>A main part of the product judges conduct against a rule and reports conformance as a named function, and the pages name the criteria, standards or test types.</span></li>
+                      <li><span class="r partly">Partly</span><span>A supporting or limited check, a claim without named criteria, or only part of the product (a beta, one surface). It needs a separate named module or test type for conduct and compliance.</span></li>
+                      <li><span class="r no">No</span><span>Not evaluated, no evidence on the pages, or only one item in a risk list, taxonomy or detector list of a security product. A governance register that only records is not an evaluation of any dimension.</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </section>
 
-            <h3>3. The context test</h3>
-            <blockquote>The dimensions are told apart by the situation in which the failure occurs, not by the topic. A failure that occurs only when someone attacks or misuses the system, or when sensitive data leaves it, is <strong>Security</strong>. A failure that occurs in ordinary use is <strong>Output quality</strong> when the output is wrong or not useful, and <strong>Behavior and compliance</strong> when the conduct breaks a rule. Harmful or toxic content is judged by this test: produced by an attack, or filtered by a guardrail whose purpose is to stop misuse, it is Security; measured against a defined content or conduct policy in ordinary use, as its own named test pack or evaluator, it is Behavior and compliance.</blockquote>
-            <p>The dimensions are independent of the AI Control categories (Govern, Test, Observe and prove, Control and enforce, Assure and insure): the same dimension can be checked before release (Test), on production traffic (Observe and prove) or in the live path (Control and enforce).</p>
+            <section class="fw-sec" id="fw-context">
+              <h3><span class="n">3</span>The context test</h3>
+              <p>Some failures could belong to more than one dimension, harmful or toxic content for example. The dimensions are told apart by the situation in which the failure occurs, not by the topic.</p>
+              <ul class="rules">
+                <li><span>A failure that occurs only when someone attacks or misuses the system, or when sensitive data leaves it</span><strong>Security</strong></li>
+                <li><span>A failure in ordinary use where the output is wrong or not useful</span><strong>Output quality</strong></li>
+                <li><span>A failure in ordinary use where the conduct breaks a rule</span><strong>Behavior and compliance</strong></li>
+              </ul>
+              <p><strong>Harmful or toxic content</strong> is judged by this test. Produced by an attack, or filtered by a guardrail whose purpose is to stop misuse, it is Security. Measured against a defined content or conduct policy in ordinary use, as its own named test pack or evaluator, it is Behavior and compliance.</p>
+              <p>The dimensions are independent of the AI Control categories (Govern, Test, Observe and prove, Control and enforce, Assure and insure): the same dimension can be checked before release (Test), on production traffic (Observe and prove) or in the live path (Control and enforce).</p>
+            </section>
           </div>
         </div>
       </div>
@@ -146,6 +216,6 @@
     </div>
   </footer>
 
-  <script src="assets/app.js"></script>
+  <script src="assets/app.js?v=3"></script>
 </body>
 </html>

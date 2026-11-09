@@ -38,8 +38,13 @@
         select(tabs[(next + tabs.length) % tabs.length], { focus: true });
       });
     });
-    const fromHash = tabs.find((t) => t.dataset.tab === location.hash.slice(1));
+    // A link to a section inside a tab (for example #dim-security) opens that tab and scrolls to the section.
+    const target = location.hash.length > 1 ? document.getElementById(decodeURIComponent(location.hash.slice(1))) : null;
+    const owner = target && target.closest('[role="tabpanel"]');
+    const fromHash = tabs.find((t) => t.dataset.tab === location.hash.slice(1))
+      || (owner && tabs.find((t) => t.getAttribute('aria-controls') === owner.id));
     select(fromHash || tabs[0], { updateHash: false });
+    if (owner && fromHash) target.scrollIntoView({ behavior: 'instant' });
   });
 
   // Optional settings
