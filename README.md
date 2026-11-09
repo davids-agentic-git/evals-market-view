@@ -22,7 +22,7 @@ The header and footer are repeated in every page, so a nav change means editing 
 - `assets/market-maps.html`: the product-cluster map, with its filters. The chip highlights (core, potential, not assessed, Tech benchmark) are read from the list's assessments, which the list keeps in the browser's local storage under `fw_v2`, and update when they change; Europe-based comes from the HQ column of the list. The map has filters for stage, scope, Value Lever and Evaluation; the list has the same filter design, with filters for cluster, stage, scope, Value Lever and Evaluation.
 - `assets/companies.html`: the list of companies we look at, by product cluster, with search and filters.
 
-They are self-contained files and also open on their own through the "full page" links. They are the original working documents, including the reviewer comments, per-person assessments and go-to-market flags. The only edit is the label "Tier A", renamed "Companies we look at". Notes a visitor adds in the list are saved in that visitor's own browser only.
+They are self-contained files and also open on their own through the "full page" links. They are the original working documents, including the reviewer comments, per-person assessments and go-to-market flags. The only edit is the label "Tier A", renamed "Companies we look at". Notes a visitor adds in the list are saved in that visitor's own browser only. To share them, a visitor adds their name and presses "Download input (and share with David)", which saves a JSON file with only their own input, and sends the file to David. Open `assets/companies.html#admin` to see the team names and the "Load input" button for merging files; its confirm dialog names which people's input would be replaced.
 
 ## Settings
 
