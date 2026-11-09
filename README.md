@@ -28,6 +28,18 @@ They are self-contained files and also open on their own through the "full page"
 
 `data/site.json`: `snapshot` is the date label in the footer, `github` is the repository URL that shows the footer link.
 
+## Password
+
+Every page asks for a password (`assets/gate.js`). The check runs in the visitor's browser, so it keeps casual visitors out but it is not security: the repository is public and the pages are plain files, so anyone who reads the repository or a page's source can get at the content. Real protection needs a private repository and a host with server-side password protection.
+
+The password is stored only as a salted PBKDF2 hash. To change it, run this, paste the two values over `SALT` and `HASH` at the top of `assets/gate.js`, and bump `?v=` on the `gate.js` script tags in every page and in the two embedded documents:
+
+```bash
+python -c "import hashlib, os, sys; s = os.urandom(16); print('SALT', s.hex()); print('HASH', hashlib.pbkdf2_hmac('sha256', sys.argv[1].encode(), s, 310000, 32).hex())" "new password"
+```
+
+A visitor stays unlocked in that browser (local storage key `evals-view-access`). The embedded map and list wait for the page around them; opened on their own they show the same prompt. `404.html` and the old `market-map.html` redirect hold no content and are not gated.
+
 ## Preview locally
 
 The pages load a JSON file with `fetch`, so open them through a local server, not from the file system:
