@@ -45,6 +45,7 @@ th.sortable{cursor:pointer;white-space:nowrap}th.sortable:hover{text-decoration:
 .msp input{margin-top:2px}
 .msp .msc{font:inherit;cursor:pointer;padding:5px 8px;display:block;margin:4px 0 0;width:100%;border:0;color:#3b2a8c;text-align:left;background:transparent}
 .msp.dimp{min-width:300px;max-width:430px}
+.msp.atp{width:max-content;min-width:min(460px,calc(100vw - 16px));max-width:min(680px,calc(100vw - 16px));max-height:calc(100vh - 80px)}.msp.atp .dr{align-items:flex-start}.msp.atp .dn{flex:0 0 120px;padding-top:4px}.msp.atp .dv{flex-wrap:wrap;justify-content:flex-start}
 .msp .dr{display:flex;align-items:center;gap:12px;padding:5px 8px}
 .msp .dn{flex:1 1 auto}
 .msp .dv{display:flex;gap:4px;flex:0 0 auto}
@@ -1683,7 +1684,7 @@ function mkDim(id){
  var D=DIMS[id];F[id]={};D.dims.forEach(function(d){F[id][d[0]]=new Set()});
  var w=document.createElement('div');w.className='ms';w.id='ms_'+id;
  var b=document.createElement('button');b.type='button';b.className='msb';b.textContent=D.name+': all';w.appendChild(b);
- var p=document.createElement('div');p.className='msp dimp';p.hidden=true;
+ var p=document.createElement('div');p.className='msp dimp'+(id==='at'?' atp':'');p.hidden=true;
  p.innerHTML=D.dims.map(function(d){return '<div class="dr"><span class="dn">'+esc(d[1])+'</span><span class="dv">'+(d[3]||D.vals).map(function(v){return '<label title="'+esc(v[2])+'"><input type="checkbox" data-d="'+d[0]+'" value="'+esc(v[0])+'"><span>'+esc(v[1])+'</span></label>'}).join('')+'</span></div>'}).join('')+'<button type="button" class="msc">Clear</button>';
  document.body.appendChild(p);w._p=p;$('ph_'+id).replaceWith(w);
  function upd(){b.textContent=dimLabel(id);b.classList.toggle('sel',D.dims.some(function(d){return F[id][d[0]].size>0}))}
