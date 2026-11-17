@@ -1,5 +1,5 @@
-/* Market Map and Company Assessment pages: the heading, intro and link above the embedded document. */
-.scan h2 { max-width: none; font-size: clamp(24px, 3vw, 34px); margin-bottom: 14px; }
-.scan > .intro { max-width: 46em; margin: 0 0 18px; }
-.scan .section-bar { margin-bottom: 12px; }
-.embed { background: var(--bg); }
+/* Market Map and Company Assessment: the standalone view fills the window under the site header. */
+body.fullview { display: flex; flex-direction: column; height: 100vh; height: 100dvh; overflow: hidden; }
+.fullview .site-header { flex: none; }
+.fullview-main { flex: 1; min-height: 0; }
+.fullview-frame { display: block; width: 100%; height: 100%; border: 0; background: var(--bg); }

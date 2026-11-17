@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>Methodology · Evals Market View</title>
-  <meta name="description" content="How the Evals Market View is researched: the AI Control Value Levers and the Evaluation Framework.">
+  <meta name="description" content="How the Evals Market View is researched: the AI Control Value Levers, the Evaluation Framework and the Market Scan.">
   <meta property="og:title" content="Methodology · Evals Market View">
-  <meta property="og:description" content="How the Evals Market View is researched: the AI Control Value Levers and the Evaluation Framework.">
+  <meta property="og:description" content="How the Evals Market View is researched: the AI Control Value Levers, the Evaluation Framework and the Market Scan.">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141719'/%3E%3Cpath d='M9 9h14M9 16h10M9 23h14' stroke='%23fff' stroke-width='3'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,6 +51,7 @@
         <div class="tabs" role="tablist" aria-label="Methodology">
           <button class="tab" role="tab" id="tab-value-levers" data-tab="value-levers" aria-controls="panel-value-levers" aria-selected="true">AI Control Value Levers</button>
           <button class="tab" role="tab" id="tab-framework" data-tab="framework" aria-controls="panel-framework" aria-selected="false" tabindex="-1">Evaluation Framework</button>
+          <button class="tab" role="tab" id="tab-market-scan" data-tab="market-scan" aria-controls="panel-market-scan" aria-selected="false" tabindex="-1">Market Scan</button>
         </div>
 
         <div class="tabpanel" role="tabpanel" id="panel-value-levers" aria-labelledby="tab-value-levers">
@@ -393,6 +394,18 @@
               <p><strong>Harmful or toxic content</strong> is judged by this test. Produced by an attack, or filtered by a guardrail whose purpose is to stop misuse, it is Security. Measured against a defined content or conduct policy in ordinary use, as its own named test pack or evaluator, it is Behavior and compliance.</p>
               <p>The dimensions are independent of the <a href="#value-levers">AI Control Value Levers</a> (Govern, Test, Observe and prove, Control and enforce, Assure and insure): the same dimension can be checked before release (Test), on production traffic (Observe and prove) or in the live path (Control and enforce).</p>
             </section>
+          </div>
+        </div>
+
+        <div class="tabpanel" role="tabpanel" id="panel-market-scan" aria-labelledby="tab-market-scan" hidden>
+          <h2>Market Scan</h2>
+          <p class="intro">The filtered list of 326 relevant players in the AI control space: the 218 selected from an initial long list of ~500 companies derived from several deep web research runs, plus 108 added from web scans in November 2026 (15 on 16 November, 93 on 17 November, among them Veris AI). All were re-rated on 17 November from independent web research, with peer review of every disagreement and a second validation pass; the 19 product clusters and their four groups (govern, control, test, assure) were redrawn by two agents that agreed on one structure, and every company on the map carries a funding tag.</p>
+          <div class="prose">
+            <p class="label">Market map</p>
+            <p>Every company sits in one product cluster. Chip colours and the Tech benchmark marker follow the assessments on the <a href="company-assessment.html">Company Assessment</a> page, and the tag on each chip is its total funding. Filter by stage, scope, Value Lever (Evaluate, Control, Govern), Evaluation and Attributes.</p>
+            <p class="label" style="margin-top:28px">Company assessment</p>
+            <p>Every company in the view, grouped by product cluster, with its stage, scope, scores on the value levers Evaluate, Control and Govern, and its attributes (audience, accountability, evaluate mode, simulation environment, object tested, benchmark type, public leaderboard). Search and filter inside the list.</p>
+            <p class="status">See it on the <a href="market-map.html">Market Map</a> and <a href="company-assessment.html">Company Assessment</a> pages.</p>
           </div>
         </div>
       </div>

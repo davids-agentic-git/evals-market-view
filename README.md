@@ -6,9 +6,9 @@ A static research site on the AI evaluation market, shown under the Ascending La
 
 | Page | File | Status |
 | --- | --- | --- |
-| Market Map | `market-map.html` | The market map of the relevant players, by product cluster; embeds `assets/market-maps.html` |
-| Company Assessment | `company-assessment.html` | Profile and assessment of every company; embeds `assets/companies.html` |
-| Methodology | `methodology.html` | Two tabs (AI Control Value Levers, Evaluation Framework) |
+| Market Map | `market-map.html` | Full-page view of the market map (`assets/market-maps.html`) under the site header |
+| Company Assessment | `company-assessment.html` | Full-page view of the company list (`assets/companies.html`) under the site header |
+| Methodology | `methodology.html` | Three tabs (AI Control Value Levers, Evaluation Framework, Market Scan) |
 | Insights: AI Regulation in Europe | `ai-regulation-europe.html` | Research note: summary, rules, industries, LARA and the market, appendix |
 | Insights: Behavior & Compliance Evals | `behavior-compliance-evals.html` | Two tabs: rules evaluated against, and the companies |
 | Redirects | `index.html`, `market-scan.html` | Not in the nav. Both go to Market Map; `market-scan.html#assessment` and `#companies` go to Company Assessment |
@@ -17,12 +17,12 @@ The header and footer are repeated in every page, so a nav change means editing 
 
 ## Embedded views
 
-`market-map.html` and `company-assessment.html` each embed one standalone document with an iframe:
+`market-map.html` and `company-assessment.html` each show one standalone document full window, in an iframe that fills the page under the header:
 
 - `assets/market-maps.html`: the product-cluster map, with its filters. The chip highlights (core, potential, not assessed, Tech benchmark) are read from the list's assessments, which the list keeps in the browser's local storage under `fw_v2`, and update when they change; Europe-based comes from the HQ column of the list. The map has filters for stage, scope, Value Lever and Evaluation; the list has the same filter design, with filters for cluster, stage, scope, Value Lever and Evaluation.
 - `assets/companies.html`: the list of companies we look at, by product cluster, with search and filters.
 
-They are self-contained files and also open on their own through the "full page" links. Their look (IBM Plex, warm paper, hairlines, square corners, dark mode) comes from `assets/embed.css`, which both documents link, so they match the Methodology page. `assets/market-scan.css` styles the two pages around them. Each page links its document with a `?v=` number, and `embed.css` has its own; bump them when a document or the stylesheet changes, because GitHub Pages lets browsers cache them for 10 minutes. They are the original working documents, including the reviewer comments, per-person assessments and go-to-market flags. The only edit is the label "Tier A", renamed "Companies we look at". Notes a visitor adds in the list are saved in that visitor's own browser only. To share them, a visitor adds their name and presses "Download input (and share with David)", which saves a JSON file with only their own input, and sends the file to David. All four profiles (David, Lenny, Juan, Consu) are open to everyone. Open `assets/companies.html#admin` to also see the "Load input" button for merging files; its confirm dialog names which people's input would be replaced.
+They are self-contained files and also open on their own at their own address. Their look (IBM Plex, warm paper, hairlines, square corners, dark mode) comes from `assets/embed.css`, which both documents link, so they match the Methodology page. `assets/market-scan.css` makes the two pages fill the window. Each page links its document with a `?v=` number, and `embed.css` has its own; bump them when a document or the stylesheet changes, because GitHub Pages lets browsers cache them for 10 minutes. They are the original working documents, including the reviewer comments, per-person assessments and go-to-market flags. The only edit is the label "Tier A", renamed "Companies we look at". Notes a visitor adds in the list are saved in that visitor's own browser only. To share them, a visitor adds their name and presses "Download input (and share with David)", which saves a JSON file with only their own input, and sends the file to David. All four profiles (David, Lenny, Juan, Consu) are open to everyone. Open `assets/companies.html#admin` to also see the "Load input" button for merging files; its confirm dialog names which people's input would be replaced.
 
 ## Settings
 
