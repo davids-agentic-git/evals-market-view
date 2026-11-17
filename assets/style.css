@@ -55,17 +55,18 @@ a { color: inherit; }
 
 /* Header */
 .site-header { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 94%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--hair); }
-.site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: var(--header-h); gap: 28px; }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: var(--header-h); gap: 28px; max-width: none; margin: 0; }
 .brand { display: flex; align-items: baseline; gap: 12px; text-decoration: none; white-space: nowrap; }
 .brand b { font-weight: 400; font-size: 17px; letter-spacing: -0.005em; }
 .brand span { font-size: 15px; color: var(--muted); padding-left: 12px; border-left: 1px solid var(--hair); }
-.nav { display: flex; align-items: center; gap: 24px; font-size: 14.5px; }
+.nav { --tab-w: 168px; display: flex; align-items: stretch; align-self: stretch; gap: 0; font-size: 14.5px; }
 .nav a { text-decoration: none; color: var(--ink-soft); padding: 6px 0; border-bottom: 1px solid transparent; white-space: nowrap; }
+.nav > a { box-sizing: border-box; width: var(--tab-w); display: flex; align-items: center; justify-content: center; padding: 0 12px; border-bottom: 2px solid transparent; }
 .nav a:hover, .nav a[aria-current="page"] { color: var(--ink-strong); border-bottom-color: currentColor; }
 .menu-btn { display: none; background: none; border: 1px solid var(--hair); color: var(--ink); font: inherit; font-size: 14px; padding: 6px 12px; cursor: pointer; }
 /* Main nav: the Insights drop-down */
-.nav-group { position: relative; padding: 12px 0; margin: -12px 0; }
-.nav-parent { display: inline-flex; align-items: center; gap: 7px; font: inherit; color: var(--ink-soft); background: none; border: 0; border-bottom: 1px solid transparent; padding: 6px 0; cursor: pointer; white-space: nowrap; }
+.nav-group { position: relative; display: flex; }
+.nav-parent { box-sizing: border-box; width: var(--tab-w); display: flex; align-items: center; justify-content: center; gap: 7px; font: inherit; color: var(--ink-soft); background: none; border: 0; border-bottom: 2px solid transparent; padding: 0 12px; cursor: pointer; white-space: nowrap; }
 .nav-parent::after { content: ""; width: 5px; height: 5px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); }
 .nav-parent:hover, .nav-group.open .nav-parent, .nav-parent[aria-current="true"] { color: var(--ink-strong); }
 .nav-parent[aria-current="true"] { border-bottom-color: currentColor; }
@@ -339,13 +340,14 @@ html:has(.tabs) { scroll-padding-top: calc(var(--header-h) + 76px); }
 .site-footer a { color: var(--ink-soft); }
 
 /* Narrow screens: collapse the menu before the nav runs out of room */
-@media (max-width: 840px) {
+@media (max-width: 1080px) {
   .menu-btn { display: inline-block; }
   .nav { display: none; position: absolute; top: var(--header-h); left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: var(--bg); border-bottom: 1px solid var(--hair); padding: 8px var(--gutter) 16px; font-size: 16px; }
   .nav.open { display: flex; }
   .nav a { padding: 12px 0; border-bottom: 1px solid var(--hair); }
-  .nav-group { padding: 0; margin: 0; }
-  .nav-parent { width: 100%; padding: 12px 0; border-bottom: 1px solid var(--hair); color: var(--muted); font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; pointer-events: none; cursor: default; }
+  .nav > a { width: auto; display: block; }
+  .nav-group { display: block; padding: 0; margin: 0; }
+  .nav-parent { width: 100%; justify-content: flex-start; padding: 12px 0; border-bottom: 1px solid var(--hair); color: var(--muted); font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; pointer-events: none; cursor: default; }
   .nav-parent::after { display: none; }
   .nav-sub { display: block; position: static; min-width: 0; padding: 0 0 0 16px; border: 0; box-shadow: none; background: transparent; }
   .nav-sub a { padding: 12px 0; border-bottom: 1px solid var(--hair); }
