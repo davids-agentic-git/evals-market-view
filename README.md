@@ -8,12 +8,15 @@ A static research site on the AI evaluation market, shown under the Ascending La
 | --- | --- | --- |
 | Market Map | `market-map.html` | Full-page view of the market map (`assets/market-maps.html`) under the site header |
 | Company Assessment | `company-assessment.html` | Full-page view of the company list (`assets/companies.html`) under the site header |
-| Methodology | `methodology.html` | Four tabs (Market Scan, Value Levers, Eval Scope, Other Attributes) |
+| Methodology: Market Scan | `methodology-market-scan.html` | Who is in the scan, how each company was rated and checked, the logic behind the clusters, limits |
+| Methodology: Value Levers | `methodology-value-levers.html` | Evaluate, Control, Govern: definitions, rulings, scoring |
+| Methodology: Eval Scope | `methodology-eval-scope.html` | The four evaluation dimensions and their ratings |
+| Methodology: Other Attributes | `methodology-other-attributes.html` | Audience, accountability, evaluate mode, simulation environment, object tested, benchmark |
 | Insights: AI Regulation in Europe | `ai-regulation-europe.html` | Research note: summary, rules, industries, LARA and the market, appendix |
 | Insights: Behavior & Compliance Evals | `behavior-compliance-evals.html` | Two tabs: rules evaluated against, and the companies |
-| Redirects | `index.html`, `market-scan.html` | Not in the nav. Both go to Market Map; `market-scan.html#assessment` and `#companies` go to Company Assessment |
+| Redirects | `index.html`, `market-scan.html`, `methodology.html` | Not in the nav. The first two go to Market Map (`market-scan.html#assessment` and `#companies` go to Company Assessment); `methodology.html` goes to the Methodology page that holds the old tab or section in its `#hash` |
 
-The header and footer are repeated in every page, so a nav change means editing all five pages. The Insights menu is the `nav-group` block; its behaviour is in `assets/app.js`, its look in `assets/style.css`.
+The header and footer are repeated in every page, so a nav change means editing all eight pages. The Methodology and Insights menus are `nav-group` blocks; its behaviour is in `assets/app.js`, its look in `assets/style.css`.
 
 ## Embedded views
 

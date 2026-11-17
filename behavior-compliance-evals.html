@@ -26,7 +26,15 @@
       <nav class="nav" id="nav" aria-label="Main">
         <a href="market-map.html">Market Map</a>
         <a href="company-assessment.html">Company Assessment</a>
-        <a href="methodology.html">Methodology</a>
+        <div class="nav-group">
+          <button class="nav-parent" type="button" aria-expanded="false" aria-controls="nav-methodology">Methodology</button>
+          <div class="nav-sub" id="nav-methodology">
+            <a href="methodology-market-scan.html">Market Scan</a>
+            <a href="methodology-value-levers.html">Value Levers</a>
+            <a href="methodology-eval-scope.html">Eval Scope</a>
+            <a href="methodology-other-attributes.html">Other Attributes</a>
+          </div>
+        </div>
         <div class="nav-group">
           <button class="nav-parent" type="button" aria-expanded="false" aria-controls="nav-insights" aria-current="true">Insights</button>
           <div class="nav-sub" id="nav-insights">
@@ -78,7 +86,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <span>AI Control: Market View · Snapshot: <span data-snapshot>in progress</span></span>
-      <span><a href="methodology.html">Methodology</a> · <a href="#" data-github hidden>GitHub</a></span>
+      <span><a href="methodology-market-scan.html">Methodology</a> · <a href="#" data-github hidden>GitHub</a></span>
     </div>
   </footer>
 

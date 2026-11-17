@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script src="assets/gate.js?v=1"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Methodology: Other Attributes · AI Control: Market View</title>
+  <meta name="description" content="The attributes that say how, for whom and on what an offering works: audience, accountability, evaluate mode, simulation environment, object tested and benchmark.">
+  <meta property="og:title" content="Methodology: Other Attributes · AI Control: Market View">
+  <meta property="og:description" content="The attributes that say how, for whom and on what an offering works: audience, accountability, evaluate mode, simulation environment, object tested and benchmark.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141719'/%3E%3Cpath d='M9 9h14M9 16h10M9 23h14' stroke='%23fff' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="assets/style.css?v=12">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap wide">
+      <a class="brand" href="market-map.html"><b>Ascending Labs</b><span>AI Control: Market View</span></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="market-map.html">Market Map</a>
+        <a href="company-assessment.html">Company Assessment</a>
+        <div class="nav-group">
+          <button class="nav-parent" type="button" aria-expanded="false" aria-controls="nav-methodology" aria-current="true">Methodology</button>
+          <div class="nav-sub" id="nav-methodology">
+            <a href="methodology-market-scan.html">Market Scan</a>
+            <a href="methodology-value-levers.html">Value Levers</a>
+            <a href="methodology-eval-scope.html">Eval Scope</a>
+            <a href="methodology-other-attributes.html" aria-current="page">Other Attributes</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-parent" type="button" aria-expanded="false" aria-controls="nav-insights">Insights</button>
+          <div class="nav-sub" id="nav-insights">
+            <a href="ai-regulation-europe.html">AI Regulation in Europe</a>
+            <a href="behavior-compliance-evals.html">Behavior &amp; Compliance Evals</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="wrap">
+        <span class="tag">Methodology</span>
+        <h1>Other Attributes</h1>
+        <p class="lead">Attributes say how, for whom and on what an offering works: its audience, accountability, evaluate mode, simulation environment, object tested and benchmark.</p>
+      </div>
+    </section>
+    <section class="band">
+      <div class="wrap">
+        <div class="prose">
+            <p>They are capability flags, set independently of the lever scores.</p>
+            <p class="status"><strong>Status:</strong> framework v3.1, 17 November 2026. The benchmark attribute has three flags since that day.</p>
+            <nav class="toc" aria-label="On this page">
+              <a href="#at-maturity"><span class="n">1</span>Maturity</a>
+              <a href="#at-glance"><span class="n">2</span>At a glance</a>
+              <a href="#attr-audience"><span class="n">3.1</span>Audience</a>
+              <a href="#attr-accountability"><span class="n">3.2</span>Accountability</a>
+              <a href="#attr-mode"><span class="n">3.3</span>Evaluate mode</a>
+              <a href="#attr-environment"><span class="n">3.4</span>Simulation environment</a>
+              <a href="#attr-object"><span class="n">3.5</span>Object tested</a>
+              <a href="#attr-benchmark"><span class="n">3.6</span>Benchmark</a>
+              <a href="#at-results"><span class="n">4</span>Results</a>
+              <a href="#at-descriptive"><span class="n">5</span>Descriptive columns</a>
+            </nav>
+
+            <section class="fw-sec" id="at-maturity">
+              <h3><span class="n">1</span>Maturity</h3>
+              <p>An attribute is set when a company has the capability at any maturity. Filters in the Company Assessment and the Market Map count shipping and early; claimed values are shown in the table, in the attribute list, with the maturity in brackets.</p>
+              <ul class="rules labelled">
+                <li><strong>Shipping</strong><span>Generally available and documented.</span></li>
+                <li><strong>Early</strong><span>Beta, early access or preview.</span></li>
+                <li><strong>Claimed</strong><span>Marketing text only.</span></li>
+              </ul>
+            </section>
+
+            <section class="fw-sec" id="at-glance">
+              <h3><span class="n">2</span>The six attributes at a glance</h3>
+              <p>Attributes are capability flags, independent of the lever scores. A company can have several values of an attribute.</p>
+              <table class="dim-table t-fw">
+                <colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup>
+                <thead><tr><th scope="col">Attribute</th><th scope="col">Values</th><th scope="col">Applies to</th></tr></thead>
+                <tbody>
+                  <tr><td data-label="Attribute"><a href="#attr-audience">Audience</a></td><td data-label="Values">Internal, Buyer, Third Party</td><td data-label="Applies to">Evaluate and Govern output; Control-only products are Internal</td></tr>
+                  <tr><td data-label="Attribute"><a href="#attr-accountability">Accountability</a></td><td data-label="Values">Assurance, Insurance</td><td data-label="Applies to">When the audience includes a third party</td></tr>
+                  <tr><td data-label="Attribute"><a href="#attr-mode">Evaluate mode</a></td><td data-label="Values">Live traffic, Simulation</td><td data-label="Applies to">Evaluate 1 or more; both allowed</td></tr>
+                  <tr><td data-label="Attribute"><a href="#attr-environment">Simulation environment</a></td><td data-label="Values">Prompt-level, Mocked tools, Stateful twin, Real system or sandbox</td><td data-label="Applies to">Simulation</td></tr>
+                  <tr><td data-label="Attribute"><a href="#attr-object">Object tested</a></td><td data-label="Values">Model, Application, Agent with tools</td><td data-label="Applies to">Evaluate 1 or more; all allowed</td></tr>
+                  <tr><td data-label="Attribute"><a href="#attr-benchmark">Benchmark</a></td><td data-label="Values">Custom judge, Generalized benchmark, Public leaderboard</td><td data-label="Applies to">Any company</td></tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section class="fw-sec" id="at-definitions">
+              <h3><span class="n">3</span>The definitions in full</h3>
+              <p>Each attribute states its values and where it applies.</p>
+              <article class="dim" id="attr-audience">
+                <h4><span class="n">3.1</span>Audience</h4>
+                <p class="dim-lead">Who relies on what the offering produces.</p>
+              <ul class="rules labelled">
+                <li><strong>Internal</strong><span>The owner of the agent, including an agent configured on a vendor platform.</span></li>
+                <li><strong>Buyer</strong><span>The customer of an agent made by another company. It is set only when the company's own pages show a buyer or procurement use (R9).</span></li>
+                <li><strong>Third Party</strong><span>A regulator, insurer, lender, auditor, the owner's customers or the public.</span></li>
+              </ul>
+                <p class="note">Applies to Evaluate and Govern output. Control-only products are Internal.</p>
+              </article>
+              <article class="dim" id="attr-accountability">
+                <h4><span class="n">3.2</span>Accountability</h4>
+                <p class="dim-lead">Whether the party that issues a result carries a consequence if it is wrong.</p>
+              <ul class="rules labelled">
+                <li><strong>Assurance</strong><span>The issuer attests and bears a consequence if wrong: an accredited certification or conformity body, a licensed professional attestation, or a certificate issued by a standard owner with its own technical testing.</span></li>
+                <li><strong>Insurance</strong><span>A carrier or an insured warranty transfers the loss.</span></li>
+              </ul>
+                <p class="note">Applies when the audience includes a Third Party. A vendor's own trust mark, badge or directory listing is not Assurance, whoever audits behind it; provisional or pilot accreditation is early; a warranty the company backs itself is claimed (R6).</p>
+              </article>
+              <article class="dim" id="attr-mode">
+                <h4><span class="n">3.3</span>Evaluate mode</h4>
+                <p class="dim-lead">How an Evaluate offering gets its evidence.</p>
+              <ul class="rules labelled">
+                <li><strong>Live traffic</strong><span>Scores what the system did for real users, live or recorded, including per-call scoring.</span></li>
+                <li><strong>Simulation</strong><span>The product runs inputs it creates or holds: test sets, simulated users, red-team attacks, replays, synthetic calls to a deployed endpoint.</span></li>
+              </ul>
+                <p class="note">Applies to Evaluate 1 or more; both modes are allowed.</p>
+              </article>
+              <article class="dim" id="attr-environment">
+                <h4><span class="n">3.4</span>Simulation environment</h4>
+                <p class="dim-lead">What a simulation runs against.</p>
+              <ul class="rules labelled">
+                <li><strong>Prompt-level</strong><span>Inputs to a model or application, with no tools.</span></li>
+                <li><strong>Mocked tools</strong><span>The agent calls simulated tools.</span></li>
+                <li><strong>Stateful twin</strong><span>A copy of business systems that an agent can read and write: state persists, it can be seeded and reset, and the agent is graded on the end state. It is set only on product evidence, such as docs or a product page showing seeding, reset and persistent writes; a research benchmark or paper is claimed at most (R7).</span></li>
+                <li><strong>Real system or sandbox</strong><span>The agent runs against a real system or a sandbox of one.</span></li>
+              </ul>
+                <p class="note">Applies to Simulation.</p>
+              </article>
+              <article class="dim" id="attr-object">
+                <h4><span class="n">3.5</span>Object tested</h4>
+                <p class="dim-lead">What is being evaluated.</p>
+              <ul class="rules labelled">
+                <li><strong>Model</strong><span>A model, on its own.</span></li>
+                <li><strong>Application</strong><span>A conversational or LLM application.</span></li>
+                <li><strong>Agent with tools</strong><span>An agent that calls tools and acts.</span></li>
+              </ul>
+                <p class="note">Applies to Evaluate 1 or more; all values are allowed in both modes.</p>
+              </article>
+              <article class="dim" id="attr-benchmark">
+                <h4><span class="n">3.6</span>Benchmark</h4>
+                <p class="dim-lead">Three independent flags, each with its own maturity.</p>
+              <ul class="rules labelled">
+                <li><strong>Custom judge</strong><span>The product's main, marketed function is to judge an AI system against the customer's own written policy, rules or expert criteria and return scored results with reasons. A generic ability to write your own metric or judge does not count.</span></li>
+                <li><strong>Generalized benchmark</strong><span>The company itself maintains and markets a named test set, benchmark or standard that is versioned or dated and has defined scoring or pass criteria. It includes sets and standards tied to a regulation, for example a named EU AI Act test suite or a certification standard with defined controls. It does not include templates merely aligned to a regulation, metric libraries, framework mappings, third-party benchmarks the company only reports on, or research datasets it does not market as a benchmark.</span></li>
+                <li><strong>Public leaderboard</strong><span>Scores published openly for comparison across vendors or models. It always requires a generalized benchmark, and a private buyer leaderboard does not count.</span></li>
+              </ul>
+                <p class="note">Applies to any company. Regulation and standard benchmarks are folded into the generalized benchmark (R8).</p>
+              </article>
+            </section>
+
+            <section class="fw-sec" id="at-results">
+              <h3><span class="n">4</span>Results</h3>
+              <p>Companies with the value at shipping or early maturity, out of 326. A company can have several values.</p>
+              <table class="dim-table t-two">
+                <colgroup><col class="c1"><col class="c2"></colgroup>
+                <thead><tr><th scope="col">Attribute value</th><th scope="col">Companies</th></tr></thead>
+                <tbody>
+                  <tr><td data-label="Attribute value">Audience: Internal / Buyer / Third Party</td><td data-label="Companies">306 / 26 / 85</td></tr>
+                  <tr><td data-label="Attribute value">Accountability: Assurance / Insurance</td><td data-label="Companies">20 / 5</td></tr>
+                  <tr><td data-label="Attribute value">Evaluate mode: Live traffic / Simulation</td><td data-label="Companies">123 / 175</td></tr>
+                  <tr><td data-label="Attribute value">Simulation environment: prompt-level / mocked tools / stateful twin / real system</td><td data-label="Companies">120 / 40 / 13 / 45</td></tr>
+                  <tr><td data-label="Attribute value">Object tested: model / application / agent with tools</td><td data-label="Companies">111 / 155 / 176</td></tr>
+                  <tr><td data-label="Attribute value">Benchmark: custom judge / generalized benchmark / public leaderboard</td><td data-label="Companies">9 / 47 / 28</td></tr>
+                </tbody>
+              </table>
+              <p class="note">The filters of the Company Assessment list the companies behind each count. The public leaderboard flags were checked by three verifiers who opened the leaderboard pages: 18 were confirmed, 7 likely and 8 not found or not public, and 7 of those were removed.</p>
+            </section>
+
+            <section class="fw-sec" id="at-descriptive">
+              <h3><span class="n">5</span>Descriptive columns</h3>
+              <p>The list also shows Stage, Scope, headquarters, year founded and funding. They are descriptive, not scored, and have no fixed definitions: each company's cell gives the reason for its label in a sentence.</p>
+              <ul class="rules labelled">
+                <li><strong>Stage</strong><span>Mature, Established Growth, Well-funded Early Stage, Small, Open source and/or non-profit, Other.</span></li>
+                <li><strong>Scope</strong><span>Horizontal only, Horizontal with a regulated focus, Specialized.</span></li>
+                <li><strong>Funding</strong><span>The total raised, the rounds and any acquisition or parent, shown as a tag on each chip of the map.</span></li>
+              </ul>
+            </section>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>AI Control: Market View · Snapshot: <span data-snapshot>in progress</span></span>
+      <span><a href="methodology-market-scan.html">Methodology</a> · <a href="#" data-github hidden>GitHub</a></span>
+    </div>
+  </footer>
+
+  <script src="assets/app.js?v=9"></script>
+</body>
+</html>

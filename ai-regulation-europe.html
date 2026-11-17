@@ -26,7 +26,15 @@
       <nav class="nav" id="nav" aria-label="Main">
         <a href="market-map.html">Market Map</a>
         <a href="company-assessment.html">Company Assessment</a>
-        <a href="methodology.html">Methodology</a>
+        <div class="nav-group">
+          <button class="nav-parent" type="button" aria-expanded="false" aria-controls="nav-methodology">Methodology</button>
+          <div class="nav-sub" id="nav-methodology">
+            <a href="methodology-market-scan.html">Market Scan</a>
+            <a href="methodology-value-levers.html">Value Levers</a>
+            <a href="methodology-eval-scope.html">Eval Scope</a>
+            <a href="methodology-other-attributes.html">Other Attributes</a>
+          </div>
+        </div>
         <div class="nav-group">
           <button class="nav-parent" type="button" aria-expanded="false" aria-controls="nav-insights" aria-current="true">Insights</button>
           <div class="nav-sub" id="nav-insights">
@@ -75,7 +83,7 @@
                 <p class="label">Problem</p>
                 <ul>
                   <li>Companies are responsible when their agents break these rules, and for high-risk uses and personal data they must be able to show they comply. There is no official way to test agent behaviour yet: the only finished EU standard covers quality management.</li>
-                  <li>Most tools test whether an agent works or is secure. Of the 218 companies in our <a href="market-scan.html">Market Scan</a>, 29 judge conduct against a regulation, standard, fairness requirement or the customer's own policy (<a href="methodology.html#dim-compliance">Behavior and compliance</a>) and 53 do so in part. Many map their results to the AI Act, but only a few test how an agent behaves against specific legal articles.</li>
+                  <li>Most tools test whether an agent works or is secure. Of the 218 companies in our <a href="market-scan.html">Market Scan</a>, 29 judge conduct against a regulation, standard, fairness requirement or the customer's own policy (<a href="methodology-eval-scope.html#dim-compliance">Behavior and compliance</a>) and 53 do so in part. Many map their results to the AI Act, but only a few test how an agent behaves against specific legal articles.</li>
                 </ul>
               </div>
               <div>
@@ -810,7 +818,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <span>AI Control: Market View · Snapshot: <span data-snapshot>in progress</span></span>
-      <span><a href="methodology.html">Methodology</a> · <a href="#" data-github hidden>GitHub</a></span>
+      <span><a href="methodology-market-scan.html">Methodology</a> · <a href="#" data-github hidden>GitHub</a></span>
     </div>
   </footer>
 

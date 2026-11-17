@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script src="assets/gate.js?v=1"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Methodology: Eval Scope · AI Control: Market View</title>
+  <meta name="description" content="The four evaluation dimensions: output quality, cost and performance, security, and behavior and compliance.">
+  <meta property="og:title" content="Methodology: Eval Scope · AI Control: Market View">
+  <meta property="og:description" content="The four evaluation dimensions: output quality, cost and performance, security, and behavior and compliance.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141719'/%3E%3Cpath d='M9 9h14M9 16h10M9 23h14' stroke='%23fff' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="assets/style.css?v=12">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap wide">
+      <a class="brand" href="market-map.html"><b>Ascending Labs</b><span>AI Control: Market View</span></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="market-map.html">Market Map</a>
+        <a href="company-assessment.html">Company Assessment</a>
+        <div class="nav-group">
+          <button class="nav-parent" type="button" aria-expanded="false" aria-controls="nav-methodology" aria-current="true">Methodology</button>
+          <div class="nav-sub" id="nav-methodology">
+            <a href="methodology-market-scan.html">Market Scan</a>
+            <a href="methodology-value-levers.html">Value Levers</a>
+            <a href="methodology-eval-scope.html" aria-current="page">Eval Scope</a>
+            <a href="methodology-other-attributes.html">Other Attributes</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-parent" type="button" aria-expanded="false" aria-controls="nav-insights">Insights</button>
+          <div class="nav-sub" id="nav-insights">
+            <a href="ai-regulation-europe.html">AI Regulation in Europe</a>
+            <a href="behavior-compliance-evals.html">Behavior &amp; Compliance Evals</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="wrap">
+        <span class="tag">Methodology</span>
+        <h1>Eval Scope</h1>
+        <p class="lead">The Eval Scope says what an offering evaluates, in four dimensions: Output quality, Cost and performance, Security, and Behavior and compliance.</p>
+      </div>
+    </section>
+    <section class="band">
+      <div class="wrap">
+        <div class="prose">
+            <p>Each company is rated yes, partly or no on each dimension, based on what its published pages show.</p>
+            <p>It describes what is evaluated, not when or how. The value levers say whether a product evaluates, controls or governs, and the attributes say how; section 3 sets out the test that decides which dimension a failure belongs to.</p>
+            <p class="status"><strong>Status:</strong> dimensions of 9 November 2026, ratings re-made on 17 November 2026.</p>
+            <nav class="toc" aria-label="On this page">
+              <a href="#fw-glance"><span class="n">1</span>At a glance</a>
+              <a href="#dim-quality"><span class="n">2.1</span>Output quality</a>
+              <a href="#dim-cost"><span class="n">2.2</span>Cost and performance</a>
+              <a href="#dim-security"><span class="n">2.3</span>Security</a>
+              <a href="#dim-compliance"><span class="n">2.4</span>Behavior and compliance</a>
+              <a href="#fw-context"><span class="n">3</span>The context test</a>
+              <a href="#fw-results"><span class="n">4</span>Results</a>
+            </nav>
+
+            <section class="fw-sec" id="fw-glance">
+              <h3><span class="n">1</span>The four dimensions at a glance</h3>
+              <p>Each dimension is defined by what it evaluates and the kind of failure it looks for. Section 3 explains how a failure is assigned to a dimension.</p>
+              <table class="dim-table">
+                <colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup>
+                <thead>
+                  <tr><th scope="col">Dimension</th><th scope="col">In one line</th><th scope="col">The failure it looks for</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="Dimension"><a href="#dim-quality">Output quality</a></td>
+                    <td data-label="In one line">Correct and useful outputs in ordinary use, measured as its own test type (accuracy, groundedness, task success).</td>
+                    <td data-label="The failure it looks for">An output that is wrong or not useful, in ordinary use</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Dimension"><a href="#dim-cost">Cost and performance</a></td>
+                    <td data-label="In one line">Spend, tokens, latency and routing.</td>
+                    <td data-label="The failure it looks for">Not covered by the context test</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Dimension"><a href="#dim-security">Security</a></td>
+                    <td data-label="In one line">Attacks and abuse and the data exposure they cause: prompt injection, jailbreaks, leakage, tool and permission abuse, supply chain, rogue agents.</td>
+                    <td data-label="The failure it looks for">A failure that occurs only when someone attacks or misuses the system, or when sensitive data leaves it</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Dimension"><a href="#dim-compliance">Behavior and compliance</a></td>
+                    <td data-label="In one line">Conduct (outputs, decisions, behaviour) judged against a regulation, standard, fairness requirement or the customer's own content or conduct policy, with conformance reported. Security tests mapped to frameworks and attack-related content filters do not count.</td>
+                    <td data-label="The failure it looks for">Conduct that breaks a rule, in ordinary use</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section class="fw-sec" id="fw-definitions">
+              <h3><span class="n">2</span>The definitions in full</h3>
+              <p>Each dimension states what it covers, what it does not, and how it is rated on one yes / partly / no scale. Dimension-specific rating rules exist only for Security and for the "separate named module" requirement on Output quality and Behavior and compliance.</p>
+
+              <article class="dim" id="dim-quality">
+                <h4><span class="n">2.1</span>Output quality</h4>
+                <p class="dim-lead">Whether a product checks that outputs are correct and useful in ordinary use, as a test type of its own.</p>
+                <div class="dim-grid">
+                  <dl>
+                    <dt>Covers</dt>
+                    <dd>Whether outputs, answers or actions are correct and useful in ordinary use, measured as its own test type with scores or metrics: accuracy, groundedness and faithfulness, hallucination, relevance, consistency, task success, and performance and stability tests in model validation.</dd>
+                    <dt>Does not cover</dt>
+                    <dd>Attacks and leakage (Security), conduct against a rule (Behavior and compliance), spend and latency (Cost and performance). Hallucination, off-topic or unsafe-output probes that are items in an attack catalogue or in a guardrail's detector list.</dd>
+                  </dl>
+                  <div>
+                    <p class="label">Rating</p>
+                    <ul class="rating">
+                      <li><span class="r yes">Yes</span><span>A main part of the product evaluates correctness or usefulness as its own test type, and the pages name the criteria, checks, metrics or test types.</span></li>
+                      <li><span class="r partly">Partly</span><span>A supporting or limited check, a claim without named criteria, or only part of the product (a beta, one surface). It needs a separate named module or test type for output quality.</span></li>
+                      <li><span class="r no">No</span><span>Not evaluated, no evidence on the pages, or only one item in a risk list, taxonomy or detector list of a security product.</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="dim" id="dim-cost">
+                <h4><span class="n">2.2</span>Cost and performance</h4>
+                <p class="dim-lead">Whether a product measures what it costs to run: spend, tokens, latency, and the choice of model or prompt.</p>
+                <div class="dim-grid">
+                  <dl>
+                    <dt>Covers</dt>
+                    <dd>Spend, tokens, latency, budgets, model or prompt choice and routing.</dd>
+                    <dt>Does not cover</dt>
+                    <dd>Quality of the outputs themselves.</dd>
+                  </dl>
+                  <div>
+                    <p class="label">Rating</p>
+                    <ul class="rating">
+                      <li><span class="r yes">Yes</span><span>A main part of the product evaluates spend, tokens, latency or routing, and the pages name the criteria, checks or metrics.</span></li>
+                      <li><span class="r partly">Partly</span><span>A supporting or limited check, a claim without named criteria, or only part of the product (a beta, one surface).</span></li>
+                      <li><span class="r no">No</span><span>Not evaluated, or no evidence on the pages.</span></li>
+                    </ul>
+                    <p class="note">No cost-specific rule is written; this is the general scale.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="dim" id="dim-security">
+                <h4><span class="n">2.3</span>Security</h4>
+                <p class="dim-lead">Whether a product tests or enforces against attacks and abuse of AI systems, and the data exposure they cause.</p>
+                <div class="dim-grid">
+                  <dl>
+                    <dt>Covers</dt>
+                    <dd>Attacks and abuse of AI systems and the data exposure they cause: prompt injection, jailbreaks, data leakage and PII exposure, tool and permission abuse, supply-chain compromise of models and agent tools, rogue or anomalous agent behaviour, and harmful or toxic output filtered as protection against misuse. Mapping security findings to a framework, standard or regulation is security reporting.</dd>
+                    <dt>Does not cover</dt>
+                    <dd>Governance records such as inventory, owners and entitlements (Govern). The correctness of ordinary outputs (Output quality) and conduct against a rule in ordinary use (Behavior and compliance).</dd>
+                  </dl>
+                  <div>
+                    <p class="label">Rating</p>
+                    <ul class="rating">
+                      <li><span class="r yes">Yes</span><span>A main part of the product tests or enforces against named attack classes, a catalogue or a framework.</span></li>
+                      <li><span class="r partly">Partly</span><span>Security is a supporting feature, is claimed without a stated mechanism or catalogue, or is limited to inventory or posture (AI-SPM, AI-BOM) without testing or enforcement.</span></li>
+                      <li><span class="r no">No</span><span>Not evaluated, or no evidence on the pages.</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="dim" id="dim-compliance">
+                <h4><span class="n">2.4</span>Behavior and compliance</h4>
+                <p class="dim-lead">Whether a product judges the system's conduct against a rule and reports whether it conforms: a regulation, a standard, a fairness requirement or the customer's own policy.</p>
+                <div class="dim-grid">
+                  <dl>
+                    <dt>Covers</dt>
+                    <dd>Whether the conduct of the system, meaning its outputs, decisions or behaviour, meets a rule, and the product reports conformance as a named function: a regulation (for example the EU AI Act, ECOA/Reg B, SR 11-7), a standard, a fairness requirement, or the customer's own content or conduct policy (allowed topics, tone, required disclosures, brand rules, harm categories tested in ordinary use). For governance products it also covers assessing AI systems against a regulation as the main evaluation.</dd>
+                    <dt>Does not cover</dt>
+                    <dd>Content moderation (toxic, harmful, unsafe) and PII, PCI or PHI leak detection inside a guardrail against attack, misuse or data loss. Any security test or guardrail whose findings are mapped or reported against a framework, standard or regulation, such as OWASP, MITRE, NIST, ISO, the EU AI Act, DORA or HIPAA: that is security reporting. Correctness of answers (Output quality).</dd>
+                  </dl>
+                  <div>
+                    <p class="label">Rating</p>
+                    <ul class="rating">
+                      <li><span class="r yes">Yes</span><span>A main part of the product judges conduct against a rule and reports conformance as a named function, and the pages name the criteria, standards or test types.</span></li>
+                      <li><span class="r partly">Partly</span><span>A supporting or limited check, a claim without named criteria, or only part of the product (a beta, one surface). It needs a separate named module or test type for conduct and compliance.</span></li>
+                      <li><span class="r no">No</span><span>Not evaluated, no evidence on the pages, or only one item in a risk list, taxonomy or detector list of a security product. A governance register that only records is not an evaluation of any dimension.</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </section>
+
+            <section class="fw-sec" id="fw-context">
+              <h3><span class="n">3</span>The context test</h3>
+              <p>Some failures could belong to more than one dimension, harmful or toxic content for example. The dimensions are told apart by the situation in which the failure occurs, not by the topic.</p>
+              <ul class="rules">
+                <li><span>A failure that occurs only when someone attacks or misuses the system, or when sensitive data leaves it</span><strong>Security</strong></li>
+                <li><span>A failure in ordinary use where the output is wrong or not useful</span><strong>Output quality</strong></li>
+                <li><span>A failure in ordinary use where the conduct breaks a rule</span><strong>Behavior and compliance</strong></li>
+              </ul>
+              <p><strong>Harmful or toxic content</strong> is judged by this test. Produced by an attack, or filtered by a guardrail whose purpose is to stop misuse, it is Security. Measured against a defined content or conduct policy in ordinary use, as its own named test pack or evaluator, it is Behavior and compliance.</p>
+              <p>The dimensions are independent of the <a href="methodology-value-levers.html">value levers</a>: the same dimension can be checked on simulated inputs or on live traffic by an Evaluate offering (the Evaluate mode in <a href="methodology-other-attributes.html">Other Attributes</a>), or enforced in the live path by a Control offering.</p>
+            </section>
+
+            <section class="fw-sec" id="fw-results">
+              <h3><span class="n">4</span>Results</h3>
+              <p>Ratings of the 326 companies after the 17 November re-rating. The ratings follow what a company's own pages show, so they are a reading of public pages and not a test (see <a href="methodology-market-scan.html#ms-rating">Market Scan, section 2</a>).</p>
+              <table class="dim-table t-two-num">
+                <colgroup><col class="c1"><col class="c2"><col class="c3"><col class="c4"></colgroup>
+                <thead><tr><th scope="col">Dimension</th><th scope="col">Yes</th><th scope="col">Partly</th><th scope="col">No</th></tr></thead>
+                <tbody>
+                  <tr><td data-label="Dimension">Output quality</td><td data-label="Yes">68</td><td data-label="Partly">77</td><td data-label="No">181</td></tr>
+                  <tr><td data-label="Dimension">Cost and performance</td><td data-label="Yes">7</td><td data-label="Partly">55</td><td data-label="No">264</td></tr>
+                  <tr><td data-label="Dimension">Security</td><td data-label="Yes">92</td><td data-label="Partly">107</td><td data-label="No">127</td></tr>
+                  <tr><td data-label="Dimension">Behavior and compliance</td><td data-label="Yes">18</td><td data-label="Partly">87</td><td data-label="No">221</td></tr>
+                </tbody>
+              </table>
+              <p class="note">The dimensions are unchanged since 9 November and are to be revised. Only the ratings were re-made on 17 November. The Evaluating against text of the 233 earlier companies was not rewritten, so a paragraph can describe a capability that its ratings no longer show, or the reverse.</p>
+            </section>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>AI Control: Market View · Snapshot: <span data-snapshot>in progress</span></span>
+      <span><a href="methodology-market-scan.html">Methodology</a> · <a href="#" data-github hidden>GitHub</a></span>
+    </div>
+  </footer>
+
+  <script src="assets/app.js?v=9"></script>
+</body>
+</html>
