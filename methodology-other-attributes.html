@@ -60,31 +60,20 @@
             <p>They are capability flags, set independently of the lever scores.</p>
             <p class="status"><strong>Status:</strong> framework v3.1, 17 November 2026. The benchmark attribute has three flags since that day.</p>
             <nav class="toc" aria-label="On this page">
-              <a href="#at-maturity"><span class="n">1</span>Maturity</a>
-              <a href="#at-glance"><span class="n">2</span>At a glance</a>
-              <a href="#attr-audience"><span class="n">3.1</span>Audience</a>
-              <a href="#attr-accountability"><span class="n">3.2</span>Accountability</a>
-              <a href="#attr-mode"><span class="n">3.3</span>Evaluate mode</a>
-              <a href="#attr-environment"><span class="n">3.4</span>Simulation environment</a>
-              <a href="#attr-object"><span class="n">3.5</span>Object tested</a>
-              <a href="#attr-benchmark"><span class="n">3.6</span>Benchmark</a>
-              <a href="#at-results"><span class="n">4</span>Results</a>
-              <a href="#at-descriptive"><span class="n">5</span>Descriptive columns</a>
+              <a href="#at-glance"><span class="n">1</span>At a glance</a>
+              <a href="#attr-audience"><span class="n">2.1</span>Audience</a>
+              <a href="#attr-accountability"><span class="n">2.2</span>Accountability</a>
+              <a href="#attr-mode"><span class="n">2.3</span>Evaluate mode</a>
+              <a href="#attr-environment"><span class="n">2.4</span>Simulation environment</a>
+              <a href="#attr-object"><span class="n">2.5</span>Object tested</a>
+              <a href="#attr-benchmark"><span class="n">2.6</span>Benchmark</a>
+              <a href="#at-results"><span class="n">3</span>Results</a>
+              <a href="#at-descriptive"><span class="n">4</span>Descriptive columns</a>
             </nav>
 
-            <section class="fw-sec" id="at-maturity">
-              <h3><span class="n">1</span>Maturity</h3>
-              <p>An attribute is set when a company has the capability at any maturity. Filters in the Company Assessment and the Market Map count shipping and early; claimed values are shown in the table, in the attribute list, with the maturity in brackets.</p>
-              <ul class="rules labelled">
-                <li><strong>Shipping</strong><span>Generally available and documented.</span></li>
-                <li><strong>Early</strong><span>Beta, early access or preview.</span></li>
-                <li><strong>Claimed</strong><span>Marketing text only.</span></li>
-              </ul>
-            </section>
-
             <section class="fw-sec" id="at-glance">
-              <h3><span class="n">2</span>The six attributes at a glance</h3>
-              <p>Attributes are capability flags, independent of the lever scores. A company can have several values of an attribute.</p>
+              <h3><span class="n">1</span>The six attributes at a glance</h3>
+              <p>Attributes are capability flags, independent of the lever scores. A company can have several values of an attribute. A value is set when the company has the capability at any maturity: shipping (generally available and documented), early (beta, early access or preview) or claimed (marketing text only); filters in the Company Assessment and the Market Map count shipping and early, and claimed values are shown in the list with the maturity in brackets.</p>
               <table class="dim-table t-fw">
                 <colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup>
                 <thead><tr><th scope="col">Attribute</th><th scope="col">Values</th><th scope="col">Applies to</th></tr></thead>
@@ -93,17 +82,17 @@
                   <tr><td data-label="Attribute"><a href="#attr-accountability">Accountability</a></td><td data-label="Values">Assurance, Insurance</td><td data-label="Applies to">When the audience includes a third party</td></tr>
                   <tr><td data-label="Attribute"><a href="#attr-mode">Evaluate mode</a></td><td data-label="Values">Live traffic, Simulation</td><td data-label="Applies to">Evaluate 1 or more; both allowed</td></tr>
                   <tr><td data-label="Attribute"><a href="#attr-environment">Simulation environment</a></td><td data-label="Values">Prompt-level, Mocked tools, Stateful twin, Real system or sandbox</td><td data-label="Applies to">Simulation</td></tr>
-                  <tr><td data-label="Attribute"><a href="#attr-object">Object tested</a></td><td data-label="Values">Model, Application, Agent with tools</td><td data-label="Applies to">Evaluate 1 or more; all allowed</td></tr>
+                  <tr><td data-label="Attribute"><a href="#attr-object">Object tested</a></td><td data-label="Values">Model, Application, Agent with tools</td><td data-label="Applies to">Evaluate 1 or more, in either mode; all allowed</td></tr>
                   <tr><td data-label="Attribute"><a href="#attr-benchmark">Benchmark</a></td><td data-label="Values">Custom judge, Generalized benchmark, Public leaderboard</td><td data-label="Applies to">Any company</td></tr>
                 </tbody>
               </table>
             </section>
 
             <section class="fw-sec" id="at-definitions">
-              <h3><span class="n">3</span>The definitions in full</h3>
+              <h3><span class="n">2</span>The definitions in full</h3>
               <p>Each attribute states its values and where it applies.</p>
               <article class="dim" id="attr-audience">
-                <h4><span class="n">3.1</span>Audience</h4>
+                <h4><span class="n">2.1</span>Audience</h4>
                 <p class="dim-lead">Who relies on what the offering produces.</p>
               <ul class="rules labelled">
                 <li><strong>Internal</strong><span>The owner of the agent, including an agent configured on a vendor platform.</span></li>
@@ -113,7 +102,7 @@
                 <p class="note">Applies to Evaluate and Govern output. Control-only products are Internal.</p>
               </article>
               <article class="dim" id="attr-accountability">
-                <h4><span class="n">3.2</span>Accountability</h4>
+                <h4><span class="n">2.2</span>Accountability</h4>
                 <p class="dim-lead">Whether the party that issues a result carries a consequence if it is wrong.</p>
               <ul class="rules labelled">
                 <li><strong>Assurance</strong><span>The issuer attests and bears a consequence if wrong: an accredited certification or conformity body, a licensed professional attestation, or a certificate issued by a standard owner with its own technical testing.</span></li>
@@ -122,7 +111,7 @@
                 <p class="note">Applies when the audience includes a Third Party. A vendor's own trust mark, badge or directory listing is not Assurance, whoever audits behind it; provisional or pilot accreditation is early; a warranty the company backs itself is claimed (R6).</p>
               </article>
               <article class="dim" id="attr-mode">
-                <h4><span class="n">3.3</span>Evaluate mode</h4>
+                <h4><span class="n">2.3</span>Evaluate mode</h4>
                 <p class="dim-lead">How an Evaluate offering gets its evidence.</p>
               <ul class="rules labelled">
                 <li><strong>Live traffic</strong><span>Scores what the system did for real users, live or recorded, including per-call scoring.</span></li>
@@ -131,7 +120,7 @@
                 <p class="note">Applies to Evaluate 1 or more; both modes are allowed.</p>
               </article>
               <article class="dim" id="attr-environment">
-                <h4><span class="n">3.4</span>Simulation environment</h4>
+                <h4><span class="n">2.4</span>Simulation environment</h4>
                 <p class="dim-lead">What a simulation runs against.</p>
               <ul class="rules labelled">
                 <li><strong>Prompt-level</strong><span>Inputs to a model or application, with no tools.</span></li>
@@ -142,17 +131,28 @@
                 <p class="note">Applies to Simulation.</p>
               </article>
               <article class="dim" id="attr-object">
-                <h4><span class="n">3.5</span>Object tested</h4>
-                <p class="dim-lead">What is being evaluated.</p>
+                <h4><span class="n">2.5</span>Object tested</h4>
+                <p class="dim-lead">The kind of AI system whose behaviour an Evaluate offering scores. To tell the three apart, ask what the evaluated system does: a model returns text for a prompt, an application answers a user, an agent calls tools and acts.</p>
               <ul class="rules labelled">
-                <li><strong>Model</strong><span>A model, on its own.</span></li>
-                <li><strong>Application</strong><span>A conversational or LLM application.</span></li>
-                <li><strong>Agent with tools</strong><span>An agent that calls tools and acts.</span></li>
+                <li><strong>Model</strong><span>The model on its own, with no application around it. The evaluation sends prompts to the model and scores what comes back, for example a benchmark run, a model validation, or a comparison of two models on the same test set.</span></li>
+                <li><strong>Application</strong><span>A conversational or LLM application that answers a user, such as a chatbot, an assistant or a question-answering app. What is scored is the response: its accuracy, its safety, or whether it follows a policy.</span></li>
+                <li><strong>Agent with tools</strong><span>An agent that calls tools and acts on other systems, for example by searching, sending a message, updating a record or calling an API. The evaluation looks at more than the final text: the steps taken, the tools called and, where the product can see it, the end result.</span></li>
               </ul>
-                <p class="note">Applies to Evaluate 1 or more; all values are allowed in both modes.</p>
+                <p class="label" style="margin-top:32px">Live traffic or simulation?</p>
+                <p class="dim-lead" style="margin:0">Both. Object tested says what is judged, and Evaluate mode says where the evidence comes from. In Simulation the product runs test inputs against the object: test prompts against a model, simulated users against an application, simulated tasks against an agent. In Live traffic it scores what the same kind of object did for real users: real model outputs, real conversations, real agent runs and tool calls.</p>
+              <table class="dim-table t-score">
+                <colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup>
+                <thead><tr><th scope="col">Object tested</th><th scope="col">Live traffic (123 companies)</th><th scope="col">Simulation (175 companies)</th></tr></thead>
+                <tbody>
+                  <tr><td data-label="Object tested">Model</td><td data-label="Live traffic (123 companies)">51</td><td data-label="Simulation (175 companies)">101</td></tr>
+                  <tr><td data-label="Object tested">Application</td><td data-label="Live traffic (123 companies)">91</td><td data-label="Simulation (175 companies)">137</td></tr>
+                  <tr><td data-label="Object tested">Agent with tools</td><td data-label="Live traffic (123 companies)">102</td><td data-label="Simulation (175 companies)">140</td></tr>
+                </tbody>
+              </table>
+                <p class="note">Applies to Evaluate 1 or more, in either mode. A company carries every object it can evaluate and many offer both modes, so the counts add up to more than the number of companies. They count companies with the value at shipping or early maturity.</p>
               </article>
               <article class="dim" id="attr-benchmark">
-                <h4><span class="n">3.6</span>Benchmark</h4>
+                <h4><span class="n">2.6</span>Benchmark</h4>
                 <p class="dim-lead">Three independent flags, each with its own maturity.</p>
               <ul class="rules labelled">
                 <li><strong>Custom judge</strong><span>The product's main, marketed function is to judge an AI system against the customer's own written policy, rules or expert criteria and return scored results with reasons. A generic ability to write your own metric or judge does not count.</span></li>
@@ -164,7 +164,7 @@
             </section>
 
             <section class="fw-sec" id="at-results">
-              <h3><span class="n">4</span>Results</h3>
+              <h3><span class="n">3</span>Results</h3>
               <p>Companies with the value at shipping or early maturity, out of 326. A company can have several values.</p>
               <table class="dim-table t-two">
                 <colgroup><col class="c1"><col class="c2"></colgroup>
@@ -175,14 +175,14 @@
                   <tr><td data-label="Attribute value">Evaluate mode: Live traffic / Simulation</td><td data-label="Companies">123 / 175</td></tr>
                   <tr><td data-label="Attribute value">Simulation environment: prompt-level / mocked tools / stateful twin / real system</td><td data-label="Companies">120 / 40 / 13 / 45</td></tr>
                   <tr><td data-label="Attribute value">Object tested: model / application / agent with tools</td><td data-label="Companies">111 / 155 / 176</td></tr>
-                  <tr><td data-label="Attribute value">Benchmark: custom judge / generalized benchmark / public leaderboard</td><td data-label="Companies">9 / 47 / 28</td></tr>
+                  <tr><td data-label="Attribute value">Benchmark: custom judge / generalized benchmark / public leaderboard</td><td data-label="Companies">9 / 46 / 28</td></tr>
                 </tbody>
               </table>
               <p class="note">The filters of the Company Assessment list the companies behind each count. The public leaderboard flags were checked by three verifiers who opened the leaderboard pages: 18 were confirmed, 7 likely and 8 not found or not public, and 7 of those were removed.</p>
             </section>
 
             <section class="fw-sec" id="at-descriptive">
-              <h3><span class="n">5</span>Descriptive columns</h3>
+              <h3><span class="n">4</span>Descriptive columns</h3>
               <p>The list also shows Stage, Scope, headquarters, year founded and funding. They are descriptive, not scored, and have no fixed definitions: each company's cell gives the reason for its label in a sentence.</p>
               <ul class="rules labelled">
                 <li><strong>Stage</strong><span>Mature, Established Growth, Well-funded Early Stage, Small, Open source and/or non-profit, Other.</span></li>
