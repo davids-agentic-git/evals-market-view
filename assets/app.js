@@ -65,6 +65,18 @@
     window.addEventListener('hashchange', () => fromHash(false));
   });
 
+  // "Insights" menu in the main nav: opens on hover (mouse), on click or Enter (touch, keyboard), and closes on Escape,
+  // an outside click or when focus leaves it. In the phone menu it is always open (CSS).
+  document.querySelectorAll('.nav-group').forEach((group) => {
+    const btn = group.querySelector('.nav-parent');
+    const set = (open) => { group.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open)); };
+    btn.addEventListener('click', () => set(!group.classList.contains('open')));
+    group.addEventListener('keydown', (e) => { if (e.key === 'Escape') { set(false); btn.focus(); } });
+    group.addEventListener('focusout', (e) => { if (!group.contains(e.relatedTarget)) set(false); });
+    document.addEventListener('click', (e) => { if (!group.contains(e.target)) set(false); });
+    if (matchMedia('(hover: hover)').matches) group.addEventListener('mouseleave', () => set(false));
+  });
+
   // Optional settings
   fetch('data/site.json', { cache: 'no-cache' })
     .then((r) => (r.ok ? r.json() : null))

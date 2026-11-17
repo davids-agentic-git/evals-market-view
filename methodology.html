@@ -14,21 +14,26 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500&display=swap">
-  <link rel="stylesheet" href="assets/style.css?v=9">
+  <link rel="stylesheet" href="assets/style.css?v=10">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="site-header">
     <div class="wrap wide">
-      <a class="brand" href="market-scan.html"><b>Ascending Labs</b><span>Research</span></a>
+      <a class="brand" href="market-map.html"><b>Ascending Labs</b><span>Evals Market View</span></a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
       <nav class="nav" id="nav" aria-label="Main">
+        <a href="market-map.html">Market Map</a>
+        <a href="company-assessment.html">Company Assessment</a>
         <a href="methodology.html" aria-current="page">Methodology</a>
-        <a href="market-scan.html">Market Scan</a>
-        <a href="behavior-compliance-evals.html">Insights: Behavior &amp; Compliance Evals</a>
-        <a href="ai-control.html">Insights: Other AI Control</a>
-        <a href="ai-regulation-europe.html">AI Regulation in Europe</a>
+        <div class="nav-group">
+          <button class="nav-parent" type="button" aria-expanded="false" aria-controls="nav-insights">Insights</button>
+          <div class="nav-sub" id="nav-insights">
+            <a href="ai-regulation-europe.html">AI Regulation in Europe</a>
+            <a href="behavior-compliance-evals.html">Behavior &amp; Compliance Evals</a>
+          </div>
+        </div>
       </nav>
     </div>
   </header>
@@ -402,6 +407,6 @@
     </div>
   </footer>
 
-  <script src="assets/app.js?v=8"></script>
+  <script src="assets/app.js?v=9"></script>
 </body>
 </html>

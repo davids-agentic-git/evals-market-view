@@ -6,23 +6,23 @@ A static research site on the AI evaluation market, shown under the Ascending La
 
 | Page | File | Status |
 | --- | --- | --- |
-| Root | `index.html` | Only a redirect to Market Scan; there is no separate home page, and the logo links to Market Scan |
-| Insights: Other AI Control | `ai-control.html` | Placeholder |
-| Insights: Behavior & Compliance Evals | `behavior-compliance-evals.html` | Placeholder |
-| Market Scan | `market-scan.html` | The filtered list of 326 relevant players, in two tabs (Market map, Company assessment) with the map and the list embedded |
+| Market Map | `market-map.html` | The market map of the relevant players, by product cluster; embeds `assets/market-maps.html` |
+| Company Assessment | `company-assessment.html` | Profile and assessment of every company; embeds `assets/companies.html` |
 | Methodology | `methodology.html` | Two tabs (AI Control Value Levers, Evaluation Framework) |
-| AI Regulation in Europe | `ai-regulation-europe.html` | Research note: summary, rules, industries, LARA and the market, appendix |
+| Insights: AI Regulation in Europe | `ai-regulation-europe.html` | Research note: summary, rules, industries, LARA and the market, appendix |
+| Insights: Behavior & Compliance Evals | `behavior-compliance-evals.html` | Two tabs: rules evaluated against, and the companies |
+| Redirects | `index.html`, `market-scan.html` | Not in the nav. Both go to Market Map; `market-scan.html#assessment` and `#companies` go to Company Assessment |
 
-The header and footer are repeated in every page, so a nav change means editing all five pages.
+The header and footer are repeated in every page, so a nav change means editing all five pages. The Insights menu is the `nav-group` block; its behaviour is in `assets/app.js`, its look in `assets/style.css`.
 
 ## Embedded views
 
-`market-scan.html` embeds two standalone documents with iframes (the old address `market-map.html` redirects to it):
+`market-map.html` and `company-assessment.html` each embed one standalone document with an iframe:
 
 - `assets/market-maps.html`: the product-cluster map, with its filters. The chip highlights (core, potential, not assessed, Tech benchmark) are read from the list's assessments, which the list keeps in the browser's local storage under `fw_v2`, and update when they change; Europe-based comes from the HQ column of the list. The map has filters for stage, scope, Value Lever and Evaluation; the list has the same filter design, with filters for cluster, stage, scope, Value Lever and Evaluation.
 - `assets/companies.html`: the list of companies we look at, by product cluster, with search and filters.
 
-They are self-contained files and also open on their own through the "full page" links. Their look (IBM Plex, warm paper, hairlines, square corners, dark mode) comes from `assets/embed.css`, which both documents link, so they match the Methodology page. `assets/market-scan.css` styles the page around them. The page links the documents with a `?v=` number, and `embed.css` has its own; bump them when a document or the stylesheet changes, because GitHub Pages lets browsers cache them for 10 minutes. They are the original working documents, including the reviewer comments, per-person assessments and go-to-market flags. The only edit is the label "Tier A", renamed "Companies we look at". Notes a visitor adds in the list are saved in that visitor's own browser only. To share them, a visitor adds their name and presses "Download input (and share with David)", which saves a JSON file with only their own input, and sends the file to David. All four profiles (David, Lenny, Juan, Consu) are open to everyone. Open `assets/companies.html#admin` to also see the "Load input" button for merging files; its confirm dialog names which people's input would be replaced.
+They are self-contained files and also open on their own through the "full page" links. Their look (IBM Plex, warm paper, hairlines, square corners, dark mode) comes from `assets/embed.css`, which both documents link, so they match the Methodology page. `assets/market-scan.css` styles the two pages around them. Each page links its document with a `?v=` number, and `embed.css` has its own; bump them when a document or the stylesheet changes, because GitHub Pages lets browsers cache them for 10 minutes. They are the original working documents, including the reviewer comments, per-person assessments and go-to-market flags. The only edit is the label "Tier A", renamed "Companies we look at". Notes a visitor adds in the list are saved in that visitor's own browser only. To share them, a visitor adds their name and presses "Download input (and share with David)", which saves a JSON file with only their own input, and sends the file to David. All four profiles (David, Lenny, Juan, Consu) are open to everyone. Open `assets/companies.html#admin` to also see the "Load input" button for merging files; its confirm dialog names which people's input would be replaced.
 
 ## Settings
 
@@ -38,7 +38,7 @@ The password is stored only as a salted PBKDF2 hash. To change it, run this, pas
 python -c "import hashlib, os, sys; s = os.urandom(16); print('SALT', s.hex()); print('HASH', hashlib.pbkdf2_hmac('sha256', sys.argv[1].encode(), s, 310000, 32).hex())" "new password"
 ```
 
-A visitor stays unlocked in that browser (local storage key `evals-view-access`). The embedded map and list wait for the page around them; opened on their own they show the same prompt. `404.html` and the two redirect pages (`index.html` and the old `market-map.html`) hold no content and are not gated.
+A visitor stays unlocked in that browser (local storage key `evals-view-access`). The embedded map and list wait for the page around them; opened on their own they show the same prompt. `404.html` and the two redirect pages (`index.html` and `market-scan.html`) hold no content and are not gated.
 
 ## Preview locally
 

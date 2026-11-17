@@ -1,5 +1,5 @@
-/* Market Scan page: two tabs like Methodology and Behavior & Compliance (the tab behaviour is in app.js). */
-.tabpanel h2 { max-width: none; }
-.tabpanel > .intro { max-width: 46em; margin-bottom: 18px; }
-.tabpanel .section-bar { margin-bottom: 12px; }
+/* Market Map and Company Assessment pages: the heading, intro and link above the embedded document. */
+.scan h2 { max-width: none; font-size: clamp(24px, 3vw, 34px); margin-bottom: 14px; }
+.scan > .intro { max-width: 46em; margin: 0 0 18px; }
+.scan .section-bar { margin-bottom: 12px; }
 .embed { background: var(--bg); }

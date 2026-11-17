@@ -63,6 +63,17 @@ a { color: inherit; }
 .nav a { text-decoration: none; color: var(--ink-soft); padding: 6px 0; border-bottom: 1px solid transparent; white-space: nowrap; }
 .nav a:hover, .nav a[aria-current="page"] { color: var(--ink-strong); border-bottom-color: currentColor; }
 .menu-btn { display: none; background: none; border: 1px solid var(--hair); color: var(--ink); font: inherit; font-size: 14px; padding: 6px 12px; cursor: pointer; }
+/* Main nav: the Insights drop-down */
+.nav-group { position: relative; padding: 12px 0; margin: -12px 0; }
+.nav-parent { display: inline-flex; align-items: center; gap: 7px; font: inherit; color: var(--ink-soft); background: none; border: 0; border-bottom: 1px solid transparent; padding: 6px 0; cursor: pointer; white-space: nowrap; }
+.nav-parent::after { content: ""; width: 5px; height: 5px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); }
+.nav-parent:hover, .nav-group.open .nav-parent, .nav-parent[aria-current="true"] { color: var(--ink-strong); }
+.nav-parent[aria-current="true"] { border-bottom-color: currentColor; }
+.nav-sub { display: none; position: absolute; top: 100%; right: 0; min-width: 250px; padding: 8px 0; background: var(--bg); border: 1px solid var(--hair); box-shadow: 0 10px 30px rgba(45, 31, 70, 0.1), 0 2px 6px rgba(45, 31, 70, 0.06); z-index: 12; }
+.nav-sub a { display: block; padding: 10px 18px; border-bottom: 0; }
+.nav-sub a:hover, .nav-sub a[aria-current="page"] { background: var(--surface-muted); border-bottom: 0; }
+.nav-group.open .nav-sub { display: block; }
+@media (hover: hover) { .nav-group:hover .nav-sub { display: block; } }
 
 
 /* Hero and page heads */
@@ -328,13 +339,25 @@ html:has(.tabs) { scroll-padding-top: calc(var(--header-h) + 76px); }
 .site-footer a { color: var(--ink-soft); }
 
 /* Narrow screens: collapse the menu before the nav runs out of room */
-@media (max-width: 1140px) {
-  .brand span { display: none; }
+@media (max-width: 840px) {
   .menu-btn { display: inline-block; }
   .nav { display: none; position: absolute; top: var(--header-h); left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: var(--bg); border-bottom: 1px solid var(--hair); padding: 8px var(--gutter) 16px; font-size: 16px; }
   .nav.open { display: flex; }
   .nav a { padding: 12px 0; border-bottom: 1px solid var(--hair); }
+  .nav-group { padding: 0; margin: 0; }
+  .nav-parent { width: 100%; padding: 12px 0; border-bottom: 1px solid var(--hair); color: var(--muted); font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; pointer-events: none; cursor: default; }
+  .nav-parent::after { display: none; }
+  .nav-sub { display: block; position: static; min-width: 0; padding: 0 0 0 16px; border: 0; box-shadow: none; background: transparent; }
+  .nav-sub a { padding: 12px 0; border-bottom: 1px solid var(--hair); }
+  .nav-sub a:hover, .nav-sub a[aria-current="page"] { background: transparent; }
 }
+@media (max-width: 480px) {
+  .site-header .wrap { gap: 12px; }
+  .brand { gap: 8px; }
+  .brand b { font-size: 15px; }
+  .brand span { font-size: 13px; padding-left: 8px; }
+}
+@media (max-width: 340px) { .brand span { display: none; } }
 @media (max-width: 900px) { .cards { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 760px) {
   :root { --gutter: 20px; --header-h: 58px; }
