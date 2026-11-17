@@ -1,4 +1,4 @@
-# Evals Market View
+# AI Control: Market View
 
 A static research site on the AI evaluation market, shown under the Ascending Labs Research header. No build step: plain HTML, CSS and a little JavaScript, served by GitHub Pages.
 
@@ -8,7 +8,7 @@ A static research site on the AI evaluation market, shown under the Ascending La
 | --- | --- | --- |
 | Market Map | `market-map.html` | Full-page view of the market map (`assets/market-maps.html`) under the site header |
 | Company Assessment | `company-assessment.html` | Full-page view of the company list (`assets/companies.html`) under the site header |
-| Methodology | `methodology.html` | Three tabs (AI Control Value Levers, Evaluation Framework, Market Scan) |
+| Methodology | `methodology.html` | Four tabs (Market Scan, Value Levers, Eval Scope, Other Attributes) |
 | Insights: AI Regulation in Europe | `ai-regulation-europe.html` | Research note: summary, rules, industries, LARA and the market, appendix |
 | Insights: Behavior & Compliance Evals | `behavior-compliance-evals.html` | Two tabs: rules evaluated against, and the companies |
 | Redirects | `index.html`, `market-scan.html` | Not in the nav. Both go to Market Map; `market-scan.html#assessment` and `#companies` go to Company Assessment |
