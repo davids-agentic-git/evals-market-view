@@ -132,12 +132,24 @@
               </article>
               <article class="dim" id="attr-object">
                 <h4><span class="n">2.5</span>Object tested</h4>
-                <p class="dim-lead">The kind of AI system whose behaviour an Evaluate offering scores. To tell the three apart, ask what the evaluated system does: a model returns text for a prompt, an application answers a user, an agent calls tools and acts.</p>
+                <p class="dim-lead">The kind of AI system whose behaviour an Evaluate offering scores: the model itself, a finished product built on a model, or an agent that also acts through tools.</p>
               <ul class="rules labelled">
-                <li><strong>Model</strong><span>The model on its own, with no application around it. The evaluation sends prompts to the model and scores what comes back, for example a benchmark run, a model validation, or a comparison of two models on the same test set.</span></li>
-                <li><strong>Application</strong><span>A conversational or LLM application that answers a user, such as a chatbot, an assistant or a question-answering app. What is scored is the response: its accuracy, its safety, or whether it follows a policy.</span></li>
+                <li><strong>Model</strong><span>The model itself, judged on its own with nothing built around it: a language model answering test prompts, or a predictive model scored on its results (accuracy, bias, drift, a risk rating). The result describes the model.</span></li>
+                <li><strong>Application</strong><span>A finished product built on a model, judged the way a user meets it: a chatbot, an assistant or an AI tool with its own instructions, documents and rules. The result describes the behaviour of the product, which can differ from the behaviour of the model underneath.</span></li>
                 <li><strong>Agent with tools</strong><span>An agent that calls tools and acts on other systems, for example by searching, sending a message, updating a record or calling an API. The evaluation looks at more than the final text: the steps taken, the tools called and, where the product can see it, the end result.</span></li>
               </ul>
+                <p class="label" style="margin-top:32px">Model or application?</p>
+                <p class="dim-lead" style="margin:0">The difference is what the result is about. A model can score well in a test and still give a customer a wrong answer once a company has wrapped it in its own instructions, documents and rules, so the same model can pass as a Model and fail as an Application. An evaluation that sends test questions straight to the model tells you about the model. One that talks to the finished product the way a user does tells you about the product.</p>
+              <table class="dim-table">
+                <colgroup><col class="c1" style="width:20%"><col class="c2" style="width:40%"><col class="c3" style="width:40%"></colgroup>
+                <thead><tr><th scope="col">Question</th><th scope="col">Model</th><th scope="col">Application</th></tr></thead>
+                <tbody>
+                  <tr><td data-label="Question">What is tested?</td><td data-label="Model">The model, with nothing around it</td><td data-label="Application">The product built on the model, as a user meets it</td></tr>
+                  <tr><td data-label="Question">What goes in?</td><td data-label="Model">Test prompts or test data sent straight to the model</td><td data-label="Application">Conversations or inputs sent the way a user sends them to the product</td></tr>
+                  <tr><td data-label="Question">What does the result say?</td><td data-label="Model">How accurate, safe or fair the model is</td><td data-label="Application">Whether the product follows its owner's rules in use</td></tr>
+                  <tr><td data-label="Question">Example</td><td data-label="Model">A benchmark that compares two models on the same questions. In the list: RiskRubric from the Cloud Security Alliance, which rates AI models.</td><td data-label="Application">Simulated customers chatting with a bank's support bot. In the list: Alinia AI, which scores every interaction against the customer's own policies.</td></tr>
+                </tbody>
+              </table>
                 <p class="label" style="margin-top:32px">Live traffic or simulation?</p>
                 <p class="dim-lead" style="margin:0">Both. Object tested says what is judged, and Evaluate mode says where the evidence comes from. In Simulation the product runs test inputs against the object: test prompts against a model, simulated users against an application, simulated tasks against an agent. In Live traffic it scores what the same kind of object did for real users: real model outputs, real conversations, real agent runs and tool calls.</p>
               <table class="dim-table t-score">
@@ -149,7 +161,7 @@
                   <tr><td data-label="Object tested">Agent with tools</td><td data-label="Live traffic (123 companies)">102</td><td data-label="Simulation (175 companies)">140</td></tr>
                 </tbody>
               </table>
-                <p class="note">Applies to Evaluate 1 or more, in either mode. A company carries every object it can evaluate and many offer both modes, so the counts add up to more than the number of companies. They count companies with the value at shipping or early maturity.</p>
+                <p class="note">Applies to Evaluate 1 or more, in either mode. The definitions give one line per value and the coders applied them company by company; a product that tests both the model and the finished product carries both values. The counts add up to more than the number of companies for that reason, and they count companies with the value at shipping or early maturity.</p>
               </article>
               <article class="dim" id="attr-benchmark">
                 <h4><span class="n">2.6</span>Benchmark</h4>
