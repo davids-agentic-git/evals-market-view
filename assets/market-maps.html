@@ -2263,6 +2263,7 @@ both();
 (function(){
 var KEY='fw_v2';   // the list below keeps its assessments here (same site, so the map can read them)
 var DEF={"18":"no","45":"no","98":"no","106":"no","107":"no","108":"no","111":"no","126":"no","142":"no","159":"no","165":"no","199":"no","6":"no","32":"potential","75":"no","76":"no","91":"potential","115":"no","121":"no","46":"potential","47":"potential","59":"no","68":"potential","77":"no","97":"potential","155":"no","158":"no","168":"potential","176":"no","146":"no","149":"no","166":"no","17":"no","49":"no","53":"no","78":"core","86":"no","109":"potential","170":"no","171":"no","183":"no","26":"no","83":"no","101":"no","123":"no","130":"no","169":"no","195":"no","201":"no","203":"no","30":"no","41":"no","56":"no","74":"no","114":"no","152":"no","187":"no","1":"no","16":"no","36":"no","125":"no","135":"no","177":"no","179":"no","184":"no","19":"no","35":"no","58":"no","102":"no","104":"no","120":"no","136":"no","157":"no","161":"no","181":"no","188":"no","198":"no","200":"no","8":"no","20":"no","23":"no","80":"no","85":"potential","88":"no","96":"no","99":"no","140":"no","163":"potential","3":"no","92":"potential","93":"no","137":"no","185":"no","4":"no","15":"no","29":"no","37":"no","42":"no","43":"no","52":"no","63":"no","100":"no","119":"no","131":"no","141":"no","148":"no","191":"no","22":"no","55":"no","73":"no","117":"no","143":"no","194":"potential","202":"no","205":"no","5":"no","12":"no","31":"no","34":"no","38":"no","39":"no","54":"no","60":"no","62":"no","89":"no","105":"no","132":"potential","145":"no","186":"no","9":"no","11":"no","64":"no","79":"no","110":"no","113":"no","133":"no","139":"no","147":"no","150":"no","172":"no","175":"potential","180":"no","182":"no","27":"no","28":"no","82":"no","134":"no","160":"no","50":"no","69":"no","81":"potential","84":"no","94":"no","124":"no","154":"no","178":"no","302":"no","13":"core","24":"potential","25":"potential","153":"potential","167":"potential","190":"potential","204":"potential","21":"potential","61":"core","72":"no","90":"potential","103":"no","116":"no","122":"no","138":"no","10":"potential","14":"potential","44":"potential","51":"core","65":"potential","66":"potential","67":"no","95":"no","127":"no","128":"core","129":"no","162":"no","173":"potential","174":"no","189":"potential","196":"no","33":"core","40":"potential","112":"core","118":"core","192":"core","197":"potential","48":"potential","70":"potential","71":"potential","193":"no","87":"potential","310":"potential","311":"core","312":"potential","313":"no","314":"no","7":"core","144":"core","301":"core","303":"core","304":"no","305":"no","307":"no","308":"no","2":"potential","57":"potential","156":"core","164":"potential"};   // the list's starting assessments, used until someone has opened the list in this browser
+var DEF2={"21": "core", "90": "core", "116": "potential", "104": "potential", "13": "core", "153": "potential", "168": "core", "138": "potential", "49": "potential", "53": "potential", "78": "core", "86": "potential", "33": "core", "40": "potential", "112": "core", "118": "potential", "192": "core", "197": "core", "70": "potential", "81": "core", "154": "potential", "501": "core", "303": "core", "2": "core", "156": "core", "164": "potential", "305": "potential", "562": "potential"};   // starting assessments of v2 Benchmark (v1 Benchmark: DEF above)
 var LBL={core:'Core GTM benchmark',potential:'Potential GTM benchmark',no:'No GTM benchmark',na:'Not assessed'};
 var SUB={core:'core GTM benchmark',potential:'potential GTM benchmark'};
 var seen=false,last=null,force=false,who='',btn=null,pan=null;   // who: '' = anyone, otherwise the name of one user
@@ -2270,19 +2271,21 @@ function readRaw(){try{return localStorage.getItem(KEY)}catch(e){return null}}
 function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 // What the list stores: users and, per user, each company's call (g: core, potential or no; t: tech benchmark flag).
 function model(raw){
- var S=null;if(raw){try{S=JSON.parse(raw)}catch(e){S=null}}
+ var S=null,us,data;if(raw){try{S=JSON.parse(raw)}catch(e){S=null}}
  if(S&&S.data&&typeof S.data==='object'){
-  var us=Array.isArray(S.users)?S.users.slice():[],data=S.data;
+  us=Array.isArray(S.users)?S.users.slice():[];data=S.data;
   Object.keys(data).forEach(function(u){if(us.indexOf(u)<0)us.push(u)});
   if(!S.mig){   // saved before 18 Nov 2026: the list renames David and Consu and drops Lenny and Juan when it next opens
    var R={David:'v1 Benchmark',Consu:'v2 Benchmark'},G={Lenny:1,Juan:1},nu=[],nd={};
    us.forEach(function(u){if(G[u])return;var n=R[u]||u;if(nu.indexOf(n)<0)nu.push(n)});
    Object.keys(data).forEach(function(u){if(G[u])return;var n=R[u]||u;nd[n]=Object.assign({},data[u],nd[n]||{})});
    ['v1 Benchmark','v2 Benchmark'].forEach(function(n){if(nu.indexOf(n)<0)nu.push(n)});
-   us=nu;data=nd}
-  return {users:us,data:data}}
- var d={'v1 Benchmark':{}};Object.keys(DEF).forEach(function(id){d['v1 Benchmark'][id]={g:DEF[id],t:0}});
- return {users:['v1 Benchmark','v2 Benchmark'],data:d}}
+   us=nu;data=nd}}
+ else{us=['v1 Benchmark','v2 Benchmark'];data={}}
+ // starting assessments of the two profiles, for what this browser has not saved yet (the list adds the same when it opens)
+ var SD={'v1 Benchmark':DEF,'v2 Benchmark':DEF2};
+ Object.keys(SD).forEach(function(u){if(us.indexOf(u)<0)return;var d=data[u]=data[u]||{};Object.keys(SD[u]).forEach(function(id){if(!d[id])d[id]={g:SD[u][id],t:0}})});
+ return {users:us,data:data}}
 // Everyone's calls per company, or only the calls of one user when 'only' is given.
 function collect(m,only){
  var by={};
