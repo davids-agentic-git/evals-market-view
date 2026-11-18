@@ -361,6 +361,8 @@ html:has(.tabs) { scroll-padding-top: calc(var(--header-h) + 76px); }
 }
 @media (max-width: 400px) { .brand b { font-size: 14px; } .brand span { font-size: 12px; } }
 @media (max-width: 359px) { .brand span { display: none; } }
+/* The site name next to the logo is long: on narrow screens it wraps to two lines instead of pushing the menu button off the page. */
+@media (max-width: 560px) { .brand { min-width: 0; white-space: normal; } .brand b { white-space: nowrap; } .brand span { line-height: 1.2; } .menu-btn { flex: none; } }
 @media (max-width: 900px) { .cards { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 760px) {
   :root { --gutter: 20px; --header-h: 58px; }

@@ -2272,11 +2272,17 @@ function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').repl
 function model(raw){
  var S=null;if(raw){try{S=JSON.parse(raw)}catch(e){S=null}}
  if(S&&S.data&&typeof S.data==='object'){
-  var us=Array.isArray(S.users)?S.users.slice():[];
-  Object.keys(S.data).forEach(function(u){if(us.indexOf(u)<0)us.push(u)});
-  return {users:us,data:S.data}}
- var d={David:{}};Object.keys(DEF).forEach(function(id){d.David[id]={g:DEF[id],t:0}});
- return {users:['David','Lenny','Juan','Consu'],data:d}}
+  var us=Array.isArray(S.users)?S.users.slice():[],data=S.data;
+  Object.keys(data).forEach(function(u){if(us.indexOf(u)<0)us.push(u)});
+  if(!S.mig){   // saved before 18 Nov 2026: the list renames David and Consu and drops Lenny and Juan when it next opens
+   var R={David:'v1 Benchmark',Consu:'v2 Benchmark'},G={Lenny:1,Juan:1},nu=[],nd={};
+   us.forEach(function(u){if(G[u])return;var n=R[u]||u;if(nu.indexOf(n)<0)nu.push(n)});
+   Object.keys(data).forEach(function(u){if(G[u])return;var n=R[u]||u;nd[n]=Object.assign({},data[u],nd[n]||{})});
+   ['v1 Benchmark','v2 Benchmark'].forEach(function(n){if(nu.indexOf(n)<0)nu.push(n)});
+   us=nu;data=nd}
+  return {users:us,data:data}}
+ var d={'v1 Benchmark':{}};Object.keys(DEF).forEach(function(id){d['v1 Benchmark'][id]={g:DEF[id],t:0}});
+ return {users:['v1 Benchmark','v2 Benchmark'],data:d}}
 // Everyone's calls per company, or only the calls of one user when 'only' is given.
 function collect(m,only){
  var by={};
